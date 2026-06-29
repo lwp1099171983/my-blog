@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: 'Ark Pixel', 'Press Start 2P', monospace;
+  --font-mono: 'Ark Pixel', 'VT323', 'Courier New', monospace;
+  --color-win-bg: light-dark(#FFFFFF, #6455B2);
+  --color-win-text: light-dark(#1D1B2D, #ECEBF4);
+  --color-purple-400: #A8A3C6;
+  --color-purple-500: #9C94C9;
+  --color-purple-600: #766CB1;
+  --color-purple-700: #6455B2;
+}
+
+@import "./tokens.css";
+@import "./chrome.css";
+@import "./components.css";
+@import "./responsive.css";
+
+@font-face {
+  font-family: 'Ark Pixel';
+  src: url('/fonts/ark-pixel-12px-zh-cn.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,206 @@
+/* ============================================================
+   CHROME — 桌面隐喻 chrome 层
+   桌面背景、CRT 扫描线、窗口框架、标题栏、任务栏
+   ============================================================ */
+
+/* === Reset & Base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-mono);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--win-text);
+  background: #1D1B2D;
+  min-height: 100vh;
+  overflow-x: hidden;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* === 桌面背景 === */
+.desktop-bg {
+  position: fixed; inset: 0; z-index: 0;
+  background: url('/home.gif') center/cover no-repeat;
+  image-rendering: pixelated; image-rendering: crisp-edges;
+}
+
+/* === CRT 扫描线 === */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
+}
+
+/* === 桌面图标 === */
+.desktop-icons {
+  position: fixed; top: 32px; left: 24px; z-index: 100;
+  display: flex; flex-direction: column; gap: 24px;
+}
+
+.desktop-icon {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  cursor: pointer; padding: 10px 12px;
+  border: var(--border-ui) solid transparent;
+  width: 104px; text-align: center;
+  font-family: var(--font-pixel);
+  background: transparent;
+  color: #FFFFFF;
+}
+.desktop-icon:hover,
+.desktop-icon:focus-visible {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.20);
+  outline: none;
+}
+
+.desktop-icon .icon-sprite {
+  width: 64px; height: 64px;
+  image-rendering: pixelated; image-rendering: crisp-edges;
+  display: grid; place-items: center;
+  font-size: 42px; color: #FFFFFF;
+}
+
+.desktop-icon .icon-label {
+  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  color: #FFFFFF;
+  word-break: break-all; line-height: 1.3;
+}
+
+/* === 访客计数器 === */
+.hit-counter {
+  margin-top: 20px; padding: 8px 10px;
+  background: #000;
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-inset);
+  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  color: #0f0; text-align: center;
+}
+.hit-counter .digits {
+  font-size: var(--fs-small); letter-spacing: 2px;
+  background: #111; padding: 2px 4px;
+}
+
+/* === 窗口 === */
+.window {
+  position: absolute;
+  background: var(--win-bg);
+  border: 1px solid var(--os-border-dark);
+  box-shadow: var(--os-window-frame-shadow);
+  min-width: 360px; min-height: 240px;
+  display: flex; flex-direction: column;
+  z-index: 10;
+}
+
+.window.active { z-index: 50; }
+
+.window.maximized {
+  top: 0 !important; left: 0 !important; right: 0 !important; bottom: var(--taskbar-h) !important;
+  width: auto !important; height: auto !important;
+}
+
+/* === 标题栏 === */
+.titlebar {
+  background: var(--titlebar-bg);
+  padding: 8px 8px 8px 10px;
+  display: flex; align-items: center; gap: 10px;
+  cursor: move;
+  user-select: none;
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-raised);
+  position: relative;
+  font-family: var(--font-pixel);
+}
+
+.window.active .titlebar {
+  background: var(--titlebar-active-bg);
+  border-color: var(--os-border-raised);
+}
+
+.window .titlebar > * { position: relative; z-index: 1; }
+
+.titlebar-icon { font-size: 20px; width: 26px; text-align: center; flex-shrink: 0; }
+
+.titlebar-text {
+  font-family: var(--font-pixel); font-size: var(--fs-small);
+  color: var(--titlebar-text); flex: 1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.window.active .titlebar-text { color: var(--titlebar-active-text); }
+
+.titlebar-btns { display: flex; gap: 4px; flex-shrink: 0; }
+.titlebar-btn {
+  width: 30px; height: 30px;
+  background: var(--win-bg);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-raised);
+  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  cursor: pointer; display: grid; place-items: center;
+  line-height: 1; padding: 0;
+  color: var(--win-text);
+}
+.titlebar-btn.close { background: #E08080; }
+.titlebar-btn.close:active { background: #C04040; color: #fff; }
+
+/* === 窗口内容区 === */
+.window-body {
+  flex: 1; overflow-y: auto; overflow-x: hidden;
+  padding: var(--window-pad);
+  background: var(--win-bg);
+  color: var(--win-text);
+}
+
+/* === 任务栏 === */
+.taskbar {
+  position: fixed; bottom: 0; left: 0; right: 0; height: var(--taskbar-h);
+  background: var(--c-win98-silver);
+  border-top: var(--border-ui) solid var(--os-highlight);
+  border-color: var(--os-border-raised);
+  display: flex; align-items: center; padding: 0 8px; gap: 8px;
+  z-index: 9998;
+}
+
+.taskbar-start {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 16px; height: 42px;
+  background: var(--c-win98-silver);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-raised);
+  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  cursor: pointer; color: #000;
+  white-space: nowrap;
+}
+.taskbar-start .start-icon { font-size: 24px; }
+
+.taskbar-tabs {
+  flex: 1; display: flex; gap: 4px; overflow-x: auto;
+}
+
+.taskbar-tab {
+  padding: 6px 18px; height: 42px; min-width: 150px;
+  background: linear-gradient(90deg, #D4D0C8, var(--c-win98-silver));
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-raised);
+  font-family: var(--font-mono); font-size: var(--fs-mono-s);
+  cursor: pointer; color: #000;
+  white-space: nowrap; text-align: left;
+}
+.taskbar-tab.active {
+  background: var(--c-win98-silver);
+  color: #000;
+  border-color: var(--os-border-inset);
+  font-weight: bold;
+}
+
+.taskbar-clock {
+  padding: 6px 16px; height: 42px;
+  background: var(--c-win98-silver);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-inset);
+  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  color: #000; display: flex; align-items: center;
+  white-space: nowrap;
+}

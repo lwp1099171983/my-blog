@@ -1,0 +1,137 @@
+/* ============================================================
+   COMPONENTS — 像素风 UI 组件库
+   按钮、输入框、标签、卡片、分割线、排版
+   ============================================================ */
+
+/* === 按钮 === */
+.pixel-btn {
+  display: inline-block; padding: 9px 16px;
+  background: var(--card-bg);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-raised);
+  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  cursor: pointer; color: var(--card-text);
+  text-decoration: none; text-align: center;
+}
+.pixel-btn:focus-visible {
+  outline: 2px dashed var(--focus-ring); outline-offset: 2px;
+}
+.pixel-btn.primary {
+  background: var(--c-purple-400); color: var(--c-white);
+  border-color: var(--os-border-raised);
+}
+.pixel-btn.small { padding: 7px 10px; font-size: var(--fs-xs); }
+
+/* === 输入框 === */
+.pixel-input {
+  width: 100%; padding: 12px 14px;
+  background: var(--input-bg);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-inset);
+  font-family: var(--font-mono); font-size: var(--fs-body);
+  color: var(--input-text);
+}
+.pixel-input:focus {
+  outline: 2px solid var(--focus-ring); outline-offset: -2px;
+}
+
+/* === 标签 === */
+.pixel-tag {
+  display: inline-block; padding: 6px 12px;
+  background: var(--tag-bg);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-raised);
+  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  color: var(--tag-text); cursor: pointer;
+  text-decoration: none; margin: 2px;
+}
+.pixel-tag:hover { background: var(--c-purple-400); color: var(--c-white); }
+
+/* === 分割线 === */
+.pixel-divider {
+  border: none; border-top: 2px dashed var(--border-color);
+  margin: 22px 0;
+}
+
+/* === 卡片 === */
+.pixel-card {
+  background: var(--card-bg);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-raised);
+  padding: 16px; margin-bottom: 14px;
+  color: var(--card-text);
+}
+
+/* === 排版 === */
+h1, h2, h3, h4 {
+  font-family: var(--font-pixel); color: var(--win-text); line-height: 1.4;
+}
+h1 { font-size: var(--fs-h1); margin-bottom: 16px; }
+h2 { font-size: var(--fs-h2); margin-bottom: 14px; }
+h3 { font-size: var(--fs-h3); margin-bottom: 10px; }
+
+.pixel-text { font-family: var(--font-pixel); }
+.mono-text { font-family: var(--font-mono); }
+
+a {
+  color: var(--link); text-decoration: underline;
+  text-underline-offset: 3px;
+}
+a:hover { opacity: 0.8; }
+a:visited { color: var(--border-color); }
+
+.post-meta {
+  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  color: var(--win-text-muted); margin-bottom: 10px;
+}
+
+/* === 窗口专属样式 === */
+.intro-avatar {
+  width: 112px; height: 112px;
+  image-rendering: pixelated; image-rendering: crisp-edges;
+  border: 1px solid var(--win-border);
+  background: var(--titlebar-bg);
+  float: left; margin: 0 18px 12px 0;
+}
+
+.post-item {
+  display: block; width: 100%; padding: 12px 14px;
+  background: var(--card-bg);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-raised);
+  margin-bottom: 10px; cursor: pointer;
+  text-decoration: none; color: var(--card-text);
+}
+.post-item:hover { background: var(--card-hover-bg); }
+
+.post-item .post-date {
+  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  color: var(--win-text-muted);
+}
+.post-item .post-title {
+  font-family: var(--font-mono); font-size: var(--fs-body);
+  color: var(--card-text);
+}
+
+.tags-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.archive-year {
+  font-family: var(--font-pixel); font-size: var(--fs-small);
+  color: var(--link); margin: 16px 0 8px;
+}
+.archive-item {
+  padding: 6px 0; border-bottom: var(--border-ui) dotted var(--border-color);
+  font-size: var(--fs-mono-s);
+}
+
+.search-result {
+  padding: 10px; border-bottom: var(--border-ui) dotted var(--border-color);
+}
+.search-result .result-title {
+  font-family: var(--font-mono); font-size: var(--fs-body);
+}
+.search-result .result-meta {
+  font-family: var(--font-pixel); font-size: var(--fs-xs); color: var(--win-text-muted);
+}
+
+.social-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }

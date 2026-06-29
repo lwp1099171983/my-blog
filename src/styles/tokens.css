@@ -1,0 +1,83 @@
+/* ============================================================
+   TOKENS — CSS 变量体系
+   像素风博客的设计 token，统一管理颜色、字号、间距、字体
+   ============================================================ */
+
+:root {
+  /* === 基础色板 === */
+  --c-white:        #FFFFFF;
+  --c-off-white:    #ECEBF4;
+  --c-black:        #1D1B2D;
+  --c-gray-dark:    #7A7599;
+  --c-purple-900:   #473F7A;
+  --c-purple-700:   #6455B2;
+  --c-purple-600:   #766CB1;
+  --c-purple-500:   #9C94C9;
+  --c-purple-400:   #A8A3C6;
+  --c-purple-300:   #C8C0E0;
+  --c-purple-200:   #E8E4F4;
+  --c-purple-100:   #F0EEF8;
+
+  /* === Win98 经典 chrome 色 === */
+  --c-win98-silver:   #C0C0C0;
+  --c-win98-highlight:#FFFFFF;
+  --c-win98-shadow:   #808080;
+  --c-win98-dark:     #404040;
+  --c-win98-titlebar-active:   linear-gradient(90deg, #000080, #1084D0);
+  --c-win98-titlebar-inactive: linear-gradient(90deg, #808080, #B5B5B5);
+
+  /* === 语义 Token（light-dark 自动切换主题） === */
+  --win-bg:          light-dark(var(--c-white), var(--c-purple-700));
+  --win-text:        light-dark(var(--c-black), var(--c-off-white));
+  --win-text-muted:  light-dark(var(--c-gray-dark), var(--c-purple-300));
+  --win-border:      light-dark(var(--c-purple-500), var(--c-black));
+
+  --titlebar-bg:         linear-gradient(90deg, var(--c-win98-silver), #D4D0C8);
+  --titlebar-text:       #000000;
+  --titlebar-active-bg:  var(--c-win98-titlebar-active);
+  --titlebar-active-text:#FFFFFF;
+
+  --card-bg:         light-dark(var(--c-purple-100), var(--c-purple-600));
+  --card-text:       light-dark(var(--c-black), var(--c-off-white));
+  --card-hover-bg:   light-dark(var(--c-purple-300), var(--c-purple-700));
+
+  --border-color:    var(--c-purple-500);
+
+  --os-border-dark:  var(--c-win98-dark);
+  --os-highlight:    var(--c-win98-highlight);
+  --os-shadow:       var(--c-win98-shadow);
+  --os-border-raised: var(--os-highlight) var(--os-shadow) var(--os-shadow) var(--os-highlight);
+  --os-border-inset:  var(--os-shadow) var(--os-highlight) var(--os-highlight) var(--os-shadow);
+  --os-window-frame-shadow:
+    0 0 0 2px var(--c-win98-silver),
+    8px 8px 0 rgba(0,0,0,0.22);
+
+  --tag-bg:          light-dark(var(--c-purple-500), var(--c-purple-700));
+  --tag-text:        light-dark(var(--c-black), var(--c-white));
+
+  --link:            light-dark(var(--c-purple-700), var(--c-purple-300));
+
+  --input-bg:        light-dark(var(--c-purple-100), var(--c-purple-700));
+  --input-text:      light-dark(var(--c-black), var(--c-off-white));
+
+  --focus-ring:      light-dark(var(--c-purple-900), var(--c-white));
+
+  /* === 字号体系 === */
+  --fs-body:    1.5rem;    /* 24px */
+  --fs-h1:      1.125rem;  /* 18px */
+  --fs-h2:      0.9375rem; /* 15px */
+  --fs-h3:      0.8125rem; /* 13px */
+  --fs-small:   0.8125rem; /* 13px */
+  --fs-xs:      0.625rem;  /* 10px */
+  --fs-mono-s:  1.25rem;   /* 20px */
+
+  /* === 边框与间距 === */
+  --border-window: 4px;
+  --border-ui: 2px;
+  --window-pad: 20px;
+  --taskbar-h: 54px;
+
+  /* === 字体栈 === */
+  --font-pixel: 'Ark Pixel', 'Press Start 2P', monospace;
+  --font-mono:  'Ark Pixel', 'VT323', 'Courier New', monospace;
+}

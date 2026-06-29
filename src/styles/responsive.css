@@ -1,0 +1,41 @@
+/* ============================================================
+   RESPONSIVE — 响应式适配
+   ≤768px 移动端 / ≤375px 小屏手机
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .desktop-icons {
+    flex-direction: row; top: auto; bottom: calc(var(--taskbar-h) + 8px); left: 8px; right: 8px;
+    gap: 8px; overflow-x: auto; justify-content: flex-start;
+  }
+  .desktop-icon { width: 76px; padding: 6px; gap: 4px; }
+  .desktop-icon .icon-sprite { width: 44px; height: 44px; font-size: 28px; }
+  .desktop-icon .icon-label { font-size: 0.45rem; }
+  .hit-counter { display: none; }
+
+  .window {
+    position: relative !important;
+    top: auto !important; left: auto !important;
+    width: 100% !important; height: auto !important;
+    min-height: 0; margin-bottom: 8px;
+  }
+  .window.maximized {
+    left: 0 !important; right: 0 !important; bottom: var(--taskbar-h) !important;
+  }
+  .window-body { max-height: 56vh; }
+
+  .taskbar-tabs { display: none; }
+  .taskbar-start { font-size: 0.5rem; padding: 6px 10px; }
+  .taskbar-clock { font-size: 0.5rem; padding: 6px 10px; }
+
+  h1 { font-size: 0.95rem; }
+  h2 { font-size: 0.8rem; }
+  body { font-size: 1.25rem; }
+}
+
+@media (max-width: 375px) {
+  .desktop-icons { gap: 6px; }
+  .desktop-icon { width: 64px; }
+  .desktop-icon .icon-sprite { width: 38px; height: 38px; font-size: 24px; }
+  .window-body { padding: 12px; }
+}

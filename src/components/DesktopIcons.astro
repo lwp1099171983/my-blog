@@ -1,0 +1,30 @@
+---
+const icons = [
+  { id: 'intro', icon: '🏠', label: '简介' },
+  { id: 'posts', icon: '📝', label: '文章' },
+  { id: 'tags', icon: '🏷️', label: '标签' },
+  { id: 'archive', icon: '📦', label: '归档' },
+  { id: 'search', icon: '🔍', label: '搜索' },
+  { id: 'about', icon: '👤', label: '关于' },
+  { id: 'portfolio', icon: '📁', label: '作品' },
+];
+---
+
+<nav class="desktop-icons" aria-label="桌面导航">
+  {icons.map((item) => (
+    <button
+      class="desktop-icon"
+      type="button"
+      aria-label={`打开${item.label}窗口`}
+      onclick={`focusWindow('${item.id}')`}
+    >
+      <span class="icon-sprite" aria-hidden="true">{item.icon}</span>
+      <span class="icon-label">{item.label}</span>
+    </button>
+  ))}
+
+  <div class="hit-counter" aria-label="访客计数器">
+    访客<br />
+    <span class="digits" id="hitCount">001337</span>
+  </div>
+</nav>

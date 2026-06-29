@@ -1,0 +1,56 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  icon?: string;
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  hidden?: boolean;
+  active?: boolean;
+  maximized?: boolean;
+}
+
+const {
+  id,
+  title,
+  icon = '▣',
+  x = 120,
+  y = 96,
+  width = 520,
+  height = 360,
+  hidden = false,
+  active = false,
+  maximized = false,
+} = Astro.props;
+
+const style = [
+  `top:${y}px`,
+  `left:${x}px`,
+  `width:${width}px`,
+  `height:${height}px`,
+  hidden ? 'display:none' : '',
+]
+  .filter(Boolean)
+  .join(';');
+---
+
+<div
+  id={`win-${id}`}
+  class:list={['window', { active, maximized }]}
+  style={style}
+>
+  <div class="titlebar" data-window={id}>
+    <span class="titlebar-icon" aria-hidden="true">{icon}</span>
+    <span class="titlebar-text">{title}</span>
+    <div class="titlebar-btns">
+      <button class="titlebar-btn" type="button" aria-label="最小化" onclick={`minWindow('${id}')`}>─</button>
+      <button class="titlebar-btn" type="button" aria-label="最大化" onclick={`maxWindow('${id}')`}>□</button>
+      <button class="titlebar-btn close" type="button" aria-label="关闭" onclick={`closeWindow('${id}')`}>✕</button>
+    </div>
+  </div>
+  <div class="window-body">
+    <slot />
+  </div>
+</div>

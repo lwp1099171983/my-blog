@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DesktopIcons from '../components/DesktopIcons.astro';
+import Window from '../components/Window.astro';
+---
+
+<BaseLayout title="starlin的像素角落">
+  <DesktopIcons />
+
+  <Window id="intro" title="简介 - starlin.exe" icon="🏠" x={152} y={40} width={520} height={430} active>
+    <div class="intro-avatar" title="像素头像"></div>
+    <h1>你好，我是 starlin。</h1>
+    <p>
+      复古、像素艺术爱好者。<br />
+      写代码、折腾工具。
+    </p>
+    <p style="font-size:var(--fs-mono-s);color:var(--win-text-muted);margin-top:8px;">
+      这里记录我的技术笔记、项目心得和像素创作。
+    </p>
+    <hr class="pixel-divider" />
+    <p style="font-family:var(--font-pixel);font-size:var(--fs-xs);color:var(--win-text-muted);">
+      🎯 关注: Web开发 · 工具链 · 像素艺术
+    </p>
+  </Window>
+
+  <Window id="posts" title="文章 - /blog/" icon="📝" x={710} y={56} width={560} height={500}>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <h2 style="margin:0;">📰 最近文章</h2>
+      <a href="/rss.xml" class="pixel-btn small" title="RSS 订阅" aria-label="RSS 订阅">📡 RSS</a>
+    </div>
+    <a class="post-item" href="#">
+      <span class="post-date">2026-06-25</span>
+      <span class="post-title">用 CSS 实现像素风 UI 组件</span>
+    </a>
+    <a class="post-item" href="#">
+      <span class="post-date">2026-06-18</span>
+      <span class="post-title">Vite 插件开发踩坑记录</span>
+    </a>
+    <a class="post-item" href="#">
+      <span class="post-date">2026-06-10</span>
+      <span class="post-title">Markdown 渲染安全：XSS 防护实践</span>
+    </a>
+    <a class="post-item" href="#">
+      <span class="post-date">2026-06-02</span>
+      <span class="post-title">从零搭建静态博客生成器</span>
+    </a>
+    <a class="post-item" href="#">
+      <span class="post-date">2026-05-25</span>
+      <span class="post-title">像素画入门：从 16x16 开始</span>
+    </a>
+    <div style="text-align:right;margin-top:8px;">
+      <a href="#" class="pixel-btn small" onclick="focusWindow('posts');return false;">查看全部 →</a>
+    </div>
+  </Window>
+
+  <Window id="tags" title="标签 - 筛选器.exe" icon="🏷️" x={152} y={504} width={390} height={300}>
+    <h2>🏷️ 标签</h2>
+    <div class="tags-cloud">
+      <span class="pixel-tag">CSS</span>
+      <span class="pixel-tag">JavaScript</span>
+      <span class="pixel-tag">Vite</span>
+      <span class="pixel-tag">Markdown</span>
+      <span class="pixel-tag">安全</span>
+      <span class="pixel-tag">像素艺术</span>
+      <span class="pixel-tag">工具链</span>
+      <span class="pixel-tag">设计</span>
+      <span class="pixel-tag">TypeScript</span>
+      <span class="pixel-tag">Node.js</span>
+      <span class="pixel-tag">Git</span>
+      <span class="pixel-tag">性能</span>
+    </div>
+  </Window>
+
+  <Window id="archive" title="归档 - 历史记录.dat" icon="📦" x={574} y={588} width={450} height={340}>
+    <h2>📦 归档</h2>
+    <div class="archive-year">2026</div>
+    <div class="archive-item">06-25 · 用 CSS 实现像素风 UI 组件</div>
+    <div class="archive-item">06-18 · Vite 插件开发踩坑记录</div>
+    <div class="archive-item">06-10 · Markdown 渲染安全实践</div>
+    <div class="archive-item">06-02 · 从零搭建静态博客生成器</div>
+    <div class="archive-year">2025</div>
+    <div class="archive-item">12-20 · 像素画入门：从 16x16 开始</div>
+    <div class="archive-item">11-15 · TypeScript 类型体操笔记</div>
+  </Window>
+
+  <Window id="search" title="搜索 - 查找.exe" icon="🔍" x={1320} y={112} width={460} height={370} hidden>
+    <h2>🔍 搜索文章</h2>
+    <input class="pixel-input" type="search" placeholder="输入关键词..." aria-label="搜索关键词" oninput="doSearch(this.value)" />
+    <div id="searchResults" style="margin-top:10px;">
+      <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">输入标题、标签或分类进行搜索...</p>
+    </div>
+  </Window>
+
+  <Window id="about" title="关于 - 自述文件.txt" icon="👤" x={1320} y={112} width={480} height={440} hidden>
+    <h2>👤 关于我</h2>
+    <p>星霖 · 全栈开发者</p>
+    <p style="font-size:var(--fs-mono-s);color:var(--win-text-muted);">
+      热爱 Web 技术、开源工具和像素艺术。<br />
+      相信好的工具能改变工作方式。
+    </p>
+    <hr class="pixel-divider" />
+    <h3>🛠️ 技术栈</h3>
+    <p style="font-size:var(--fs-mono-s);">
+      TypeScript · React · Vue · Node.js · Python<br />
+      Vite · Tailwind · Docker · Git
+    </p>
+    <hr class="pixel-divider" />
+    <h3>🔗 找到我</h3>
+    <div class="social-links">
+      <a href="#" class="pixel-btn small">🐙 GitHub</a>
+      <a href="#" class="pixel-btn small">🐦 推特</a>
+      <a href="#" class="pixel-btn small">📧 邮箱</a>
+    </div>
+  </Window>
+
+  <Window id="portfolio" title="作品 - 项目目录.dir" icon="📁" x={1320} y={144} width={500} height={350} hidden>
+    <h2>📁 作品集</h2>
+    <div class="pixel-card">
+      <h3>🕹️ Pixel UI Kit</h3>
+      <p style="font-size:var(--fs-mono-s);">像素风 UI 组件库 · React</p>
+      <a href="#" class="pixel-btn small">GitHub →</a>
+    </div>
+    <div class="pixel-card">
+      <h3>📝 Static Blog Generator</h3>
+      <p style="font-size:var(--fs-mono-s);">轻量静态博客生成器 · Node.js</p>
+      <a href="#" class="pixel-btn small">GitHub →</a>
+    </div>
+    <p style="font-family:var(--font-pixel);font-size:var(--fs-xs);color:var(--win-text-muted);text-align:center;margin-top:8px;">
+      🚧 更多项目整理中...
+    </p>
+  </Window>
+</BaseLayout>
