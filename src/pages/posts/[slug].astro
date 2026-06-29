@@ -1,0 +1,45 @@
+---
+import { getCollection, render as renderEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Window from '../../components/Window.astro';
+import sanitizeSchema from '../../lib/markdown';
+import rehypeSanitize from 'rehype-sanitize';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((p) => ({
+    params: { slug: p.data.slug },
+    props: { post: p },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await renderEntry(post);
+const { title, description, date, tags, category, updated, cover } = post.data;
+---
+
+<BaseLayout title={`${title} | starlin的像素角落`} description={description}>
+  <Window id="article" title={`阅读 - ${title}`} icon="📄" x={80} y={40} width={740} height={560} active maximized>
+    <article class="post-content">
+      {cover && <img src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} loading="lazy" style="max-width:100%;height:auto;margin-bottom:12px;" />}
+
+      <h1>{title}</h1>
+
+      <div class="post-meta">
+        <span>📅 {date}</span>
+        {updated && <span>🔄 更新于 {updated}</span>}
+        {category && <span>📁 {category}</span>}
+      </div>
+
+      {tags.length > 0 && (
+        <div class="tags-cloud" style="margin-bottom:12px;">
+          {tags.map((tag: string) => <a href={`/tags/${tag}`} class="pixel-tag">{tag}</a>)}
+        </div>
+      )}
+
+      <hr class="pixel-divider" />
+
+      <Content />
+    </article>
+  </Window>
+</BaseLayout>

@@ -2,6 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DesktopIcons from '../components/DesktopIcons.astro';
 import Window from '../components/Window.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPublishedPosts, getUniqueTags, getPostsByYear } from '../lib/utils';
+
+const posts = await getPublishedPosts();
+const tags = await getUniqueTags();
+const archive = await getPostsByYear();
+
+const recentPosts = posts.slice(0, 5);
 ---
 
 <BaseLayout title="starlin的像素角落">
@@ -28,65 +36,60 @@ import Window from '../components/Window.astro';
       <h2 style="margin:0;">📰 最近文章</h2>
       <a href="/rss.xml" class="pixel-btn small" title="RSS 订阅" aria-label="RSS 订阅">📡 RSS</a>
     </div>
-    <a class="post-item" href="#">
-      <span class="post-date">2026-06-25</span>
-      <span class="post-title">用 CSS 实现像素风 UI 组件</span>
-    </a>
-    <a class="post-item" href="#">
-      <span class="post-date">2026-06-18</span>
-      <span class="post-title">Vite 插件开发踩坑记录</span>
-    </a>
-    <a class="post-item" href="#">
-      <span class="post-date">2026-06-10</span>
-      <span class="post-title">Markdown 渲染安全：XSS 防护实践</span>
-    </a>
-    <a class="post-item" href="#">
-      <span class="post-date">2026-06-02</span>
-      <span class="post-title">从零搭建静态博客生成器</span>
-    </a>
-    <a class="post-item" href="#">
-      <span class="post-date">2026-05-25</span>
-      <span class="post-title">像素画入门：从 16x16 开始</span>
-    </a>
+    {
+      recentPosts.length > 0 ? (
+        recentPosts.map((p) => <PostCard post={p} />)
+      ) : (
+        <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">还没有文章，开始写吧 ✍️</p>
+      )
+    }
     <div style="text-align:right;margin-top:8px;">
-      <a href="#" class="pixel-btn small" onclick="focusWindow('posts');return false;">查看全部 →</a>
+      <a href="/posts/" class="pixel-btn small">查看全部 →</a>
     </div>
   </Window>
 
   <Window id="tags" title="标签 - 筛选器.exe" icon="🏷️" x={152} y={504} width={390} height={300}>
     <h2>🏷️ 标签</h2>
     <div class="tags-cloud">
-      <span class="pixel-tag">CSS</span>
-      <span class="pixel-tag">JavaScript</span>
-      <span class="pixel-tag">Vite</span>
-      <span class="pixel-tag">Markdown</span>
-      <span class="pixel-tag">安全</span>
-      <span class="pixel-tag">像素艺术</span>
-      <span class="pixel-tag">工具链</span>
-      <span class="pixel-tag">设计</span>
-      <span class="pixel-tag">TypeScript</span>
-      <span class="pixel-tag">Node.js</span>
-      <span class="pixel-tag">Git</span>
-      <span class="pixel-tag">性能</span>
+      {
+        tags.length > 0 ? (
+          tags.map(({ tag, count }) => (
+            <a href={`/tags/${tag}`} class="pixel-tag">{tag} ({count})</a>
+          ))
+        ) : (
+          <span class="pixel-tag">暂无标签</span>
+        )
+      }
     </div>
   </Window>
 
   <Window id="archive" title="归档 - 历史记录.dat" icon="📦" x={574} y={588} width={450} height={340}>
     <h2>📦 归档</h2>
-    <div class="archive-year">2026</div>
-    <div class="archive-item">06-25 · 用 CSS 实现像素风 UI 组件</div>
-    <div class="archive-item">06-18 · Vite 插件开发踩坑记录</div>
-    <div class="archive-item">06-10 · Markdown 渲染安全实践</div>
-    <div class="archive-item">06-02 · 从零搭建静态博客生成器</div>
-    <div class="archive-year">2025</div>
-    <div class="archive-item">12-20 · 像素画入门：从 16x16 开始</div>
-    <div class="archive-item">11-15 · TypeScript 类型体操笔记</div>
+    {
+      archive.length > 0 ? (
+        archive.map(({ year, posts }) => (
+          <div>
+            <div class="archive-year">{year}</div>
+            {posts.map((p) => (
+              <div class="archive-item">
+                {p.data.date.slice(5)} · <a href={`/posts/${p.data.slug}`}>{p.data.title}</a>
+              </div>
+            ))}
+          </div>
+        ))
+      ) : (
+        <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">暂无归档</p>
+      )
+    }
   </Window>
 
   <Window id="search" title="搜索 - 查找.exe" icon="🔍" x={1320} y={112} width={460} height={370} hidden>
     <h2>🔍 搜索文章</h2>
-    <input class="pixel-input" type="search" placeholder="输入关键词..." aria-label="搜索关键词" oninput="doSearch(this.value)" />
-    <div id="searchResults" style="margin-top:10px;">
+    <form action="/search" method="get" style="display:contents;">
+      <input class="pixel-input" type="search" name="q" placeholder="输入关键词..." aria-label="搜索关键词" />
+      <button type="submit" class="pixel-btn small" style="margin-top:6px;">搜索</button>
+    </form>
+    <div style="margin-top:10px;">
       <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">输入标题、标签或分类进行搜索...</p>
     </div>
   </Window>
@@ -107,7 +110,7 @@ import Window from '../components/Window.astro';
     <hr class="pixel-divider" />
     <h3>🔗 找到我</h3>
     <div class="social-links">
-      <a href="#" class="pixel-btn small">🐙 GitHub</a>
+      <a href="https://github.com/nstarlin" class="pixel-btn small">🐙 GitHub</a>
       <a href="#" class="pixel-btn small">🐦 推特</a>
       <a href="#" class="pixel-btn small">📧 邮箱</a>
     </div>

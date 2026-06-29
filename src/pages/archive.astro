@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Window from '../components/Window.astro';
+import { getPostsByYear } from '../lib/utils';
+
+const archive = await getPostsByYear();
+---
+
+<BaseLayout title="归档 | starlin的像素角落">
+  <Window id="archive-page" title="归档 - 历史记录.dat" icon="📦" x={80} y={40} width={640} height={500} active maximized>
+    <h2>📦 归档</h2>
+    {
+      archive.length > 0 ? (
+        archive.map(({ year, posts }) => (
+          <div style="margin-bottom:12px;">
+            <div class="archive-year">{year} ({posts.length})</div>
+            {posts.map((p) => (
+              <div class="archive-item">
+                <span>{p.data.date.slice(5)}</span>
+                {' · '}
+                <a href={`/posts/${p.data.slug}`}>{p.data.title}</a>
+              </div>
+            ))}
+          </div>
+        ))
+      ) : (
+        <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">暂无归档</p>
+      )
+    }
+  </Window>
+</BaseLayout>

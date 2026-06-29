@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  showCategory?: boolean;
+}
+
+const { post, showCategory = false } = Astro.props;
+const { title, date, tags, category, slug } = post.data;
+---
+
+<a class="post-item" href={`/posts/${slug}`}>
+  <span class="post-date">{date}</span>
+  <span class="post-title">{title}</span>
+  {
+    showCategory && category && (
+      <span class="post-category" style="font-size:var(--fs-xs);color:var(--win-text-muted);margin-left:auto;">{category}</span>
+    )
+  }
+</a>

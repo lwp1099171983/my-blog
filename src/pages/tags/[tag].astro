@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Window from '../../components/Window.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPostsByTag, getUniqueTags } from '../../lib/utils';
+
+export async function getStaticPaths() {
+  const tags = await getUniqueTags();
+  return tags.map(({ tag }) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+const posts = await getPostsByTag(tag!);
+---
+
+<BaseLayout title={`标签: ${tag} | starlin的像素角落`}>
+  <Window id="tag-posts" title={`标签 - ${tag}`} icon="🏷️" x={80} y={40} width={700} height={500} active maximized>
+    <h2>🏷️ {tag}</h2>
+    <p style="font-size:var(--fs-mono-s);color:var(--win-text-muted);margin-bottom:10px;">
+      {posts.length} 篇文章
+    </p>
+    {
+      posts.length > 0 ? (
+        posts.map((p) => <PostCard post={p} showCategory />)
+      ) : (
+        <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">没有找到相关文章</p>
+      )
+    }
+  </Window>
+</BaseLayout>

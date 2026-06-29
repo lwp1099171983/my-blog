@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Window from '../components/Window.astro';
+---
+
+<BaseLayout title="作品集 | starlin的像素角落">
+  <Window id="portfolio-page" title="作品 - 项目目录.dir" icon="📁" x={80} y={40} width={560} height={400} active maximized>
+    <h2>📁 作品集</h2>
+
+    <div class="pixel-card">
+      <h3>🕹️ Pixel UI Kit</h3>
+      <p style="font-size:var(--fs-mono-s);">像素风 UI 组件库 · React</p>
+      <a href="#" class="pixel-btn small">GitHub →</a>
+    </div>
+    <div class="pixel-card">
+      <h3>📝 Static Blog Generator</h3>
+      <p style="font-size:var(--fs-mono-s);">轻量静态博客生成器 · Node.js</p>
+      <a href="#" class="pixel-btn small">GitHub →</a>
+    </div>
+
+    <p style="font-family:var(--font-pixel);font-size:var(--fs-xs);color:var(--win-text-muted);text-align:center;margin-top:12px;">
+      🚧 更多项目整理中...
+    </p>
+  </Window>
+</BaseLayout>

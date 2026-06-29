@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Window from '../components/Window.astro';
+---
+
+<BaseLayout title="关于 | starlin的像素角落">
+  <Window id="about-page" title="关于 - 自述文件.txt" icon="👤" x={80} y={40} width={560} height={480} active maximized>
+    <h2>👤 关于我</h2>
+    <p>星霖 · 全栈开发者</p>
+    <p style="font-size:var(--fs-mono-s);color:var(--win-text-muted);margin-top:8px;">
+      热爱 Web 技术、开源工具和像素艺术。<br />
+      相信好的工具能改变工作方式。
+    </p>
+
+    <hr class="pixel-divider" />
+
+    <h3>🛠️ 技术栈</h3>
+    <p style="font-size:var(--fs-mono-s);">
+      TypeScript · React · Vue · Node.js · Python<br />
+      Vite · Tailwind CSS · Docker · Git
+    </p>
+
+    <hr class="pixel-divider" />
+
+    <h3>🔗 找到我</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+      <a href="https://github.com/nstarlin" class="pixel-btn small" target="_blank" rel="noopener">🐙 GitHub</a>
+      <a href="#" class="pixel-btn small">🐦 推特</a>
+      <a href="mailto:hi@starlin.dev" class="pixel-btn small">📧 邮箱</a>
+    </div>
+  </Window>
+</BaseLayout>

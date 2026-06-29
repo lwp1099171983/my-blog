@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Window from '../components/Window.astro';
+import type { SearchIndex, SearchIndexEntry } from '../types';
+
+const searchUrl = new URL('/search.json', Astro.site).href;
+---
+
+<BaseLayout title="搜索 | starlin的像素角落">
+  <Window id="search-page" title="搜索 - 查找.exe" icon="🔍" x={80} y={40} width={560} height={460} active maximized>
+    <h2>🔍 搜索文章</h2>
+    <input class="pixel-input" type="search" id="searchInput" placeholder="输入标题、标签或分类..." aria-label="搜索关键词" autofocus />
+
+    <div id="searchStatus" style="margin-top:8px;">
+      <p class="search-empty">输入关键词开始搜索</p>
+    </div>
+    <div id="searchResults"></div>
+  </Window>
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('searchInput') as HTMLInputElement;
+  const status = document.getElementById('searchStatus')!;
+  const results = document.getElementById('searchResults')!;
+
+  let index: SearchIndex | null = null;
+  let loading = false;
+
+  input.addEventListener('input', debounce(async (e: Event) => {
+    const q = (e.target as HTMLInputElement).value.trim();
+    if (!q) {
+      status.innerHTML = '<p class="search-empty">输入关键词开始搜索</p>';
+      results.innerHTML = '';
+      return;
+    }
+
+    if (!index) {
+      if (loading) return;
+      loading = true;
+      status.innerHTML = '<p class="search-empty">加载搜索索引...</p>';
+      try {
+        const res = await fetch('{searchUrl}');
+        index = await res.json();
+      } catch {
+        status.innerHTML = '<p class="search-empty" style="color:var(--c-red-40);">索引加载失败</p>';
+        loading = false;
+        return;
+      }
+      loading = false;
+    }
+
+    const keyword = q.toLowerCase();
+    const matched = (index!.entries as SearchIndexEntry[])
+      .map((entry) => {
+        let score = 0;
+        if (entry.title.toLowerCase().includes(keyword)) score += 100;
+        if (entry.tags.some((t: string) => t.toLowerCase().includes(keyword))) score += 50;
+        if (entry.category.toLowerCase().includes(keyword)) score += 30;
+        if (entry.description.toLowerCase().includes(keyword)) score += 10;
+        return { entry, score };
+      })
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map(({ entry }) => entry);
+
+    if (matched.length === 0) {
+      status.innerHTML = '<p class="search-empty">没有找到相关文章</p>';
+      results.innerHTML = '';
+    } else {
+      status.innerHTML = `<p class="search-empty">找到 ${matched.length} 篇</p>`;
+      results.innerHTML = matched
+        .map(
+          (e: SearchIndexEntry) => `
+          <a class="post-item" href="${e.url}">
+            <span class="post-date">${e.date}</span>
+            <span class="post-title">${e.title}</span>
+          </a>`
+        )
+        .join('');
+    }
+  }, 200));
+
+  function debounce(fn: (...args: unknown[]) => void, ms: number) {
+    let timer: ReturnType<typeof setTimeout>;
+    return (...args: unknown[]) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), ms);
+    };
+  }
+</script>
