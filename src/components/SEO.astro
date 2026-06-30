@@ -1,0 +1,40 @@
+---
+import { SITE } from '../lib/config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const {
+  title = SITE.name,
+  description = SITE.description,
+  canonical = Astro.url.href,
+  ogImage = `${SITE.origin}${SITE.defaultOGImage}`,
+  ogType = 'website',
+  noindex = false,
+} = Astro.props;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:locale" content={SITE.lang} />
+
+<meta name="twitter:card" content={ogImage !== `${SITE.origin}/default-og.png` ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}

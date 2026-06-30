@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import DesktopIcons from '../components/DesktopIcons.astro';
 import Window from '../components/Window.astro';
 import PostCard from '../components/PostCard.astro';
 import { getPublishedPosts, getUniqueTags, getPostsByYear } from '../lib/utils';
@@ -13,7 +12,6 @@ const recentPosts = posts.slice(0, 5);
 ---
 
 <BaseLayout title="starlin的像素角落">
-  <DesktopIcons />
 
   <Window id="intro" title="简介 - starlin.exe" icon="🏠" x={152} y={40} width={520} height={430} active>
     <div class="intro-avatar" title="像素头像"></div>
@@ -48,7 +46,7 @@ const recentPosts = posts.slice(0, 5);
     </div>
   </Window>
 
-  <Window id="tags" title="标签 - 筛选器.exe" icon="🏷️" x={152} y={504} width={390} height={300}>
+  <Window id="tags" title="标签 - 筛选器.exe" icon="🏷️" x={152} y={504} width={390} height={300} hidden>
     <h2>🏷️ 标签</h2>
     <div class="tags-cloud">
       {
@@ -63,7 +61,7 @@ const recentPosts = posts.slice(0, 5);
     </div>
   </Window>
 
-  <Window id="archive" title="归档 - 历史记录.dat" icon="📦" x={574} y={588} width={450} height={340}>
+  <Window id="archive" title="归档 - 历史记录.dat" icon="📦" x={574} y={588} width={450} height={340} hidden>
     <h2>📦 归档</h2>
     {
       archive.length > 0 ? (

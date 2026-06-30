@@ -18,3 +18,4 @@ dist/
 
 # system
 .DS_Store
+.claude/worktrees/

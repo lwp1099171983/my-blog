@@ -7,7 +7,9 @@ export async function getPublishedPosts() {
   return posts.sort((a, b) => b.data.date.localeCompare(a.data.date));
 }
 
-export async function getUniqueTags(): Promise<{ tag: string; count: number }[]> {
+export async function getUniqueTags(): Promise<
+  { tag: string; count: number }[]
+> {
   const posts = await getPublishedPosts();
   const tagMap = new Map<string, number>();
   for (const post of posts) {
@@ -25,7 +27,9 @@ export async function getPostsByTag(tag: string) {
   return posts.filter((p) => p.data.tags.includes(tag));
 }
 
-export async function getPostsByYear(): Promise<{ year: string; posts: Awaited<ReturnType<typeof getPublishedPosts>> }[]> {
+export async function getPostsByYear(): Promise<
+  { year: string; posts: Awaited<ReturnType<typeof getPublishedPosts>> }[]
+> {
   const posts = await getPublishedPosts();
   const yearMap = new Map<string, typeof posts>();
   for (const post of posts) {

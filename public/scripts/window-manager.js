@@ -33,11 +33,68 @@
     }, 10) + 1;
   }
 
-  function updateTaskbarTabs(activeId) {
-    document.querySelectorAll('.taskbar-tab').forEach(function (tab) {
-      var target = tab.getAttribute('onclick') || '';
-      tab.classList.toggle('active', Boolean(activeId) && target.indexOf("'" + activeId + "'") !== -1);
+  // 从页面上实际 .window 元素重建任务栏标签
+  function rebuildTaskbarTabs(activeId) {
+    var container = document.getElementById('taskbarTabs');
+    if (!container) return;
+
+    var windows = Array.from(document.querySelectorAll('.window')).filter(function (win) {
+      return isVisible(win);
     });
+
+    container.innerHTML = '';
+
+    windows.forEach(function (win) {
+      var id = getWindowId(win);
+      var titlebarText = win.querySelector('.titlebar-text');
+      var icon = win.querySelector('.titlebar-icon');
+      var label = titlebarText ? titlebarText.textContent.trim() : id;
+      var iconText = icon ? icon.textContent.trim() : '';
+
+      var btn = document.createElement('button');
+      btn.className = 'taskbar-tab' + (id === activeId ? ' active' : '');
+      btn.type = 'button';
+      btn.textContent = (iconText ? iconText + ' ' : '') + label;
+      btn.onclick = function () { window.focusWindow(id); };
+      container.appendChild(btn);
+    });
+
+    // 无窗口时清空
+    if (!windows.length) {
+      container.innerHTML = '';
+    }
+  }
+
+  function updateTaskbarTabs(activeId) {
+    var container = document.getElementById('taskbarTabs');
+    if (!container) return;
+
+    var tabs = container.querySelectorAll('.taskbar-tab');
+    tabs.forEach(function (tab) {
+      tab.classList.remove('active');
+    });
+
+    if (activeId) {
+      // 尝试在现有标签中匹配
+      var matched = false;
+      tabs.forEach(function (tab, idx) {
+        // 通过 onclick 字符串匹配
+        if (tab.onclick && tab.onclick.toString().indexOf("'" + activeId + "'") !== -1) {
+          tab.classList.add('active');
+          matched = true;
+        }
+      });
+      // 没匹配到 → 窗口可能新增了，重建
+      if (!matched) {
+        rebuildTaskbarTabs(activeId);
+        return;
+      }
+    }
+
+    // 有窗口但无激活窗口 → 重建
+    if (!activeId && tabs.length > 0) {
+      rebuildTaskbarTabs('');
+    }
   }
 
   function getTopVisibleWindow(exceptWin) {
@@ -50,16 +107,6 @@
         var bz = Number.parseInt(b.style.zIndex || window.getComputedStyle(b).zIndex, 10) || 10;
         return bz - az;
       })[0];
-  }
-
-  function activateFallbackWindow(exceptWin) {
-    var next = getTopVisibleWindow(exceptWin);
-    if (!next) {
-      updateTaskbarTabs('');
-      return;
-    }
-
-    window.focusWindow(getWindowId(next));
   }
 
   function clamp(value, min, max) {
@@ -170,7 +217,12 @@
     win.classList.remove('active');
 
     if (wasActive) {
-      activateFallbackWindow(win);
+      var next = getTopVisibleWindow(win);
+      if (next) {
+        window.focusWindow(getWindowId(next));
+      } else {
+        updateTaskbarTabs('');
+      }
     }
   };
 
@@ -191,9 +243,13 @@
     win.classList.remove('active');
 
     if (wasActive) {
-      activateFallbackWindow(win);
-    } else {
-      updateTaskbarTabs(document.querySelector('.window.active') ? getWindowId(document.querySelector('.window.active')) : '');
+      var next = getTopVisibleWindow(win);
+      if (next) {
+        window.focusWindow(getWindowId(next));
+      } else if (window.location.pathname !== '/') {
+        // 非首页 → 回到首页
+        window.location.href = '/';
+      }
     }
   };
 
@@ -245,7 +301,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.window').forEach(function (win, index) {
       if (!win.style.zIndex) {
-        win.style.zIndex = String(10 + index);
+        win.style.zIndex = String(110 + index);
       }
     });
 
@@ -256,6 +312,36 @@
         }
       });
     });
+
+    // 初始生成任务栏标签
+    var activeWin = document.querySelector('.window.active');
+    rebuildTaskbarTabs(activeWin ? getWindowId(activeWin) : '');
+
+    // 桌面图标点击 — 内页时跳回首页
+    document.querySelectorAll('.desktop-icon').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        var href = el.getAttribute('href') || '';
+        if (href.startsWith('/#')) {
+          var winId = href.slice(2);
+          if (window.location.pathname !== '/') {
+            window.location.href = '/#win-' + winId;
+            e.preventDefault();
+          } else {
+            e.preventDefault();
+            window.focusWindow(winId);
+          }
+        }
+      });
+    });
+
+    // 首页加载时检查 hash
+    if (window.location.hash) {
+      var hash = window.location.hash;
+      if (hash.startsWith('#win-')) {
+        var winId = hash.slice(5);
+        window.focusWindow(winId);
+      }
+    }
 
     updateHitCounter();
     updateClock();
