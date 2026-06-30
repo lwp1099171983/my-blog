@@ -6,11 +6,6 @@ tags: ['CSS', '像素艺术', '设计']
 category: '前端'
 slug: 'css-pixel-ui'
 draft: false
-cover:
-  src: './cover.png'
-  alt: '像素风按钮组件的截图'
-  width: 640
-  height: 320
 ---
 
 ## 像素不是低分辨率
