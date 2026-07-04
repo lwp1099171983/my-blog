@@ -16,7 +16,6 @@ export const SITE: SiteConfig = {
     { label: '归档', href: '/archive', external: false },
     { label: '标签', href: '/tags', external: false },
     { label: '搜索', href: '/search', external: false },
-    { label: '关于', href: '/about', external: false },
     { label: '作品', href: '/portfolio', external: false },
   ],
   socialLinks: [

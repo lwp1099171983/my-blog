@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 import type { PostFrontmatter } from '../types.js';
 
-// ponytail: single getCollection call, filter in memory. < 100 posts fits this fine.
+// ponytail: 一次 getCollection 调用，内存过滤。文章 < 100 篇够用。
 export async function getPublishedPosts() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
   return posts.sort((a, b) => b.data.date.localeCompare(a.data.date));

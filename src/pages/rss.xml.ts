@@ -2,8 +2,8 @@ import getRssResponse from '@astrojs/rss';
 import { getPublishedPosts } from '../lib/utils';
 import { SITE } from '../lib/config';
 
-// ponytail: raw markdown as content, relative image paths → absolute URLs.
-// Upgrade: Astro Markdown renderer for HTML RSS content when needed.
+// ponytail: 原始 markdown 作正文，相对路径图片转绝对 URL。
+// 升级：需要 HTML 渲染的 RSS 内容时换 Astro Markdown renderer。
 function absImages(body: string, slug: string): string {
   const base = `${SITE.origin}/posts/${slug}`;
   return body.replace(/\]\(\s*(\.\/)([^)]+)\)/g, (_, __, file) => `](${base}/${file})`);
