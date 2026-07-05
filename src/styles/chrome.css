@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* === 重置与基础 === */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ponytail: Tailwind @layer base 已提供 *,*::before,*::after 重置，此处删除避免覆盖 @layer utilities */
 
 html { font-size: 16px; }
 
