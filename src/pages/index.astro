@@ -23,7 +23,7 @@ const recentPosts = posts.slice(0, 5);
     <p class="text-fs-mono-s text-win-text-muted mt-2">
       {PROFILE.subtext}
     </p>
-    <hr class="pixel-divider" />
+    <hr class="border-t-2 border-dashed border-purple-500 my-[22px]" />
     <h3 class="mt-3.5">🛠️ 技术栈</h3>
     <p class="text-fs-mono-s">
       {TECH_STACK.join(' · ')}
@@ -54,7 +54,7 @@ const recentPosts = posts.slice(0, 5);
 
   <Window id="tags" title="标签" icon="🏷️" x={152} y={504} width={390} height={300} hidden>
     <h2>🏷️ 标签</h2>
-    <div class="tags-cloud">
+    <div class="flex flex-wrap gap-2">
       {
         tags.length > 0 ? (
           tags.map(({ tag, count }) => (
@@ -73,9 +73,9 @@ const recentPosts = posts.slice(0, 5);
       archive.length > 0 ? (
         archive.map(({ year, posts }) => (
           <div>
-            <div class="archive-year">{year}</div>
+            <div class="font-pixel text-fs-small text-link mt-4 mb-2">{year}</div>
             {posts.map((p) => (
-              <div class="archive-item">
+              <div class="py-1.5 border-b-2 border-dotted border-purple-500 text-fs-mono-s">
                 {p.data.date.slice(5)} · <a href={`/posts/${p.data.slug}`}>{p.data.title}</a>
               </div>
             ))}

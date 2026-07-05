@@ -12,7 +12,7 @@ const tags = await getUniqueTags();
     <h2>🏷️ 所有标签</h2>
     {
       tags.length > 0 ? (
-        <div class="tags-cloud">
+        <div class="flex flex-wrap gap-2">
           {tags.map(({ tag, count }) => (
             <a href={`/tags/${tag}`} class="pixel-tag" style="font-size:calc(var(--fs-mono-s) + 2px);">{tag} ({count})</a>
           ))}

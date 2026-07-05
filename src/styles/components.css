@@ -9,7 +9,7 @@
   background: var(--card-bg);
   border: var(--border-ui) solid;
   border-color: var(--os-border-raised);
-  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  font-family: var(--font-pixel); font-size: var(--fs-small);
   cursor: pointer; color: var(--card-text);
   text-decoration: none; text-align: center;
 }
@@ -20,7 +20,7 @@
   background: var(--c-purple-400); color: var(--c-white);
   border-color: var(--os-border-raised);
 }
-.pixel-btn.small { padding: 7px 10px; font-size: var(--fs-xs); }
+.pixel-btn.small { padding: 7px 10px; font-size: var(--fs-small); }
 
 /* === 输入框 === */
 .pixel-input {
@@ -41,17 +41,14 @@
   background: var(--tag-bg);
   border: var(--border-ui) solid;
   border-color: var(--os-border-raised);
-  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  font-family: var(--font-pixel); font-size: var(--fs-small);
   color: var(--tag-text); cursor: pointer;
   text-decoration: none; margin: 2px;
 }
 .pixel-tag:hover { background: var(--c-purple-400); color: var(--c-white); }
 
 /* === 分割线 === */
-.pixel-divider {
-  border: none; border-top: 2px dashed var(--border-color);
-  margin: 22px 0;
-}
+/* ponytail: 已内联为 Tailwind 工具类 */
 
 /* === 卡片 === */
 .pixel-card {
@@ -70,20 +67,11 @@ h1 { font-size: var(--fs-h1); margin-bottom: 16px; }
 h2 { font-size: var(--fs-h2); margin-bottom: 14px; }
 h3 { font-size: var(--fs-h3); margin-bottom: 10px; }
 
-.pixel-text { font-family: var(--font-pixel); }
-.mono-text { font-family: var(--font-mono); }
-
 a {
   color: var(--link); text-decoration: underline;
   text-underline-offset: 3px;
 }
 a:hover { opacity: 0.8; }
-/* a:visited { color: var(--border-color); } */
-
-.post-meta {
-  font-family: var(--font-pixel); font-size: var(--fs-xs);
-  color: var(--win-text-muted); margin-bottom: 10px;
-}
 
 /* === 窗口专属样式 === */
 .intro-avatar {
@@ -105,33 +93,10 @@ a:hover { opacity: 0.8; }
 .post-item:hover { background: var(--card-hover-bg); }
 
 .post-item .post-date {
-  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  font-family: var(--font-pixel); font-size: var(--fs-small);
   color: var(--win-text-muted);
 }
 .post-item .post-title {
   font-family: var(--font-mono); font-size: var(--fs-body);
   color: var(--card-text);
 }
-
-.tags-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-
-.archive-year {
-  font-family: var(--font-pixel); font-size: var(--fs-small);
-  color: var(--link); margin: 16px 0 8px;
-}
-.archive-item {
-  padding: 6px 0; border-bottom: var(--border-ui) dotted var(--border-color);
-  font-size: var(--fs-mono-s);
-}
-
-.search-result {
-  padding: 10px; border-bottom: var(--border-ui) dotted var(--border-color);
-}
-.search-result .result-title {
-  font-family: var(--font-mono); font-size: var(--fs-body);
-}
-.search-result .result-meta {
-  font-family: var(--font-pixel); font-size: var(--fs-xs); color: var(--win-text-muted);
-}
-
-.social-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }

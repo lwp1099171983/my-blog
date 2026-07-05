@@ -14,9 +14,9 @@ const archive = await getPostsByYear();
       archive.length > 0 ? (
         archive.map(({ year, posts }) => (
           <div class="mb-3">
-            <div class="archive-year">{year} ({posts.length})</div>
+            <div class="font-pixel text-fs-small text-link mt-4 mb-2">{year} ({posts.length})</div>
             {posts.map((p) => (
-              <div class="archive-item">
+              <div class="py-1.5 border-b-2 border-dotted border-purple-500 text-fs-mono-s">
                 <span>{p.data.date.slice(5)}</span>
                 {' · '}
                 <a href={`/posts/${p.data.slug}`}>{p.data.title}</a>
