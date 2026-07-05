@@ -65,7 +65,7 @@ body::after {
 }
 
 .desktop-icon .icon-label {
-  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  font-family: var(--font-pixel); font-size: var(--fs-small);
   color: #FFFFFF;
   word-break: break-all; line-height: 1.3;
 }
@@ -76,7 +76,7 @@ body::after {
   background: #000;
   border: var(--border-ui) solid;
   border-color: var(--os-border-inset);
-  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  font-family: var(--font-pixel); font-size: var(--fs-small);
   color: #0f0; text-align: center;
 }
 .hit-counter .digits {
@@ -137,7 +137,7 @@ body::after {
   background: var(--win-bg);
   border: var(--border-ui) solid;
   border-color: var(--os-border-raised);
-  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  font-family: var(--font-pixel); font-size: var(--fs-small);
   cursor: pointer; display: grid; place-items: center;
   line-height: 1; padding: 0;
   color: var(--win-text);
@@ -169,7 +169,7 @@ body::after {
   background: var(--c-win98-silver);
   border: var(--border-ui) solid;
   border-color: var(--os-border-raised);
-  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  font-family: var(--font-pixel); font-size: var(--fs-small);
   cursor: pointer; color: #000;
   white-space: nowrap;
 }
@@ -200,7 +200,7 @@ body::after {
   background: var(--c-win98-silver);
   border: var(--border-ui) solid;
   border-color: var(--os-border-inset);
-  font-family: var(--font-pixel); font-size: var(--fs-xs);
+  font-family: var(--font-pixel); font-size: var(--fs-small);
   color: #000; display: flex; align-items: center;
   white-space: nowrap;
 }
