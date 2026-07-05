@@ -1,4 +1,4 @@
-import type { SiteConfig } from '../types';
+import type { SiteConfig, Profile, SocialLink, PortfolioItem } from '../types';
 
 export const SITE: SiteConfig = {
   name: 'starlin的像素角落',
@@ -23,3 +23,42 @@ export const SITE: SiteConfig = {
     { platform: 'Twitter', label: 'X', href: 'https://x.com/starlin', icon: 'twitter' },
   ],
 };
+
+/** 个人简介 */
+export const PROFILE: Profile = {
+  name: 'starlin',
+  greeting: '你好，我是 starlin。',
+  bio: ['复古、像素艺术爱好者。', '写代码、折腾工具。'],
+  subtext: '这里记录我的技术笔记、项目心得和像素创作。',
+};
+
+/** 技术栈 */
+export const TECH_STACK = [
+  'TypeScript', 'React', 'Vue', 'Node.js', 'Python',
+  'Vite', 'Tailwind', 'Docker', 'Git',
+];
+
+/** 社交链接（模板用） */
+export const SOCIAL_LINKS: SocialLink[] = [
+  { platform: 'GitHub', label: '🐙 GitHub', href: 'https://github.com/nstarlin', icon: 'github' },
+  { platform: 'Twitter', label: '🐦 推特', href: '#', icon: 'twitter' },
+  { platform: 'Email', label: '📧 邮箱', href: 'mailto:hi@starlin.dev', icon: 'email' },
+];
+
+/** 作品集 */
+export const PORTFOLIO_ITEMS: PortfolioItem[] = [
+  {
+    name: '🕹️ Pixel UI Kit',
+    description: '像素风 UI 组件库',
+    techStack: ['React'],
+    githubUrl: '#',
+    contribution: '',
+  },
+  {
+    name: '📝 Static Blog Generator',
+    description: '轻量静态博客生成器',
+    techStack: ['Node.js'],
+    githubUrl: '#',
+    contribution: '',
+  },
+];

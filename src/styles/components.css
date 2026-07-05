@@ -78,7 +78,7 @@ a {
   text-underline-offset: 3px;
 }
 a:hover { opacity: 0.8; }
-a:visited { color: var(--border-color); }
+/* a:visited { color: var(--border-color); } */
 
 .post-meta {
   font-family: var(--font-pixel); font-size: var(--fs-xs);

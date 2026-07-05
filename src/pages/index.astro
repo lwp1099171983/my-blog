@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Window from '../components/Window.astro';
 import PostCard from '../components/PostCard.astro';
 import { getPublishedPosts, getUniqueTags, getPostsByYear } from '../lib/utils';
+import { PROFILE, TECH_STACK, SOCIAL_LINKS, PORTFOLIO_ITEMS } from '../lib/config';
 
 const posts = await getPublishedPosts();
 const tags = await getUniqueTags();
@@ -13,30 +14,28 @@ const recentPosts = posts.slice(0, 5);
 
 <BaseLayout title="starlin的像素角落">
 
-  <Window id="intro" title="简介 - starlin.exe" icon="🏠" x={152} y={40} width={520} height={430} active>
+  <Window id="intro" title="简介" icon="🏠" x={152} y={40} width={520} height={430} active>
     <div class="intro-avatar" title="像素头像"></div>
-    <h1>你好，我是 starlin。</h1>
+    <h1>{PROFILE.greeting}</h1>
     <p>
-      复古、像素艺术爱好者。<br />
-      写代码、折腾工具。
+      {PROFILE.bio.map((line) => <>{line}<br /></>)}
     </p>
     <p style="font-size:var(--fs-mono-s);color:var(--win-text-muted);margin-top:8px;">
-      这里记录我的技术笔记、项目心得和像素创作。
+      {PROFILE.subtext}
     </p>
     <hr class="pixel-divider" />
     <h3 style="margin-top:14px;">🛠️ 技术栈</h3>
     <p style="font-size:var(--fs-mono-s);">
-      TypeScript · React · Vue · Node.js · Python · 
-      Vite · Tailwind · Docker · Git
+      {TECH_STACK.join(' · ')}
     </p>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;">
-      <a href="https://github.com/nstarlin" class="pixel-btn small" target="_blank" rel="noopener">🐙 GitHub</a>
-      <a href="#" class="pixel-btn small">🐦 推特</a>
-      <a href="mailto:hi@starlin.dev" class="pixel-btn small">📧 邮箱</a>
+      {SOCIAL_LINKS.map((link) => (
+        <a href={link.href} class="pixel-btn small" target="_blank" rel="noopener">{link.label}</a>
+      ))}
     </div>
   </Window>
 
-  <Window id="posts" title="文章 - /blog/" icon="📝" x={710} y={56} width={560} height={500}>
+  <Window id="posts" title="文章" icon="📝" x={710} y={56} width={560} height={500}>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
       <h2 style="margin:0;">📰 最近文章</h2>
       <a href="/rss.xml" class="pixel-btn small" title="RSS 订阅" aria-label="RSS 订阅">📡 RSS</a>
@@ -53,7 +52,7 @@ const recentPosts = posts.slice(0, 5);
     </div>
   </Window>
 
-  <Window id="tags" title="标签 - 筛选器.exe" icon="🏷️" x={152} y={504} width={390} height={300} hidden>
+  <Window id="tags" title="标签" icon="🏷️" x={152} y={504} width={390} height={300} hidden>
     <h2>🏷️ 标签</h2>
     <div class="tags-cloud">
       {
@@ -68,7 +67,7 @@ const recentPosts = posts.slice(0, 5);
     </div>
   </Window>
 
-  <Window id="archive" title="归档 - 历史记录.dat" icon="📦" x={574} y={588} width={450} height={340} hidden>
+  <Window id="archive" title="归档" icon="📦" x={574} y={588} width={450} height={340} hidden>
     <h2>📦 归档</h2>
     {
       archive.length > 0 ? (
@@ -88,7 +87,7 @@ const recentPosts = posts.slice(0, 5);
     }
   </Window>
 
-  <Window id="search" title="搜索 - 查找.exe" icon="🔍" x={1320} y={112} width={460} height={370} hidden>
+  <Window id="search" title="搜索" icon="🔍" x={1320} y={112} width={460} height={370} hidden>
     <h2>🔍 搜索文章</h2>
     <form action="/search" method="get" style="display:contents;">
       <input class="pixel-input" type="search" name="q" placeholder="输入关键词..." aria-label="搜索关键词" />
@@ -99,18 +98,15 @@ const recentPosts = posts.slice(0, 5);
     </div>
   </Window>
 
-  <Window id="portfolio" title="作品 - 项目目录.dir" icon="📁" x={1320} y={144} width={500} height={350} hidden>
+  <Window id="portfolio" title="作品" icon="📁" x={1320} y={144} width={500} height={350} hidden>
     <h2>📁 作品集</h2>
-    <div class="pixel-card">
-      <h3>🕹️ Pixel UI Kit</h3>
-      <p style="font-size:var(--fs-mono-s);">像素风 UI 组件库 · React</p>
-      <a href="#" class="pixel-btn small">GitHub →</a>
-    </div>
-    <div class="pixel-card">
-      <h3>📝 Static Blog Generator</h3>
-      <p style="font-size:var(--fs-mono-s);">轻量静态博客生成器 · Node.js</p>
-      <a href="#" class="pixel-btn small">GitHub →</a>
-    </div>
+    {PORTFOLIO_ITEMS.map((item) => (
+      <div class="pixel-card">
+        <h3>{item.name}</h3>
+        <p style="font-size:var(--fs-mono-s);">{item.description} · {item.techStack.join(', ')}</p>
+        <a href={item.githubUrl} class="pixel-btn small">GitHub →</a>
+      </div>
+    ))}
     <p style="font-family:var(--font-pixel);font-size:var(--fs-xs);color:var(--win-text-muted);text-align:center;margin-top:8px;">
       🚧 更多项目整理中...
     </p>
