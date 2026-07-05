@@ -12,7 +12,7 @@ const searchUrl = new URL('/search.json', Astro.site).href;
     <h2>🔍 搜索文章</h2>
     <input class="pixel-input" type="search" id="searchInput" placeholder="输入标题、标签或分类..." aria-label="搜索关键词" autofocus />
 
-    <div id="searchStatus" style="margin-top:8px;">
+    <div id="searchStatus" class="mt-2">
       <p class="search-empty">输入关键词开始搜索</p>
     </div>
     <div id="searchResults"></div>

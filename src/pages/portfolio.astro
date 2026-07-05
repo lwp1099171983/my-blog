@@ -11,12 +11,12 @@ import { SITE, PORTFOLIO_ITEMS } from '../lib/config';
     {PORTFOLIO_ITEMS.map((item) => (
       <div class="pixel-card">
         <h3>{item.name}</h3>
-        <p style="font-size:var(--fs-mono-s);">{item.description} · {item.techStack.join(', ')}</p>
+        <p class="text-fs-mono-s">{item.description} · {item.techStack.join(', ')}</p>
         <a href={item.githubUrl} class="pixel-btn small">GitHub →</a>
       </div>
     ))}
 
-    <p style="font-family:var(--font-pixel);font-size:var(--fs-xs);color:var(--win-text-muted);text-align:center;margin-top:12px;">
+    <p class="font-pixel text-fs-xs text-win-text-muted text-center mt-3">
       🚧 更多项目整理中...
     </p>
   </Window>

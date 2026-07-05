@@ -20,15 +20,15 @@ const recentPosts = posts.slice(0, 5);
     <p>
       {PROFILE.bio.map((line) => <>{line}<br /></>)}
     </p>
-    <p style="font-size:var(--fs-mono-s);color:var(--win-text-muted);margin-top:8px;">
+    <p class="text-fs-mono-s text-win-text-muted mt-2">
       {PROFILE.subtext}
     </p>
     <hr class="pixel-divider" />
-    <h3 style="margin-top:14px;">🛠️ 技术栈</h3>
-    <p style="font-size:var(--fs-mono-s);">
+    <h3 class="mt-3.5">🛠️ 技术栈</h3>
+    <p class="text-fs-mono-s">
       {TECH_STACK.join(' · ')}
     </p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;">
+    <div class="flex gap-2 flex-wrap mt-1.5">
       {SOCIAL_LINKS.map((link) => (
         <a href={link.href} class="pixel-btn small" target="_blank" rel="noopener">{link.label}</a>
       ))}
@@ -36,18 +36,18 @@ const recentPosts = posts.slice(0, 5);
   </Window>
 
   <Window id="posts" title="文章" icon="📝" x={710} y={56} width={560} height={500}>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-      <h2 style="margin:0;">📰 最近文章</h2>
+    <div class="flex justify-between items-center mb-2.5">
+      <h2 class="m-0">📰 最近文章</h2>
       <a href="/rss.xml" class="pixel-btn small" title="RSS 订阅" aria-label="RSS 订阅">📡 RSS</a>
     </div>
     {
       recentPosts.length > 0 ? (
         recentPosts.map((p) => <PostCard post={p} />)
       ) : (
-        <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">还没有文章，开始写吧 ✍️</p>
+        <p class="text-win-text-muted text-fs-mono-s">还没有文章，开始写吧 ✍️</p>
       )
     }
-    <div style="text-align:right;margin-top:8px;">
+    <div class="text-right mt-2">
       <a href="/posts/" class="pixel-btn small">查看全部 →</a>
     </div>
   </Window>
@@ -82,19 +82,19 @@ const recentPosts = posts.slice(0, 5);
           </div>
         ))
       ) : (
-        <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">暂无归档</p>
+        <p class="text-win-text-muted text-fs-mono-s">暂无归档</p>
       )
     }
   </Window>
 
   <Window id="search" title="搜索" icon="🔍" x={1320} y={112} width={460} height={370} hidden>
     <h2>🔍 搜索文章</h2>
-    <form action="/search" method="get" style="display:contents;">
+    <form action="/search" method="get" class="contents">
       <input class="pixel-input" type="search" name="q" placeholder="输入关键词..." aria-label="搜索关键词" />
-      <button type="submit" class="pixel-btn small" style="margin-top:6px;">搜索</button>
+      <button type="submit" class="pixel-btn small mt-1.5">搜索</button>
     </form>
-    <div style="margin-top:10px;">
-      <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">输入标题、标签或分类进行搜索...</p>
+    <div class="mt-2.5">
+      <p class="text-win-text-muted text-fs-mono-s">输入标题、标签或分类进行搜索...</p>
     </div>
   </Window>
 
@@ -103,11 +103,11 @@ const recentPosts = posts.slice(0, 5);
     {PORTFOLIO_ITEMS.map((item) => (
       <div class="pixel-card">
         <h3>{item.name}</h3>
-        <p style="font-size:var(--fs-mono-s);">{item.description} · {item.techStack.join(', ')}</p>
+        <p class="text-fs-mono-s">{item.description} · {item.techStack.join(', ')}</p>
         <a href={item.githubUrl} class="pixel-btn small">GitHub →</a>
       </div>
     ))}
-    <p style="font-family:var(--font-pixel);font-size:var(--fs-xs);color:var(--win-text-muted);text-align:center;margin-top:8px;">
+    <p class="font-pixel text-fs-xs text-win-text-muted text-center mt-2">
       🚧 更多项目整理中...
     </p>
   </Window>

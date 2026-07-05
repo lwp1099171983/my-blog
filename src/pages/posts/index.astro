@@ -11,14 +11,14 @@ const posts = await getPublishedPosts();
 <BaseLayout title={`文章列表 | ${SITE.name}`}>
   <Window id="posts-list" title="文章 - /blog/" icon="📝" x={80} y={40} width={740} height={520} active maximized>
     <h2>📰 全部文章</h2>
-    <p style="font-size:var(--fs-mono-s);color:var(--win-text-muted);margin-bottom:10px;">
+    <p class="text-fs-mono-s text-win-text-muted mb-2.5">
       共 {posts.length} 篇
     </p>
     {
       posts.length > 0 ? (
         posts.map((p) => <PostCard post={p} showCategory />)
       ) : (
-        <p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">还没有文章。</p>
+        <p class="text-win-text-muted text-fs-mono-s">还没有文章。</p>
       )
     }
   </Window>
