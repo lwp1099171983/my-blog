@@ -15,7 +15,7 @@ const recentPosts = posts.slice(0, 5);
 <BaseLayout>
 
   <Window id="intro" title="简介" icon="🏠" x={152} y={40} width={520} height={430} active>
-    <div class="intro-avatar" title="像素头像"></div>
+    <div class="w-28 h-28 pixelated border border-[var(--win-border)] bg-[var(--titlebar-bg)] float-left mr-[18px] mb-3" title="像素头像"></div>
     <h1>{PROFILE.greeting}</h1>
     <p>
       {PROFILE.bio.map((line) => <>{line}<br /></>)}

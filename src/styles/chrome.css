@@ -3,23 +3,6 @@
    桌面背景、CRT 扫描线、窗口框架、标题栏、任务栏
    ============================================================ */
 
-/* === 重置与基础 === */
-/* ponytail: Tailwind @layer base 已提供 *,*::before,*::after 重置，此处删除避免覆盖 @layer utilities */
-
-html { font-size: 16px; }
-
-body {
-  font-family: var(--font-mono);
-  font-size: var(--fs-body);
-  line-height: 1.6;
-  color: var(--win-text);
-  background: #1D1B2D;
-  min-height: 100vh;
-  overflow-x: hidden;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-}
-
 /* === 桌面背景 === */
 .desktop-bg {
   position: fixed; inset: 0; z-index: 0;
@@ -203,4 +186,38 @@ body::after {
   font-family: var(--font-pixel); font-size: var(--fs-small);
   color: #000; display: flex; align-items: center;
   white-space: nowrap;
+}
+
+/* === 响应式 — 移动端适配 === */
+@media (max-width: 768px) {
+  .desktop-icons {
+    flex-direction: row; top: auto; bottom: calc(var(--taskbar-h) + 8px); left: 8px; right: 8px;
+    gap: 8px; overflow-x: auto; justify-content: flex-start;
+  }
+  .desktop-icon { width: 76px; padding: 6px; gap: 4px; }
+  .desktop-icon .icon-sprite { width: 44px; height: 44px; font-size: 28px; }
+  .desktop-icon .icon-label { font-size: 0.45rem; }
+  .hit-counter { display: none; }
+
+  .window {
+    position: relative !important;
+    top: auto !important; left: auto !important;
+    width: 100% !important; height: auto !important;
+    min-height: 0; margin-bottom: 8px;
+  }
+  .window.maximized {
+    left: 0 !important; right: 0 !important; bottom: var(--taskbar-h) !important;
+  }
+  .window-body { max-height: 56vh; }
+
+  .taskbar-tabs { display: none; }
+  .taskbar-start { font-size: 0.5rem; padding: 6px 10px; }
+  .taskbar-clock { font-size: 0.5rem; padding: 6px 10px; }
+}
+
+@media (max-width: 375px) {
+  .desktop-icons { gap: 6px; }
+  .desktop-icon { width: 64px; }
+  .desktop-icon .icon-sprite { width: 38px; height: 38px; font-size: 24px; }
+  .window-body { padding: 12px; }
 }

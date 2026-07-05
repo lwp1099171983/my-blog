@@ -16,10 +16,50 @@
   --text-fs-mono-s: 1.25rem;
 }
 
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--font-mono);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--win-text);
+    background: #1D1B2D;
+    min-height: 100vh;
+    overflow-x: hidden;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-pixel);
+    color: var(--win-text);
+    line-height: 1.4;
+  }
+  h1 { font-size: var(--fs-h1); margin-bottom: 16px; }
+  h2 { font-size: var(--fs-h2); margin-bottom: 14px; }
+  h3 { font-size: var(--fs-h3); margin-bottom: 10px; }
+
+  a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  a:hover { opacity: 0.8; }
+
+  /* 移动端排版 */
+  @media (max-width: 768px) {
+    h1 { font-size: 0.95rem; }
+    h2 { font-size: 0.8rem; }
+    body { font-size: 1.25rem; }
+  }
+}
+
 @import "./tokens.css";
 @import "./chrome.css";
 @import "./components.css";
-@import "./responsive.css";
 
 @font-face {
   font-family: 'Ark Pixel';
