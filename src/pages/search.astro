@@ -13,7 +13,7 @@ const searchUrl = new URL('/search.json', Astro.site).href;
     <input class="pixel-input" type="search" id="searchInput" placeholder="输入标题、标签或分类..." aria-label="搜索关键词" autofocus />
 
     <div id="searchStatus" class="mt-2">
-      <p class="search-empty">输入关键词开始搜索</p>
+      <p>输入关键词开始搜索</p>
     </div>
     <div id="searchResults"></div>
   </Window>
@@ -30,7 +30,7 @@ const searchUrl = new URL('/search.json', Astro.site).href;
   input.addEventListener('input', debounce(async (e: Event) => {
     const q = (e.target as HTMLInputElement).value.trim();
     if (!q) {
-      status.innerHTML = '<p class="search-empty">输入关键词开始搜索</p>';
+      status.innerHTML = '<p>输入关键词开始搜索</p>';
       results.innerHTML = '';
       return;
     }
@@ -38,12 +38,12 @@ const searchUrl = new URL('/search.json', Astro.site).href;
     if (!index) {
       if (loading) return;
       loading = true;
-      status.innerHTML = '<p class="search-empty">加载搜索索引...</p>';
+      status.innerHTML = '<p>加载搜索索引...</p>';
       try {
         const res = await fetch('{searchUrl}');
         index = await res.json();
       } catch {
-        status.innerHTML = '<p class="search-empty" style="color:var(--c-red-40);">索引加载失败</p>';
+        status.innerHTML = '<p class="text-red-500">索引加载失败</p>';
         loading = false;
         return;
       }
@@ -65,10 +65,10 @@ const searchUrl = new URL('/search.json', Astro.site).href;
       .map(({ entry }) => entry);
 
     if (matched.length === 0) {
-      status.innerHTML = '<p class="search-empty">没有找到相关文章</p>';
+      status.innerHTML = '<p>没有找到相关文章</p>';
       results.innerHTML = '';
     } else {
-      status.innerHTML = `<p class="search-empty">找到 ${matched.length} 篇</p>`;
+      status.innerHTML = `<p>找到 ${matched.length} 篇</p>`;
       results.innerHTML = matched
         .map(
           (e: SearchIndexEntry) => `
