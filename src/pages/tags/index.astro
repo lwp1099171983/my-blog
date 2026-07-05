@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Window from '../../components/Window.astro';
+import { SITE } from '../../lib/config';
 import { getUniqueTags } from '../../lib/utils';
 
 const tags = await getUniqueTags();
 ---
 
-<BaseLayout title="标签云 | starlin的像素角落">
+<BaseLayout title={`标签云 | ${SITE.name}`}>
   <Window id="tags-page" title="标签 - 筛选器.exe" icon="🏷️" x={80} y={40} width={600} height={440} active maximized>
     <h2>🏷️ 所有标签</h2>
     {

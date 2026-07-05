@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Window from '../components/Window.astro';
+import { SITE } from '../lib/config';
 import type { SearchIndex, SearchIndexEntry } from '../types';
 
 const searchUrl = new URL('/search.json', Astro.site).href;
 ---
 
-<BaseLayout title="搜索 | starlin的像素角落">
+<BaseLayout title={`搜索 | ${SITE.name}`}>
   <Window id="search-page" title="搜索 - 查找.exe" icon="🔍" x={80} y={40} width={560} height={460} active maximized>
     <h2>🔍 搜索文章</h2>
     <input class="pixel-input" type="search" id="searchInput" placeholder="输入标题、标签或分类..." aria-label="搜索关键词" autofocus />

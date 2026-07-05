@@ -2,6 +2,7 @@
 import { getCollection, render as renderEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Window from '../../components/Window.astro';
+import { SITE } from '../../lib/config';
 import sanitizeSchema from '../../lib/markdown';
 import rehypeSanitize from 'rehype-sanitize';
 
@@ -18,7 +19,7 @@ const { Content, headings } = await renderEntry(post);
 const { title, description, date, tags, category, updated, cover } = post.data;
 ---
 
-<BaseLayout title={`${title} | starlin的像素角落`} description={description}>
+<BaseLayout title={`${title} | ${SITE.name}`} description={description}>
   <Window id="article" title={`阅读 - ${title}`} icon="📄" x={80} y={40} width={740} height={560} active maximized>
     <article class="post-content">
       {cover && <img src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} loading="lazy" style="max-width:100%;height:auto;margin-bottom:12px;" />}

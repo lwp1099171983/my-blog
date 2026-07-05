@@ -3,6 +3,7 @@ import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import DesktopIcons from '../components/DesktopIcons.astro';
 import Taskbar from '../components/Taskbar.astro';
+import { SITE } from '../lib/config';
 
 interface Props {
   title?: string;
@@ -13,8 +14,8 @@ interface Props {
 }
 
 const {
-  title = 'starlin的像素角落',
-  description = 'starlin 的个人技术博客，记录技术笔记、项目心得',
+  title = SITE.name,
+  description = SITE.description,
   ogImage = undefined,
   ogType = undefined,
   noindex = false,
