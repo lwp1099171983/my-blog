@@ -30,15 +30,13 @@
 
 ## 阶段 2：CSS 基础
 
-### 任务 5：tokens.css — CSS 变量体系
+### 任务 5：global.css — Tailwind token 体系
 
-- [ ] 基础色板（c-white ~ c-purple-100）
-- [ ] Win98 chrome 色（silver/highlight/shadow/dark/titlebar 渐变）
-- [ ] 语义 Token（win-bg/win-text/card-bg/tag-bg/link 等，含 light-dark()）
-- [ ] 字号体系（fs-body/h1/h2/h3/small/xs/mono-s）
-- [ ] 边框与间距（border-window/border-ui/window-pad/taskbar-h）
-- [ ] 字体栈（font-pixel/font-mono）
-- [ ] 验证 `pnpm dev`，CSS 变量可 inspect
+- [ ] `@theme` 基础色板（purple-100 ~ purple-900、Win98 chrome 色）
+- [ ] `@theme` 语义色（win/card/tag/input/link/focus 等，含 light-dark()）
+- [ ] `@theme` 字体、字号、边框与间距 token
+- [ ] `@layer base` 兼容旧语义变量映射
+- [ ] 验证 `pnpm dev`，Tailwind token 和 CSS 变量可 inspect
 
 ### 任务 6：chrome.css — 桌面 chrome 层
 
@@ -62,7 +60,7 @@
 ### 任务 8：global.css — CSS 入口
 
 - [ ] Tailwind `@import "tailwindcss"` + `@theme` 自定义变量
-- [ ] `@import` tokens.css / chrome.css / components.css
+- [ ] `@import` chrome.css / components.css
 - [ ] 响应式 `@import "./responsive.css"`
 - [ ] 验证所有 CSS 通过 global.css 生效
 

@@ -56,8 +56,7 @@ my-blog/
 │   │   ├── utils.ts              # getPublishedPosts() 等
 │   │   └── markdown.ts           # rehype-sanitize 配置
 │   └── styles/
-│       ├── global.css            # Tailwind 入口 + @theme
-│       ├── tokens.css            # :root 变量
+│       ├── global.css            # Tailwind 入口 + @theme tokens
 │       ├── chrome.css            # 窗口/标题栏/任务栏
 │       ├── components.css        # 像素 UI 组件
 │       └── responsive.css
@@ -65,7 +64,7 @@ my-blog/
 └── package.json
 ```
 
-## 3. 布局架构：桌面隐喻
+## 3. 布局架构：windows风格
 
 ### 3.1 BaseLayout.astro — 桌面壳
 

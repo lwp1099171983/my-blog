@@ -1,22 +1,121 @@
 @import "tailwindcss";
+@import "./chrome.css";
+@import "./components.css";
 
 @theme {
   --font-pixel: 'Ark Pixel', 'Press Start 2P', monospace;
   --font-mono: 'Ark Pixel', 'VT323', 'Courier New', monospace;
-  --color-win-bg: light-dark(#FFFFFF, #6455B2);
-  --color-win-text: light-dark(#1D1B2D, #ECEBF4);
-  --color-win-text-muted: light-dark(#7A7599, #C8C0E0);
-  --color-link: light-dark(#6455B2, #C8C0E0);
+
+  --color-off-white: #ECEBF4;
+  --color-ink: #1D1B2D;
+  --color-gray-dark: #7A7599;
+  --color-purple-100: #F0EEF8;
+  --color-purple-200: #E8E4F4;
+  --color-purple-300: #C8C0E0;
   --color-purple-400: #A8A3C6;
   --color-purple-500: #9C94C9;
   --color-purple-600: #766CB1;
   --color-purple-700: #6455B2;
+  --color-purple-900: #473F7A;
+  --color-win98-silver: #C0C0C0;
+  --color-win98-highlight: #FFFFFF;
+  --color-win98-shadow: #808080;
+  --color-win98-dark: #404040;
+
+  --color-win-bg: light-dark(#FFFFFF, var(--color-purple-700));
+  --color-win-text: light-dark(var(--color-ink), var(--color-off-white));
+  --color-win-text-muted: light-dark(var(--color-gray-dark), var(--color-purple-300));
+  --color-win-border: light-dark(var(--color-purple-500), var(--color-ink));
+  --color-card-bg: light-dark(var(--color-purple-100), var(--color-purple-600));
+  --color-card-text: light-dark(var(--color-ink), var(--color-off-white));
+  --color-card-hover-bg: light-dark(var(--color-purple-300), var(--color-purple-700));
+  --color-tag-bg: light-dark(var(--color-purple-500), var(--color-purple-700));
+  --color-tag-text: light-dark(var(--color-ink), #FFFFFF);
+  --color-link: light-dark(var(--color-purple-700), var(--color-purple-300));
+  --color-input-bg: light-dark(var(--color-purple-100), var(--color-purple-700));
+  --color-input-text: light-dark(var(--color-ink), var(--color-off-white));
+  --color-focus-ring: light-dark(var(--color-purple-900), #FFFFFF);
+
   --text-fs-xs: 0.625rem;
+  --text-fs-body: 1rem;
   --text-fs-small: 0.8125rem;
+  --text-fs-h1: 2rem;
+  --text-fs-h2: 1.6rem;
+  --text-fs-h3: 1.28rem;
   --text-fs-mono-s: 1.25rem;
+
+  --spacing-window-pad: 20px;
+  --spacing-taskbar-h: 54px;
+  --border-width-window: 4px;
+  --border-width-ui: 2px;
 }
 
 @layer base {
+  :root {
+    --c-white: #FFFFFF;
+    --c-off-white: var(--color-off-white);
+    --c-black: var(--color-ink);
+    --c-gray-dark: var(--color-gray-dark);
+    --c-purple-900: var(--color-purple-900);
+    --c-purple-700: var(--color-purple-700);
+    --c-purple-600: var(--color-purple-600);
+    --c-purple-500: var(--color-purple-500);
+    --c-purple-400: var(--color-purple-400);
+    --c-purple-300: var(--color-purple-300);
+    --c-purple-200: var(--color-purple-200);
+    --c-purple-100: var(--color-purple-100);
+
+    --c-win98-silver: var(--color-win98-silver);
+    --c-win98-highlight: var(--color-win98-highlight);
+    --c-win98-shadow: var(--color-win98-shadow);
+    --c-win98-dark: var(--color-win98-dark);
+    --c-win98-titlebar-active: linear-gradient(90deg, #000080, #1084D0);
+    --c-win98-titlebar-inactive: linear-gradient(90deg, #808080, #B5B5B5);
+
+    --win-bg: var(--color-win-bg);
+    --win-text: var(--color-win-text);
+    --win-text-muted: var(--color-win-text-muted);
+    --win-border: var(--color-win-border);
+
+    --titlebar-bg: linear-gradient(90deg, var(--color-win98-silver), #D4D0C8);
+    --titlebar-text: #000000;
+    --titlebar-active-bg: var(--c-win98-titlebar-active);
+    --titlebar-active-text: #FFFFFF;
+
+    --card-bg: var(--color-card-bg);
+    --card-text: var(--color-card-text);
+    --card-hover-bg: var(--color-card-hover-bg);
+
+    --border-color: var(--color-purple-500);
+    --os-border-dark: var(--color-win98-dark);
+    --os-highlight: var(--color-win98-highlight);
+    --os-shadow: var(--color-win98-shadow);
+    --os-border-raised: var(--os-highlight) var(--os-shadow) var(--os-shadow) var(--os-highlight);
+    --os-border-inset: var(--os-shadow) var(--os-highlight) var(--os-highlight) var(--os-shadow);
+    --os-window-frame-shadow:
+      0 0 0 2px var(--color-win98-silver),
+      8px 8px 0 rgba(0,0,0,0.22);
+
+    --tag-bg: var(--color-tag-bg);
+    --tag-text: var(--color-tag-text);
+    --link: var(--color-link);
+    --input-bg: var(--color-input-bg);
+    --input-text: var(--color-input-text);
+    --focus-ring: var(--color-focus-ring);
+
+    --fs-body: var(--text-fs-body);
+    --fs-h1: var(--text-fs-h1);
+    --fs-h2: var(--text-fs-h2);
+    --fs-h3: var(--text-fs-h3);
+    --fs-small: var(--text-fs-small);
+    --fs-mono-s: var(--text-fs-mono-s);
+
+    --border-window: var(--border-width-window);
+    --border-ui: var(--border-width-ui);
+    --window-pad: var(--spacing-window-pad);
+    --taskbar-h: var(--spacing-taskbar-h);
+  }
+
   html {
     font-size: 16px;
   }
@@ -56,10 +155,6 @@
     body { font-size: 1.25rem; }
   }
 }
-
-@import "./tokens.css";
-@import "./chrome.css";
-@import "./components.css";
 
 @font-face {
   font-family: 'Ark Pixel';

@@ -5,16 +5,32 @@ import { SITE, PORTFOLIO_ITEMS } from '../lib/config';
 ---
 
 <BaseLayout title={`作品集 | ${SITE.name}`}>
-  <Window id="portfolio-page" title="作品 - 项目目录.dir" icon="📁" x={80} y={40} width={560} height={400} active maximized>
+  <Window
+    id="portfolio-page"
+    title="作品 - 项目目录.dir"
+    icon="📁"
+    x={80}
+    y={40}
+    width={560}
+    height={400}
+    active
+    maximized
+  >
     <h2>📁 作品集</h2>
 
-    {PORTFOLIO_ITEMS.map((item) => (
-      <div class="pixel-card">
-        <h3>{item.name}</h3>
-        <p class="text-fs-mono-s">{item.description} · {item.techStack.join(', ')}</p>
-        <a href={item.githubUrl} class="pixel-btn small">GitHub →</a>
-      </div>
-    ))}
+    {
+      PORTFOLIO_ITEMS.map((item) => (
+        <div class="pixel-card">
+          <h3>{item.name}</h3>
+          <p class="text-fs-mono-s">
+            {item.description} · {item.techStack.join(', ')}
+          </p>
+          <a href={item.githubUrl} class="pixel-btn primary">
+            GitHub →
+          </a>
+        </div>
+      ))
+    }
 
     <p class="font-pixel text-fs-xs text-win-text-muted text-center mt-3">
       🚧 更多项目整理中...

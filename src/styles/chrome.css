@@ -116,17 +116,33 @@ body::after {
 
 .titlebar-btns { display: flex; gap: 4px; flex-shrink: 0; }
 .titlebar-btn {
-  width: 30px; height: 30px;
-  background: var(--win-bg);
+  width: 22px; height: 22px;
+  background: var(--c-win98-silver);
   border: var(--border-ui) solid;
   border-color: var(--os-border-raised);
+  box-shadow:
+    inset -1px -1px var(--os-shadow),
+    inset 1px 1px var(--os-highlight);
   font-family: var(--font-pixel); font-size: var(--fs-small);
   cursor: pointer; display: grid; place-items: center;
   line-height: 1; padding: 0;
-  color: var(--win-text);
+  color: #000;
+  user-select: none;
 }
-.titlebar-btn.close { background: #E08080; }
-.titlebar-btn.close:active { background: #C04040; color: #fff; }
+.titlebar-btn:hover,
+.titlebar-btn:active {
+  border-color: var(--os-border-inset);
+  box-shadow:
+    inset 1px 1px var(--os-shadow),
+    inset -1px -1px var(--os-highlight);
+  transform: translate(1px, 1px);
+}
+.titlebar-btn:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+.titlebar-btn.close:hover,
+.titlebar-btn.close:active { background: #E08080; }
 
 /* === 窗口内容区 === */
 .window-body {

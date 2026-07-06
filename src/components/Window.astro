@@ -1,4 +1,6 @@
 ---
+import WindowControls from './WindowControls.astro';
+
 interface Props {
   id: string;
   title: string;
@@ -21,7 +23,7 @@ const {
   width = 520,
   height = 360,
   hidden = false,
-  active = false,
+  active = true,
   maximized = false,
 } = Astro.props;
 
@@ -44,11 +46,7 @@ const style = [
   <div class="titlebar" data-window={id}>
     <span class="titlebar-icon" aria-hidden="true">{icon}</span>
     <span class="titlebar-text">{title}</span>
-    <div class="titlebar-btns">
-      <button class="titlebar-btn" type="button" aria-label="最小化" onclick={`minWindow('${id}')`}>─</button>
-      <button class="titlebar-btn" type="button" aria-label="最大化" onclick={`maxWindow('${id}')`}>□</button>
-      <button class="titlebar-btn close" type="button" aria-label="关闭" onclick={`closeWindow('${id}')`}>✕</button>
-    </div>
+    <WindowControls windowId={id} />
   </div>
   <div class="window-body">
     <slot />

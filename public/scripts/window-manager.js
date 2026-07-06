@@ -27,10 +27,18 @@
   }
 
   function getNextZIndex() {
-    return Array.from(document.querySelectorAll('.window')).reduce(function (max, win) {
-      var value = Number.parseInt(win.style.zIndex || window.getComputedStyle(win).zIndex, 10);
-      return Number.isFinite(value) ? Math.max(max, value) : max;
-    }, 10) + 1;
+    return (
+      Array.from(document.querySelectorAll('.window')).reduce(function (
+        max,
+        win,
+      ) {
+        var value = Number.parseInt(
+          win.style.zIndex || window.getComputedStyle(win).zIndex,
+          10,
+        );
+        return Number.isFinite(value) ? Math.max(max, value) : max;
+      }, 10) + 1
+    );
   }
 
   // 从页面上实际 .window 元素重建任务栏标签
@@ -38,9 +46,11 @@
     var container = document.getElementById('taskbarTabs');
     if (!container) return;
 
-    var windows = Array.from(document.querySelectorAll('.window')).filter(function (win) {
-      return isVisible(win);
-    });
+    var windows = Array.from(document.querySelectorAll('.window')).filter(
+      function (win) {
+        return isVisible(win);
+      },
+    );
 
     container.innerHTML = '';
 
@@ -55,7 +65,9 @@
       btn.className = 'taskbar-tab' + (id === activeId ? ' active' : '');
       btn.type = 'button';
       btn.textContent = (iconText ? iconText + ' ' : '') + label;
-      btn.onclick = function () { window.focusWindow(id); };
+      btn.onclick = function () {
+        window.focusWindow(id);
+      };
       container.appendChild(btn);
     });
 
@@ -79,7 +91,10 @@
       var matched = false;
       tabs.forEach(function (tab, idx) {
         // 通过 onclick 字符串匹配
-        if (tab.onclick && tab.onclick.toString().indexOf("'" + activeId + "'") !== -1) {
+        if (
+          tab.onclick &&
+          tab.onclick.toString().indexOf("'" + activeId + "'") !== -1
+        ) {
           tab.classList.add('active');
           matched = true;
         }
@@ -103,8 +118,16 @@
         return win !== exceptWin && isVisible(win);
       })
       .sort(function (a, b) {
-        var az = Number.parseInt(a.style.zIndex || window.getComputedStyle(a).zIndex, 10) || 10;
-        var bz = Number.parseInt(b.style.zIndex || window.getComputedStyle(b).zIndex, 10) || 10;
+        var az =
+          Number.parseInt(
+            a.style.zIndex || window.getComputedStyle(a).zIndex,
+            10,
+          ) || 10;
+        var bz =
+          Number.parseInt(
+            b.style.zIndex || window.getComputedStyle(b).zIndex,
+            10,
+          ) || 10;
         return bz - az;
       })[0];
   }
@@ -174,7 +197,7 @@
     var next = clampWindowPosition(
       dragState.win,
       point.clientX - dragState.offsetX,
-      point.clientY - dragState.offsetY
+      point.clientY - dragState.offsetY,
     );
 
     dragState.win.style.left = next.left + 'px';
@@ -192,11 +215,11 @@
 
     win.style.display = 'flex';
 
-    document.querySelectorAll('.window').forEach(function (item) {
-      item.classList.remove('active');
-    });
+    // document.querySelectorAll('.window').forEach(function (item) {
+    //   item.classList.remove('active');
+    // });
 
-    win.classList.add('active');
+    // win.classList.add('active');
     win.style.zIndex = String(getNextZIndex());
     updateTaskbarTabs(id);
 
@@ -261,7 +284,8 @@
     var container = document.getElementById('searchResults');
     if (!container) return;
 
-    container.innerHTML = '<p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">真实搜索将在后续阶段接入 search.json。</p>';
+    container.innerHTML =
+      '<p style="color:var(--win-text-muted);font-size:var(--fs-mono-s);">真实搜索将在后续阶段接入 search.json。</p>';
   };
 
   function updateClock() {
@@ -269,7 +293,10 @@
     if (!clock) return;
 
     var now = new Date();
-    clock.textContent = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+    clock.textContent =
+      String(now.getHours()).padStart(2, '0') +
+      ':' +
+      String(now.getMinutes()).padStart(2, '0');
   }
 
   function updateHitCounter() {

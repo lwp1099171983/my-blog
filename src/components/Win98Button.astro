@@ -1,0 +1,50 @@
+---
+type ButtonType = 'button' | 'submit' | 'reset';
+type ButtonVariant = 'default' | 'primary';
+type ButtonSize = 'md' | 'sm';
+
+interface Props {
+  href?: string;
+  type?: ButtonType;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  disabled?: boolean;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'default',
+  size = 'md',
+  disabled = false,
+  class: className = '',
+  ...attrs
+} = Astro.props;
+
+const classes = [
+  'win98-btn',
+  variant === 'primary' && 'win98-btn--primary',
+  size === 'sm' && 'win98-btn--sm',
+  className,
+].filter(Boolean);
+---
+
+{
+  href ? (
+    <a
+      href={disabled ? undefined : href}
+      aria-disabled={disabled ? 'true' : undefined}
+      tabindex={disabled ? -1 : undefined}
+      class:list={classes}
+      {...attrs}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button type={type} disabled={disabled} class:list={classes} {...attrs}>
+      <slot />
+    </button>
+  )
+}

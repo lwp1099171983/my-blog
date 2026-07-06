@@ -65,7 +65,7 @@ const recentPosts = posts.slice(0, 5);
         SOCIAL_LINKS.map((link) => (
           <a
             href={link.href}
-            class="pixel-btn small"
+            class="pixel-btn primary"
             target="_blank"
             rel="noopener"
           >
@@ -89,7 +89,7 @@ const recentPosts = posts.slice(0, 5);
       <h2 class="m-0">📰 最近文章</h2>
       <a
         href="/rss.xml"
-        class="pixel-btn small"
+        class="pixel-btn primary"
         title="RSS 订阅"
         aria-label="RSS 订阅">📡 RSS</a
       >
@@ -104,7 +104,7 @@ const recentPosts = posts.slice(0, 5);
       )
     }
     <div class="text-right mt-2">
-      <a href="/posts/" class="pixel-btn small">查看全部 →</a>
+      <a href="/posts/" class="pixel-btn primary">查看全部 →</a>
     </div>
   </Window>
 
@@ -185,7 +185,7 @@ const recentPosts = posts.slice(0, 5);
         placeholder="输入关键词..."
         aria-label="搜索关键词"
       />
-      <button type="submit" class="pixel-btn small mt-1.5">搜索</button>
+      <button type="submit" class="pixel-btn primary mt-1.5">搜索</button>
     </form>
     <div class="mt-2.5">
       <p class="text-win-text-muted text-fs-mono-s">
@@ -212,7 +212,7 @@ const recentPosts = posts.slice(0, 5);
           <p class="text-fs-mono-s">
             {item.description} · {item.techStack.join(', ')}
           </p>
-          <a href={item.githubUrl} class="pixel-btn small">
+          <a href={item.githubUrl} class="pixel-btn primary">
             GitHub →
           </a>
         </div>

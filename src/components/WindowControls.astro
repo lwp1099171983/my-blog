@@ -1,0 +1,44 @@
+---
+interface Props {
+  windowId: string;
+  class?: string;
+}
+
+const { windowId, class: className = '' } = Astro.props;
+
+const controls = [
+  {
+    label: '最小化',
+    glyph: '−',
+    action: `minWindow('${windowId}')`,
+    className: 'minimize',
+  },
+  {
+    label: '最大化',
+    glyph: '□',
+    action: `maxWindow('${windowId}')`,
+    className: 'maximize',
+  },
+  {
+    label: '关闭',
+    glyph: '×',
+    action: `closeWindow('${windowId}')`,
+    className: 'close',
+  },
+];
+---
+
+<div class:list={['titlebar-btns', className]}>
+  {
+    controls.map((control) => (
+      <button
+        class:list={['titlebar-btn', control.className]}
+        type="button"
+        aria-label={control.label}
+        onclick={control.action}
+      >
+        {control.glyph}
+      </button>
+    ))
+  }
+</div>
