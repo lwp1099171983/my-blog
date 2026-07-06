@@ -385,7 +385,7 @@ pnpm dev
 ```bash
 git status --short
 git add public/scripts/window-manager.js
-git commit -m "Implement window manager interactions" -m "Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
+git commit -m "Implement window manager interactions"
 ```
 
 预期：提交成功，提交只包含 `public/scripts/window-manager.js`。

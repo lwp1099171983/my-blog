@@ -1,16 +1,13 @@
 # dependencies
 node_modules/
 
+# generated caches
+__pycache__/
+*.pyc
+
 # build output
 dist/
 .astro/
-
-# 忽略插件缓存
-.claude/plugins/*/cache/
-.claude/plugins/*/node_modules/
-
-# 但保留插件定义（让团队共享）
-!.claude/plugins/*/plugin.json
 
 # environment
 .env
@@ -19,4 +16,3 @@ dist/
 
 # system
 .DS_Store
-.claude/worktrees/
