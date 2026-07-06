@@ -10,19 +10,23 @@ const icons = [
 ---
 
 <nav class="desktop-icons" aria-label="桌面导航">
-  {icons.map((item) => (
-    <a
-      class="desktop-icon"
-      href={item.href}
-      aria-label={`打开${item.label}窗口`}
-    >
-      <span class="icon-sprite" aria-hidden="true">{item.icon}</span>
-      <span class="icon-label">{item.label}</span>
-    </a>
-  ))}
+  {
+    icons.map((item) => (
+      <a
+        class="desktop-icon"
+        href={item.href}
+        aria-label={`打开${item.label}窗口`}
+      >
+        <span class="icon-sprite" aria-hidden="true">
+          {item.icon}
+        </span>
+        <span class="icon-label">{item.label}</span>
+      </a>
+    ))
+  }
 
-  <div class="hit-counter" aria-label="访客计数器">
+  <!-- <div class="hit-counter" aria-label="访客计数器">
     访客<br />
     <span class="digits" id="hitCount">001337</span>
-  </div>
+  </div> -->
 </nav>

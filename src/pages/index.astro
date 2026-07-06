@@ -3,7 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Window from '../components/Window.astro';
 import PostCard from '../components/PostCard.astro';
 import { getPublishedPosts, getUniqueTags, getPostsByYear } from '../lib/utils';
-import { PROFILE, TECH_STACK, SOCIAL_LINKS, PORTFOLIO_ITEMS } from '../lib/config';
+import {
+  PROFILE,
+  TECH_STACK,
+  SOCIAL_LINKS,
+  PORTFOLIO_ITEMS,
+} from '../lib/config';
 
 const posts = await getPublishedPosts();
 const tags = await getUniqueTags();
@@ -13,12 +18,39 @@ const recentPosts = posts.slice(0, 5);
 ---
 
 <BaseLayout>
-
-  <Window id="intro" title="简介" icon="🏠" x={152} y={40} width={520} height={430} active>
-    <div class="w-28 h-28 pixelated border border-[var(--win-border)] bg-[var(--titlebar-bg)] float-left mr-[18px] mb-3" title="像素头像"></div>
+  <Window
+    id="intro"
+    title="简介"
+    icon="🏠"
+    x={152}
+    y={40}
+    width={520}
+    height={430}
+    active
+  >
+    <div
+      class="w-28 h-28 pixelated border border-[var(--win-border)] bg-[var(--titlebar-bg)] float-left mr-[18px] mb-3"
+      title="像素头像"
+    >
+      <img
+        src="/avatar.png"
+        alt="像素头像"
+        width="100%"
+        height="100%"
+        loading="lazy"
+        class="pixelated"
+      />
+    </div>
     <h1>{PROFILE.greeting}</h1>
     <p>
-      {PROFILE.bio.map((line) => <>{line}<br /></>)}
+      {
+        PROFILE.bio.map((line) => (
+          <>
+            {line}
+            <br />
+          </>
+        ))
+      }
     </p>
     <p class="text-fs-mono-s text-win-text-muted mt-2">
       {PROFILE.subtext}
@@ -29,22 +61,46 @@ const recentPosts = posts.slice(0, 5);
       {TECH_STACK.join(' · ')}
     </p>
     <div class="flex gap-2 flex-wrap mt-1.5">
-      {SOCIAL_LINKS.map((link) => (
-        <a href={link.href} class="pixel-btn small" target="_blank" rel="noopener">{link.label}</a>
-      ))}
+      {
+        SOCIAL_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="pixel-btn small"
+            target="_blank"
+            rel="noopener"
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </div>
   </Window>
 
-  <Window id="posts" title="文章" icon="📝" x={710} y={56} width={560} height={500}>
+  <Window
+    id="posts"
+    title="文章"
+    icon="📝"
+    x={710}
+    y={56}
+    width={560}
+    height={500}
+  >
     <div class="flex justify-between items-center mb-2.5">
       <h2 class="m-0">📰 最近文章</h2>
-      <a href="/rss.xml" class="pixel-btn small" title="RSS 订阅" aria-label="RSS 订阅">📡 RSS</a>
+      <a
+        href="/rss.xml"
+        class="pixel-btn small"
+        title="RSS 订阅"
+        aria-label="RSS 订阅">📡 RSS</a
+      >
     </div>
     {
       recentPosts.length > 0 ? (
         recentPosts.map((p) => <PostCard post={p} />)
       ) : (
-        <p class="text-win-text-muted text-fs-mono-s">还没有文章，开始写吧 ✍️</p>
+        <p class="text-win-text-muted text-fs-mono-s">
+          还没有文章，开始写吧 ✍️
+        </p>
       )
     }
     <div class="text-right mt-2">
@@ -52,13 +108,24 @@ const recentPosts = posts.slice(0, 5);
     </div>
   </Window>
 
-  <Window id="tags" title="标签" icon="🏷️" x={152} y={504} width={390} height={300} hidden>
+  <Window
+    id="tags"
+    title="标签"
+    icon="🏷️"
+    x={152}
+    y={504}
+    width={390}
+    height={300}
+    hidden
+  >
     <h2>🏷️ 标签</h2>
     <div class="flex flex-wrap gap-2">
       {
         tags.length > 0 ? (
           tags.map(({ tag, count }) => (
-            <a href={`/tags/${tag}`} class="pixel-tag">{tag} ({count})</a>
+            <a href={`/tags/${tag}`} class="pixel-tag">
+              {tag} ({count})
+            </a>
           ))
         ) : (
           <span class="pixel-tag">暂无标签</span>
@@ -67,16 +134,28 @@ const recentPosts = posts.slice(0, 5);
     </div>
   </Window>
 
-  <Window id="archive" title="归档" icon="📦" x={574} y={588} width={450} height={340} hidden>
+  <Window
+    id="archive"
+    title="归档"
+    icon="📦"
+    x={574}
+    y={588}
+    width={450}
+    height={340}
+    hidden
+  >
     <h2>📦 归档</h2>
     {
       archive.length > 0 ? (
         archive.map(({ year, posts }) => (
           <div>
-            <div class="font-pixel text-fs-small text-link mt-4 mb-2">{year}</div>
+            <div class="font-pixel text-fs-small text-link mt-4 mb-2">
+              {year}
+            </div>
             {posts.map((p) => (
               <div class="py-1.5 border-b-2 border-dotted border-purple-500 text-fs-mono-s">
-                {p.data.date.slice(5)} · <a href={`/posts/${p.data.slug}`}>{p.data.title}</a>
+                {p.data.date.slice(5)} ·{' '}
+                <a href={`/posts/${p.data.slug}`}>{p.data.title}</a>
               </div>
             ))}
           </div>
@@ -87,26 +166,58 @@ const recentPosts = posts.slice(0, 5);
     }
   </Window>
 
-  <Window id="search" title="搜索" icon="🔍" x={1320} y={112} width={460} height={370} hidden>
+  <Window
+    id="search"
+    title="搜索"
+    icon="🔍"
+    x={1320}
+    y={112}
+    width={460}
+    height={370}
+    hidden
+  >
     <h2>🔍 搜索文章</h2>
     <form action="/search" method="get" class="contents">
-      <input class="pixel-input" type="search" name="q" placeholder="输入关键词..." aria-label="搜索关键词" />
+      <input
+        class="pixel-input"
+        type="search"
+        name="q"
+        placeholder="输入关键词..."
+        aria-label="搜索关键词"
+      />
       <button type="submit" class="pixel-btn small mt-1.5">搜索</button>
     </form>
     <div class="mt-2.5">
-      <p class="text-win-text-muted text-fs-mono-s">输入标题、标签或分类进行搜索...</p>
+      <p class="text-win-text-muted text-fs-mono-s">
+        输入标题、标签或分类进行搜索...
+      </p>
     </div>
   </Window>
 
-  <Window id="portfolio" title="作品" icon="📁" x={1320} y={144} width={500} height={350} hidden>
+  <Window
+    id="portfolio"
+    title="作品"
+    icon="📁"
+    x={1320}
+    y={144}
+    width={500}
+    height={350}
+    hidden
+  >
     <h2>📁 作品集</h2>
-    {PORTFOLIO_ITEMS.map((item) => (
-      <div class="pixel-card">
-        <h3>{item.name}</h3>
-        <p class="text-fs-mono-s">{item.description} · {item.techStack.join(', ')}</p>
-        <a href={item.githubUrl} class="pixel-btn small">GitHub →</a>
-      </div>
-    ))}
+    {
+      PORTFOLIO_ITEMS.map((item) => (
+        <div class="pixel-card">
+          <h3>{item.name}</h3>
+          <p class="text-fs-mono-s">
+            {item.description} · {item.techStack.join(', ')}
+          </p>
+          <a href={item.githubUrl} class="pixel-btn small">
+            GitHub →
+          </a>
+        </div>
+      ))
+    }
     <p class="font-pixel text-fs-xs text-win-text-muted text-center mt-2">
       🚧 更多项目整理中...
     </p>
