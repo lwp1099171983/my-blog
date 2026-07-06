@@ -109,6 +109,7 @@
     --fs-h3: var(--text-fs-h3);
     --fs-small: var(--text-fs-small);
     --fs-mono-s: var(--text-fs-mono-s);
+    --fs-xs: var(--text-fs-xs);
 
     --border-window: var(--border-width-window);
     --border-ui: var(--border-width-ui);

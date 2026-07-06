@@ -47,19 +47,19 @@ export const TECH_STACK = ['TypeScript', 'React', 'Vue', 'Node.js', 'Python'];
 
 /** 社交链接（模板用） */
 export const SOCIAL_LINKS: SocialLink[] = [
-  {
-    platform: 'GitHub',
-    label: '🐙 GitHub',
-    href: 'https://github.com/nstarlin',
-    icon: 'github',
-  },
-  { platform: 'Twitter', label: '🐦 推特', href: '#', icon: 'twitter' },
-  {
-    platform: 'Email',
-    label: '📧 邮箱',
-    href: 'mailto:hi@starlin.dev',
-    icon: 'email',
-  },
+  // {
+  //   platform: 'GitHub',
+  //   label: '🐙 GitHub',
+  //   href: 'https://github.com/nstarlin',
+  //   icon: 'github',
+  // },
+  // { platform: 'Twitter', label: '🐦 推特', href: '#', icon: 'twitter' },
+  // {
+  //   platform: 'Email',
+  //   label: '📧 邮箱',
+  //   href: 'mailto:hi@starlin.dev',
+  //   icon: 'email',
+  // },
 ];
 
 /** 作品集 */
