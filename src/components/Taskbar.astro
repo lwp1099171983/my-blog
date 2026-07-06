@@ -1,14 +1,9 @@
 ---
-const tabs = [
-  { id: 'intro', icon: '🏠', label: '简介', active: true },
-  { id: 'posts', icon: '📝', label: '文章', active: false },
-  { id: 'tags', icon: '🏷️', label: '标签', active: false },
-  { id: 'archive', icon: '📦', label: '归档', active: false },
-];
+import Win98Button from './Win98Button.astro';
 ---
 
 <div class="taskbar">
-  <button
+  <Win98Button
     class="taskbar-start"
     type="button"
     onclick="window.location.href='/'"
@@ -16,7 +11,7 @@ const tabs = [
   >
     <span class="start-icon" aria-hidden="true">⭐</span>
     首页
-  </button>
+  </Win98Button>
 
   <div class="taskbar-tabs" id="taskbarTabs"></div>
 

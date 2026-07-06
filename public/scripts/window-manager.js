@@ -62,8 +62,10 @@
       var iconText = icon ? icon.textContent.trim() : '';
 
       var btn = document.createElement('button');
-      btn.className = 'taskbar-tab' + (id === activeId ? ' active' : '');
+      btn.className =
+        'win98-btn taskbar-tab' + (id === activeId ? ' active' : '');
       btn.type = 'button';
+      btn.setAttribute('aria-pressed', id === activeId ? 'true' : 'false');
       btn.textContent = (iconText ? iconText + ' ' : '') + label;
       btn.onclick = function () {
         window.focusWindow(id);
@@ -84,6 +86,7 @@
     var tabs = container.querySelectorAll('.taskbar-tab');
     tabs.forEach(function (tab) {
       tab.classList.remove('active');
+      tab.setAttribute('aria-pressed', 'false');
     });
 
     if (activeId) {
@@ -96,6 +99,7 @@
           tab.onclick.toString().indexOf("'" + activeId + "'") !== -1
         ) {
           tab.classList.add('active');
+          tab.setAttribute('aria-pressed', 'true');
           matched = true;
         }
       });

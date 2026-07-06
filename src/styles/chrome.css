@@ -162,14 +162,9 @@ body::after {
   z-index: 9998;
 }
 
-.taskbar-start {
-  display: flex; align-items: center; gap: 8px;
+.taskbar .taskbar-start {
+  gap: 8px;
   padding: 6px 16px; height: 42px;
-  background: var(--c-win98-silver);
-  border: var(--border-ui) solid;
-  border-color: var(--os-border-raised);
-  font-family: var(--font-pixel); font-size: var(--fs-small);
-  cursor: pointer; color: #000;
   white-space: nowrap;
 }
 .taskbar-start .start-icon { font-size: 24px; }
@@ -178,16 +173,14 @@ body::after {
   flex: 1; display: flex; gap: 4px; overflow-x: auto;
 }
 
-.taskbar-tab {
+.taskbar .taskbar-tab {
   padding: 6px 18px; height: 42px; min-width: 150px;
   background: linear-gradient(90deg, #D4D0C8, var(--c-win98-silver));
-  border: var(--border-ui) solid;
-  border-color: var(--os-border-raised);
   font-family: var(--font-mono); font-size: var(--fs-mono-s);
-  cursor: pointer; color: #000;
   white-space: nowrap; text-align: left;
+  justify-content: flex-start;
 }
-.taskbar-tab.active {
+.taskbar .taskbar-tab.active {
   background: var(--c-win98-silver);
   color: #000;
   border-color: var(--os-border-inset);
