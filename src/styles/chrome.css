@@ -44,7 +44,15 @@ body::after {
   width: 64px; height: 64px;
   image-rendering: pixelated; image-rendering: crisp-edges;
   display: grid; place-items: center;
-  font-size: 42px; color: #FFFFFF;
+}
+
+.desktop-icon .icon-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 .desktop-icon .icon-label {

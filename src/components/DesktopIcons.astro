@@ -1,12 +1,30 @@
 ---
-const icons = [
-  { id: 'intro', icon: '🏠', label: '简介', href: '/#intro' },
-  { id: 'posts', icon: '📝', label: '文章', href: '/#posts' },
-  { id: 'tags', icon: '🏷️', label: '标签', href: '/#tags' },
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
+
+const baseIcons = [
+  { id: 'intro', label: '简介', href: '/#intro' },
+  { id: 'posts', label: '文章', href: '/#posts' },
+  { id: 'tags', label: '标签', href: '/#tags' },
   // { id: 'archive', icon: '📦', label: '归档', href: '/#archive' },
   // { id: 'search', icon: '🔍', label: '搜索', href: '/#search' },
   // { id: 'portfolio', icon: '📁', label: '作品', href: '/#portfolio' },
 ];
+
+const desktopImages = readdirSync(join(process.cwd(), 'public', 'desktop'))
+  .filter((file) => /\.(png|jpe?g|webp|gif|avif)$/i.test(file))
+  .map((file) => `/desktop/${file}`);
+
+const shuffledImages = [...desktopImages];
+for (let i = shuffledImages.length - 1; i > 0; i -= 1) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [shuffledImages[i], shuffledImages[j]] = [shuffledImages[j], shuffledImages[i]];
+}
+
+const icons = baseIcons.map((item, index) => ({
+  ...item,
+  image: shuffledImages[index],
+}));
 ---
 
 <nav class="desktop-icons" aria-label="桌面导航">
@@ -18,7 +36,9 @@ const icons = [
         aria-label={`打开${item.label}窗口`}
       >
         <span class="icon-sprite" aria-hidden="true">
-          {item.icon}
+          {item.image && (
+            <img class="icon-image" src={item.image} alt="" loading="eager" />
+          )}
         </span>
         <span class="icon-label">{item.label}</span>
       </a>
