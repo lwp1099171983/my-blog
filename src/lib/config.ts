@@ -4,7 +4,7 @@ export const SITE: SiteConfig = {
   name: 'starlin的自由角落',
   shortName: 'starlin',
   description: 'starlin 的个人技术博客，记录技术笔记、项目心得',
-  origin: 'https://starlin.dev',
+  origin: 'https://blog.iboluo.top',
   lang: 'zh-CN',
   defaultOGImage: '/default-og.png',
   author: 'starlin',
