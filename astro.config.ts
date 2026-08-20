@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://blog.iboluo.top',
+  site: 'https://iboluo.top',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
