@@ -161,6 +161,29 @@ body::after {
 }
 
 /* === 任务栏 === */
+.site-footer {
+  position: fixed;
+  right: 8px;
+  bottom: calc(var(--taskbar-h) + 6px);
+  z-index: 9997;
+  padding: 4px 8px;
+  background: rgba(212, 208, 200, 0.9);
+  border: var(--border-ui) solid var(--os-border-raised);
+  box-shadow: inset -1px -1px var(--os-shadow), inset 1px 1px var(--os-highlight);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono-s);
+}
+
+.site-footer a {
+  color: #000080;
+  text-decoration: underline;
+}
+
+.site-footer a:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: 2px;
+}
+
 .taskbar {
   position: fixed; bottom: 0; left: 0; right: 0; height: var(--taskbar-h);
   background: var(--c-win98-silver);
@@ -207,6 +230,13 @@ body::after {
 
 /* === 响应式 — 移动端适配 === */
 @media (max-width: 768px) {
+  .site-footer {
+    right: 4px;
+    bottom: calc(var(--taskbar-h) + 4px);
+    padding: 3px 6px;
+    font-size: 0.45rem;
+  }
+
   .desktop-icons {
     flex-direction: row; top: auto; bottom: calc(var(--taskbar-h) + 8px); left: 8px; right: 8px;
     gap: 8px; overflow-x: auto; justify-content: flex-start;
