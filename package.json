@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "sync:kb": "node scripts/sync-kb.mjs"
+    "sync:kb": "node scripts/sync-kb.mjs",
+    "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
