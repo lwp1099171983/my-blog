@@ -79,6 +79,15 @@ describe.skipIf(!hasKb)('同步产物契约', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('标题不带目录序号前缀（`01-职测 · 答案库` 这类冗余）', () => {
+    const offenders: string[] = [];
+    for (const [id, raw] of bodies) {
+      const title = raw.match(/^title:\s*"?(.*?)"?\s*$/m)?.[1] ?? '';
+      if (/^\d{1,2}-/.test(title)) offenders.push(`${id} → ${title}`);
+    }
+    expect(offenders).toEqual([]);
+  });
+
   it('.sync-meta.json 的统计与实际文件一致', () => {
     if (!existsSync(META)) return; // 该文件已 gitignore，缺失时跳过
     const meta = JSON.parse(readFileSync(META, 'utf8')) as {
