@@ -66,33 +66,59 @@
 .kb-note-src:hover { text-decoration: underline; }
 .kb-note-actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 4px; }
 
-/* 知识地图树 */
+/* 知识地图树
+   行文字只有一个字号（--kb-tree-fs = --fs-body），文件夹名与笔记名同档，
+   与站内其他"内容行"（分面浏览标题、反向链接列表）对齐；
+   层级靠缩进和颜色区分，不靠字号大小（曾经文件夹 13px / 叶子隐式继承 body 16px，
+   同一层里两种大小）。文件夹的 caret 占一格装订线，叶子留等宽空位，同层左边缘对齐。 */
 .kb-tree-panel { display: flex; flex-direction: column; min-height: 0; }
 .kb-tree-toolbar { display: flex; gap: 8px; align-items: center; margin: 6px 0 10px; }
-.kb-tree-filter { flex: 1; min-width: 0; }
+.kb-tree-filter {
+  flex: 1; min-width: 0;
+  line-height: 1.5; /* 3+3 padding + 4 border + 24 = 34px，与 pixel-btn 等高 */
+  padding: 3px 8px;
+  background: var(--input-bg);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-inset);
+  font-family: var(--font-mono);
+  font-size: var(--fs-body);
+  color: var(--input-text);
+}
+.kb-tree-filter:focus { outline: 2px solid var(--focus-ring); outline-offset: -2px; }
 .kb-tree-scroll { overflow: auto; max-height: 430px; padding-right: 4px; }
 .kb-tree-empty { color: var(--win-text-muted); font-size: var(--fs-small); margin: 8px 0; }
 
-.kb-tree { list-style: none; margin: 6px 0; padding-left: 16px; }
+.kb-tree {
+  --kb-tree-gutter: 18px; /* caret 12px + gap 6px，叶子按同宽留白 */
+  --kb-tree-fs: var(--fs-body); /* 想整体放大/缩小整棵树，只改这一行 */
+  list-style: none; margin: 4px 0; padding-left: 16px;
+}
 .kb-tree-d0 { padding-left: 0; }
 .kb-tree [hidden] { display: none; }
-.kb-tree li { margin: 3px 0; }
+.kb-tree li { margin: 2px 0; }
 .kb-tree-toggle {
   display: inline-flex; align-items: center; gap: 6px;
-  background: none; border: none; padding: 1px 2px; cursor: pointer;
+  background: none; border: none; padding: 2px 0; cursor: pointer;
+  font-family: var(--font-pixel); font-size: var(--kb-tree-fs); line-height: 1.7;
   color: var(--color-purple-700);
 }
 .kb-tree-toggle:hover { text-decoration: underline; }
-.kb-tree-caret { font-size: var(--fs-xs); line-height: 1; }
+.kb-tree-caret { flex: 0 0 12px; text-align: center; font-size: var(--fs-xs); line-height: 1; }
 .kb-tree-caret::before { content: '▸'; }
 .kb-tree-toggle[aria-expanded='true'] .kb-tree-caret::before { content: '▾'; }
-.kb-tree-folder-label { font-family: var(--font-pixel); font-size: var(--fs-small); }
+.kb-tree-folder-label { font-family: var(--font-pixel); font-size: var(--kb-tree-fs); }
 .kb-tree-count {
-  font-family: var(--font-mono); font-size: var(--fs-xs);
+  flex: 0 0 auto; line-height: 1.7;
+  font-family: var(--font-mono); font-size: var(--fs-small);
   color: var(--win-text-muted);
   border: 1px solid var(--color-purple-500); padding: 0 4px;
 }
-.kb-tree-link { color: var(--link); text-decoration: none; }
+.kb-tree-link {
+  display: inline-block;
+  padding: 2px 0 2px var(--kb-tree-gutter);
+  font-family: var(--font-pixel); font-size: var(--kb-tree-fs); line-height: 1.7;
+  color: var(--link); text-decoration: none;
+}
 .kb-tree-link:hover { text-decoration: underline; opacity: 0.8; }
 
 /* 模块速览 */
