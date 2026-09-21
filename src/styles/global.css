@@ -37,7 +37,9 @@
   --color-input-text: light-dark(var(--color-ink), var(--color-off-white));
   --color-focus-ring: light-dark(var(--color-purple-900), #FFFFFF);
 
-  --text-fs-xs: 0.625rem;
+  /* 字号阶梯：12 / 13 / 16 / 20 四档 + 标题档。
+     12px 是可读下限——正文字体 Ark Pixel 是 12px 点阵，低于 12px 会糊。 */
+  --text-fs-xs: 0.75rem;
   --text-fs-body: 1rem;
   --text-fs-small: 0.8125rem;
   --text-fs-h1: 2rem;
@@ -150,11 +152,13 @@
   }
   a:hover { opacity: 0.8; }
 
-  /* 移动端排版 */
+  /* 移动端排版：标题按比例收缩，正文保持 16px。
+     注意别再让 body 大于 h1——层级必须始终 h1 > h2 > h3 > body。 */
   @media (max-width: 768px) {
-    h1 { font-size: 0.95rem; }
-    h2 { font-size: 0.8rem; }
-    body { font-size: 1.25rem; }
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.375rem; }
+    h3 { font-size: 1.125rem; }
+    body { font-size: 1rem; }
   }
 }
 

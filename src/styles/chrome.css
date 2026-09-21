@@ -234,7 +234,7 @@ body::after {
     right: 4px;
     bottom: calc(var(--taskbar-h) + 4px);
     padding: 3px 6px;
-    font-size: 0.45rem;
+    font-size: var(--fs-xs);
   }
 
   .desktop-icons {
@@ -243,7 +243,7 @@ body::after {
   }
   .desktop-icon { width: 76px; padding: 6px; gap: 4px; }
   .desktop-icon .icon-sprite { width: 44px; height: 44px; font-size: 28px; }
-  .desktop-icon .icon-label { font-size: 0.45rem; }
+  .desktop-icon .icon-label { font-size: var(--fs-xs); }
   .hit-counter { display: none; }
 
   .window {
@@ -258,8 +258,8 @@ body::after {
   .window-body { max-height: 56vh; }
 
   .taskbar-tabs { display: none; }
-  .taskbar-start { font-size: 0.5rem; padding: 6px 10px; }
-  .taskbar-clock { font-size: 0.5rem; padding: 6px 10px; }
+  .taskbar-start { font-size: var(--fs-xs); padding: 6px 10px; }
+  .taskbar-clock { font-size: var(--fs-xs); padding: 6px 10px; }
 }
 
 @media (max-width: 375px) {

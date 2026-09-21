@@ -1,13 +1,15 @@
-/* ===== 考公知识库（Win98 风格）专属样式 ===== */
+/* ===== 考公知识库（Win98 风格）专属样式 =====
+   字号只用站点既有四档 token：--fs-xs(12) / --fs-small(13) / --fs-body(16) / --fs-mono-s(20)。
+   不要再写 0.66rem 这类自由值——低于 12px 会在点阵字体上糊成一团。 */
 
 /* 笔记正文排版 */
 .kb-md {
-  font-size: 1rem;
+  font-size: var(--fs-body);
   line-height: 1.7;
 }
-.kb-md h1 { font-size: 1.6rem; margin: 18px 0 12px; }
-.kb-md h2 { font-size: 1.3rem; margin: 16px 0 10px; border-bottom: 2px dashed var(--color-purple-500); padding-bottom: 4px; }
-.kb-md h3 { font-size: 1.1rem; margin: 14px 0 8px; }
+.kb-md h1 { font-size: 1.75rem; margin: 18px 0 12px; }
+.kb-md h2 { font-size: 1.375rem; margin: 16px 0 10px; border-bottom: 2px dashed var(--color-purple-500); padding-bottom: 4px; }
+.kb-md h3 { font-size: 1.125rem; margin: 14px 0 8px; }
 .kb-md p { margin: 8px 0; }
 .kb-md ul, .kb-md ol { margin: 8px 0; padding-left: 22px; }
 .kb-md li { margin: 4px 0; }
@@ -19,11 +21,13 @@
   border: 2px solid var(--color-purple-500);
 }
 .kb-md pre {
+  /* 背景由 Shiki 的行内样式给出（github-light，见 astro.config.ts）；
+     这里保留一份兜底，用于非 Shiki 渲染的 pre */
   background: var(--color-purple-100);
   border: 2px solid var(--color-purple-500);
   padding: 10px;
   overflow-x: auto;
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
 }
 .kb-md pre code { border: none; background: none; padding: 0; }
 .kb-md blockquote {
@@ -36,7 +40,7 @@
   border-collapse: collapse;
   margin: 10px 0;
   width: 100%;
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
 }
 .kb-md th, .kb-md td {
   border: 2px solid var(--color-purple-500);
@@ -46,15 +50,15 @@
 .kb-md th { background: var(--color-purple-200); }
 .kb-md img { max-width: 100%; height: auto; }
 
-/* 面包屑 */
-.kb-crumb { margin-bottom: 10px; }
+/* 面包屑：弱于标题、与元数据同级 */
+.kb-crumb { margin-bottom: 10px; font-size: var(--fs-small); }
 .kb-crumb a { color: var(--link); }
 
 /* 笔记元数据行（模块 · 类型 · 来源） */
 .kb-note-meta {
   margin: 2px 0 10px;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-small);
   color: var(--win-text-muted);
 }
 .kb-note-sep { opacity: 0.55; }
@@ -67,7 +71,7 @@
 .kb-tree-toolbar { display: flex; gap: 8px; align-items: center; margin: 6px 0 10px; }
 .kb-tree-filter { flex: 1; min-width: 0; }
 .kb-tree-scroll { overflow: auto; max-height: 430px; padding-right: 4px; }
-.kb-tree-empty { color: var(--win-text-muted); font-size: 0.8rem; margin: 8px 0; }
+.kb-tree-empty { color: var(--win-text-muted); font-size: var(--fs-small); margin: 8px 0; }
 
 .kb-tree { list-style: none; margin: 6px 0; padding-left: 16px; }
 .kb-tree-d0 { padding-left: 0; }
@@ -79,12 +83,12 @@
   color: var(--color-purple-700);
 }
 .kb-tree-toggle:hover { text-decoration: underline; }
-.kb-tree-caret { font-size: 0.7rem; line-height: 1; }
+.kb-tree-caret { font-size: var(--fs-xs); line-height: 1; }
 .kb-tree-caret::before { content: '▸'; }
 .kb-tree-toggle[aria-expanded='true'] .kb-tree-caret::before { content: '▾'; }
-.kb-tree-folder-label { font-family: var(--font-pixel); font-size: 0.78rem; }
+.kb-tree-folder-label { font-family: var(--font-pixel); font-size: var(--fs-small); }
 .kb-tree-count {
-  font-family: var(--font-mono); font-size: 0.66rem;
+  font-family: var(--font-mono); font-size: var(--fs-xs);
   color: var(--win-text-muted);
   border: 1px solid var(--color-purple-500); padding: 0 4px;
 }
@@ -99,18 +103,18 @@
   padding: 5px 4px; text-decoration: none; color: inherit;
 }
 .kb-module-link:hover { background: var(--color-purple-100); }
-.kb-module-name { font-family: var(--font-pixel); font-size: 0.8rem; }
+.kb-module-name { font-family: var(--font-pixel); font-size: var(--fs-small); }
 
 /* 类型分布 chips */
 .kb-chips { list-style: none; padding: 0; margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .kb-chip {
   display: inline-flex; align-items: center; gap: 5px;
-  font-family: var(--font-mono); font-size: 0.72rem;
+  font-family: var(--font-mono); font-size: var(--fs-small);
   padding: 2px 8px; text-decoration: none; color: var(--color-ink);
   border: 2px solid var(--color-purple-500);
 }
 .kb-chip:hover { background: var(--color-purple-100); }
-.kb-chip-n { opacity: 0.6; font-size: 0.68rem; }
+.kb-chip-n { opacity: 0.6; font-size: var(--fs-xs); }
 
 /* 反向链接 */
 .kb-backlinks { list-style: none; padding: 0; margin: 6px 0; }
@@ -121,9 +125,9 @@
 /* 检索结果 */
 .kb-results { margin-top: 10px; max-height: 420px; overflow-y: auto; }
 .kb-result { padding: 8px 0; border-bottom: 2px dotted var(--color-purple-500); }
-.kb-result-title { color: var(--link); text-decoration: none; font-size: 1.05rem; }
+.kb-result-title { color: var(--link); text-decoration: none; font-size: var(--fs-body); }
 .kb-result-title:hover { text-decoration: underline; }
-.kb-result-snip { margin-top: 3px; font-size: 0.85rem; }
+.kb-result-snip { margin-top: 3px; font-size: var(--fs-small); }
 
 /* 图谱画布 */
 .kb-graph-canvas {
@@ -146,7 +150,7 @@
 }
 .kb-browse-q { flex: 1 1 220px; min-width: 0; }
 .kb-browse-count {
-  font-family: var(--font-mono); font-size: 0.75rem;
+  font-family: var(--font-mono); font-size: var(--fs-small);
   color: var(--win-text-muted);
 }
 
@@ -154,7 +158,7 @@
 
 .kb-facets section { margin-bottom: 14px; }
 .kb-facets h3 {
-  margin: 0 0 6px; font-family: var(--font-pixel); font-size: 0.78rem;
+  margin: 0 0 6px; font-family: var(--font-pixel); font-size: var(--fs-small);
   color: var(--color-purple-700);
 }
 .kb-facets ul {
@@ -164,7 +168,7 @@
 .kb-facets li { max-width: 100%; }
 .kb-facet {
   display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
-  font-family: var(--font-mono); font-size: 0.74rem;
+  font-family: var(--font-mono); font-size: var(--fs-small);
   padding: 2px 7px; max-width: 100%;
   border: 2px solid var(--color-purple-500);
   background: transparent; color: var(--color-ink);
@@ -172,7 +176,7 @@
 .kb-facet:hover { background: var(--color-purple-100); }
 .kb-facet.is-on { background: var(--color-purple-700); color: #fff; }
 .kb-facet-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.kb-facet-n { opacity: 0.65; font-size: 0.67rem; }
+.kb-facet-n { opacity: 0.65; font-size: var(--fs-xs); }
 
 .kb-browse-list {
   list-style: none; padding: 0; margin: 0;
@@ -182,13 +186,13 @@
 .kb-browse-list li[hidden] { display: none; }
 .kb-browse-link { display: block; padding: 7px 4px; text-decoration: none; color: var(--link); }
 .kb-browse-link:hover { background: var(--color-purple-100); }
-.kb-browse-title { display: block; font-size: 0.95rem; }
+.kb-browse-title { display: block; font-size: var(--fs-body); }
 .kb-browse-meta {
   display: block; margin-top: 2px;
-  font-family: var(--font-mono); font-size: 0.7rem;
+  font-family: var(--font-mono); font-size: var(--fs-xs);
   color: var(--win-text-muted);
 }
-.kb-browse-empty { color: var(--win-text-muted); font-size: 0.85rem; margin: 10px 0; }
+.kb-browse-empty { color: var(--win-text-muted); font-size: var(--fs-small); margin: 10px 0; }
 
 @media (max-width: 720px) {
   .kb-browse-grid { grid-template-columns: minmax(0, 1fr); }
