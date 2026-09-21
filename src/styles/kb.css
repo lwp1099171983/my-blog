@@ -88,6 +88,11 @@
 .kb-tree-scroll { overflow: auto; max-height: 430px; padding-right: 4px; }
 .kb-tree-empty { color: var(--win-text-muted); font-size: var(--fs-small); margin: 8px 0; }
 
+/* 窗口可缩放：让树吃掉多余高度，而不是把窗口拉高后底下空一片 */
+.window-body.kb-fill { display: flex; flex-direction: column; min-height: 0; }
+.window-body.kb-fill > .kb-tree-panel { flex: 1 1 auto; min-height: 0; }
+.window-body.kb-fill .kb-tree-scroll { flex: 1 1 auto; min-height: 120px; max-height: none; }
+
 .kb-tree {
   --kb-tree-gutter: 18px; /* caret 12px + gap 6px，叶子按同宽留白 */
   --kb-tree-fs: var(--fs-body); /* 想整体放大/缩小整棵树，只改这一行 */
