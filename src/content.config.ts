@@ -33,7 +33,7 @@ const posts = defineCollection({
     }),
 });
 
-// 考公/考编制知识库：同步自 ~/Documents/Codex/考公/知识库（见 scripts/sync-kb.mjs）
+// 考编知识库：同步自 ~/Documents/Codex/考公/知识库（源库目录名仍叫「考公」，见 scripts/sync-kb.mjs）
 const kb = defineCollection({
   loader: glob({
     pattern: '**/*.md',

@@ -38,7 +38,7 @@ breadcrumb[breadcrumb.length - 1] = title;
 const crumbTrail = metaSegments(meta.subjectLabel, meta.moduleLabel, meta.type);
 ---
 
-<BaseLayout title={`${title} | 考公知识库`} description={`${moduleName} · ${title}`}>
+<BaseLayout title={`${title} | 考编知识库`} description={`${moduleName} · ${title}`}>
   <Window
     id="kb-note"
     title={`笔记 - ${title}`}
@@ -52,7 +52,7 @@ const crumbTrail = metaSegments(meta.subjectLabel, meta.moduleLabel, meta.type);
   >
     <article class="kb-md">
       <nav class="kb-crumb text-win-text-muted">
-        <a href="/kb">知识库</a>
+        <a href="/kb">考编知识库</a>
         {
           breadcrumb.map((b, i) => (
             <span> / {i === breadcrumb.length - 1 ? <strong>{b}</strong> : b}</span>

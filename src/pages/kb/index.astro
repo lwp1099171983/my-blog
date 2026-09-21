@@ -21,10 +21,10 @@ const { Content: MocContent } = mocEntry ? await render(mocEntry) : { Content: n
 const { Content: RefContent } = refEntry ? await render(refEntry) : { Content: null };
 ---
 
-<BaseLayout title="考公知识库 | starlin的自由角落" description="考公/考编制备考知识库：职测、公基、结构化面试、综应">
+<BaseLayout title="考编知识库 | starlin的自由角落" description="考编知识库：职测、公基、结构化面试、综应等考试笔记">
   <Window
     id="kb-home"
-    title="考公知识库"
+    title="考编知识库"
     icon="📚"
     x={120}
     y={40}
@@ -32,7 +32,7 @@ const { Content: RefContent } = refEntry ? await render(refEntry) : { Content: n
     height={440}
     active
   >
-    <h1>📚 考公 / 考编制知识库</h1>
+    <h1>📚 考编知识库</h1>
     <p class="text-fs-mono-s text-win-text-muted">
       共 {entries.length} 篇笔记 · {bySubject.length} 个模块 · {sourceCount} 个来源。支持分面筛选、双向链接、反向链接、关系图谱与全文检索。
     </p>
