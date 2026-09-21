@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "sync:kb": "node scripts/sync-kb.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",

@@ -16,3 +16,9 @@ dist/
 
 # system
 .DS_Store
+
+# 知识库同步产物报告（含时间戳，每次 sync 都会变）
+src/content/kb/.sync-meta.json
+
+# 本地 agent 工作数据（记忆/会话），不入库
+.workbuddy/
