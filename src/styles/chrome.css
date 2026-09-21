@@ -93,6 +93,41 @@ body::after {
   width: auto !important; height: auto !important;
 }
 
+/* === 窗口缩放把手 ===
+   四边 + 四角共 8 个透明热区；右下角那块同时是 Win98 的点状抓手。
+   边缘热区贴在框内，避免压到相邻窗口的点击。 */
+.window-resize { position: absolute; z-index: 5; }
+
+.window-resize[data-resize='n'],
+.window-resize[data-resize='s'] { left: 6px; right: 6px; height: 5px; cursor: ns-resize; }
+.window-resize[data-resize='n'] { top: 0; }
+.window-resize[data-resize='s'] { bottom: 0; }
+
+.window-resize[data-resize='w'],
+.window-resize[data-resize='e'] { top: 6px; bottom: 6px; width: 5px; cursor: ew-resize; }
+.window-resize[data-resize='w'] { left: 0; }
+.window-resize[data-resize='e'] { right: 0; }
+
+.window-resize[data-resize='nw'],
+.window-resize[data-resize='ne'],
+.window-resize[data-resize='sw'],
+.window-resize[data-resize='se'] { width: 14px; height: 14px; }
+.window-resize[data-resize='nw'] { top: 0; left: 0; cursor: nwse-resize; }
+.window-resize[data-resize='ne'] { top: 0; right: 0; cursor: nesw-resize; }
+.window-resize[data-resize='sw'] { bottom: 0; left: 0; cursor: nesw-resize; }
+.window-resize[data-resize='se'] {
+  right: 0; bottom: 0; width: 16px; height: 16px; cursor: nwse-resize;
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--os-shadow) 0 1px,
+    transparent 1px 3px
+  );
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* 最大化时贴着视口边，缩放没有意义 */
+.window.maximized .window-resize { display: none; }
+
 /* === 标题栏 === */
 .titlebar {
   background: var(--titlebar-bg);
@@ -256,6 +291,8 @@ body::after {
     left: 0 !important; right: 0 !important; bottom: var(--taskbar-h) !important;
   }
   .window-body { max-height: 56vh; }
+  /* 窄屏窗口是文档流里的整宽卡片，拖拽与缩放都关闭 */
+  .window-resize { display: none; }
 
   .taskbar-tabs { display: none; }
   .taskbar-start { font-size: var(--fs-xs); padding: 6px 10px; }

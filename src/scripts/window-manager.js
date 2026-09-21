@@ -1,3 +1,9 @@
+import {
+  clampPosition,
+  resizeRect,
+  visibleBounds,
+} from '../lib/window-geometry';
+
 (function () {
   var MOBILE_QUERY = '(max-width: 768px)';
   var REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
@@ -5,6 +11,7 @@
   var MIN_VISIBLE_TITLEBAR = 48;
 
   var dragState = null;
+  var resizeState = null;
 
   function getWindow(id) {
     return document.getElementById('win-' + id);
@@ -24,6 +31,42 @@
 
   function isVisible(win) {
     return window.getComputedStyle(win).display !== 'none';
+  }
+
+  /** 视口信息（含底部任务栏高度），供几何计算统一取用 */
+  function viewportInfo() {
+    var taskbar = document.querySelector('.taskbar');
+    return {
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight,
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+      reservedBottom: taskbar ? taskbar.offsetHeight : 0,
+      minVisibleWidth: MIN_VISIBLE_WIDTH,
+      minVisibleHeight: MIN_VISIBLE_TITLEBAR,
+    };
+  }
+
+  /** 窗口当前几何，用文档坐标（style.left/top 是唯一真值，别用 rect 混坐标） */
+  function readRect(win) {
+    var left = Number.parseFloat(win.style.left);
+    var top = Number.parseFloat(win.style.top);
+    var rect = win.getBoundingClientRect();
+
+    return {
+      left: Number.isFinite(left) ? left : rect.left + window.scrollX,
+      top: Number.isFinite(top) ? top : rect.top + window.scrollY,
+      width: win.offsetWidth,
+      height: win.offsetHeight,
+    };
+  }
+
+  function minSizeOf(win) {
+    var style = window.getComputedStyle(win);
+    return {
+      minWidth: Number.parseFloat(style.minWidth) || 0,
+      minHeight: Number.parseFloat(style.minHeight) || 0,
+    };
   }
 
   function getNextZIndex() {
@@ -140,18 +183,6 @@
     return Math.min(Math.max(value, min), max);
   }
 
-  function clampWindowPosition(win, left, top) {
-    var maxLeft = window.innerWidth - MIN_VISIBLE_WIDTH;
-    var maxTop = window.innerHeight - MIN_VISIBLE_TITLEBAR;
-    var minLeft = MIN_VISIBLE_WIDTH - win.offsetWidth;
-    var minTop = 0;
-
-    return {
-      left: clamp(left, minLeft, Math.max(minLeft, maxLeft)),
-      top: clamp(top, minTop, Math.max(minTop, maxTop)),
-    };
-  }
-
   function getPoint(event) {
     if (event.touches && event.touches[0]) {
       return event.touches[0];
@@ -179,29 +210,35 @@
 
   function startDrag(event) {
     var win = canStartDrag(event);
-    if (!win) return;
+    if (!win) return false;
 
     var point = getPoint(event);
-    var rect = win.getBoundingClientRect();
+    var rect = readRect(win);
 
     dragState = {
       win: win,
+      // 位移用视口坐标差、落点用文档坐标，两者差值等价，滚动时也不会漂
       offsetX: point.clientX - rect.left,
       offsetY: point.clientY - rect.top,
+      size: { width: rect.width, height: rect.height },
     };
 
     window.focusWindow(getWindowId(win));
     event.preventDefault();
+    return true;
   }
 
   function moveDrag(event) {
     if (!dragState) return;
 
     var point = getPoint(event);
-    var next = clampWindowPosition(
-      dragState.win,
-      point.clientX - dragState.offsetX,
-      point.clientY - dragState.offsetY,
+    var next = clampPosition(
+      {
+        left: point.clientX - dragState.offsetX,
+        top: point.clientY - dragState.offsetY,
+      },
+      dragState.size,
+      viewportInfo(),
     );
 
     dragState.win.style.left = next.left + 'px';
@@ -209,8 +246,88 @@
     event.preventDefault();
   }
 
-  function endDrag() {
+  /* === 缩放：四边 + 四角共 8 个把手，几何计算在 src/lib/window-geometry.ts === */
+
+  function canStartResize(event) {
+    if (isMobileLayout()) return null;
+    if (!event.target.closest) return null;
+
+    var handle = event.target.closest('[data-resize]');
+    if (!handle) return null;
+
+    var win = handle.closest('.window');
+    if (!win || win.classList.contains('maximized') || !isVisible(win)) return null;
+
+    return { win: win, dir: handle.getAttribute('data-resize') };
+  }
+
+  function startResize(event) {
+    var target = canStartResize(event);
+    if (!target) return false;
+
+    var point = getPoint(event);
+    var rect = readRect(target.win);
+    var min = minSizeOf(target.win);
+
+    resizeState = {
+      win: target.win,
+      dir: target.dir,
+      startX: point.clientX,
+      startY: point.clientY,
+      rect: rect,
+      minWidth: min.minWidth,
+      minHeight: min.minHeight,
+    };
+
+    window.focusWindow(getWindowId(target.win));
+    event.preventDefault();
+    return true;
+  }
+
+  function moveResize(event) {
+    if (!resizeState) return;
+
+    var point = getPoint(event);
+    var bounds = visibleBounds(resizeState.rect, viewportInfo());
+    var next = resizeRect(
+      resizeState.rect,
+      resizeState.dir,
+      point.clientX - resizeState.startX,
+      point.clientY - resizeState.startY,
+      {
+        minWidth: resizeState.minWidth,
+        minHeight: resizeState.minHeight,
+        minLeft: bounds.minLeft,
+        minTop: bounds.minTop,
+        maxRight: bounds.maxRight,
+        maxBottom: bounds.maxBottom,
+      },
+    );
+
+    var win = resizeState.win;
+    win.style.left = next.left + 'px';
+    win.style.top = next.top + 'px';
+    win.style.width = next.width + 'px';
+    win.style.height = next.height + 'px';
+    event.preventDefault();
+  }
+
+  function onPointerDown(event) {
+    if (startResize(event)) return;
+    startDrag(event);
+  }
+
+  function onPointerMove(event) {
+    if (resizeState) {
+      moveResize(event);
+      return;
+    }
+    moveDrag(event);
+  }
+
+  function endGesture() {
     dragState = null;
+    resizeState = null;
   }
 
   window.focusWindow = function focusWindow(id) {
@@ -310,15 +427,15 @@
     counter.textContent = '001337';
   }
 
-  document.addEventListener('mousedown', startDrag);
-  document.addEventListener('mousemove', moveDrag);
-  document.addEventListener('mouseup', endDrag);
-  document.addEventListener('mouseleave', endDrag);
+  document.addEventListener('mousedown', onPointerDown);
+  document.addEventListener('mousemove', onPointerMove);
+  document.addEventListener('mouseup', endGesture);
+  document.addEventListener('mouseleave', endGesture);
 
-  document.addEventListener('touchstart', startDrag, { passive: false });
-  document.addEventListener('touchmove', moveDrag, { passive: false });
-  document.addEventListener('touchend', endDrag);
-  document.addEventListener('touchcancel', endDrag);
+  document.addEventListener('touchstart', onPointerDown, { passive: false });
+  document.addEventListener('touchmove', onPointerMove, { passive: false });
+  document.addEventListener('touchend', endGesture);
+  document.addEventListener('touchcancel', endGesture);
 
   document.addEventListener('keydown', function (event) {
     if (event.key !== 'Escape') return;

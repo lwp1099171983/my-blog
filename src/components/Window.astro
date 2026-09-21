@@ -12,6 +12,8 @@ interface Props {
   hidden?: boolean;
   active?: boolean;
   maximized?: boolean;
+  /** 追加到 .window-body 的类名，例如让内容随窗口高度伸缩的 kb-fill */
+  bodyClass?: string;
 }
 
 const {
@@ -25,6 +27,7 @@ const {
   hidden = false,
   active = true,
   maximized = false,
+  bodyClass = '',
 } = Astro.props;
 
 const style = [
@@ -48,7 +51,14 @@ const style = [
     <span class="titlebar-text">{title}</span>
     <WindowControls windowId={id} />
   </div>
-  <div class="window-body">
+  <div class:list={['window-body', bodyClass]}>
     <slot />
   </div>
+  {
+    /* 缩放把手：四边 + 四角。右下角那块同时是 Win98 的点状抓手。
+       纯鼠标/触摸交互，键盘无法操作，故对辅助技术隐藏。 */
+    ['n', 's', 'e', 'w', 'nw', 'ne', 'sw', 'se'].map((dir) => (
+      <div class="window-resize" data-resize={dir} aria-hidden="true" />
+    ))
+  }
 </div>
