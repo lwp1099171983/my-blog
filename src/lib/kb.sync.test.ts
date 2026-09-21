@@ -69,6 +69,16 @@ describe.skipIf(!hasKb)('同步产物契约', () => {
     expect(dangling).toEqual([]);
   });
 
+  it('正文不再重复标题（标题只留在 frontmatter）', () => {
+    const offenders: string[] = [];
+    for (const [id, raw] of bodies) {
+      const body = raw.replace(/^---\n[\s\S]*?\n---\n/, '');
+      const first = body.split('\n').find((l) => l.trim() !== '') ?? '';
+      if (/^#\s+/.test(first)) offenders.push(id);
+    }
+    expect(offenders).toEqual([]);
+  });
+
   it('.sync-meta.json 的统计与实际文件一致', () => {
     if (!existsSync(META)) return; // 该文件已 gitignore，缺失时跳过
     const meta = JSON.parse(readFileSync(META, 'utf8')) as {

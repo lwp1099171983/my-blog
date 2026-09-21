@@ -57,15 +57,31 @@ function sanitizeRelPath(rel) {
 /** 去掉章节序号前缀：第17章-计算与比较 → 计算与比较 */
 function stripPrefix(name) {
   return name
-    .replace(/^第[0-9一二三四五六七八九十百千]+[章节篇节课题讲]\s*[-－:：]?\s*/, '')
+    .replace(/^第[0-9零一二三四五六七八九十百千两]+[章节篇节课题讲]\s*[-－:：]?\s*/, '')
     .trim();
 }
 function normName(name) {
-  return stripPrefix(name.replace(/\.md$/, '')).replace(/\s+/g, ' ').trim();
+  return stripPrefix(name.replace(/\.md$/, ''))
+    .replace(/\s+/g, ' ')
+    .trim()
+    .normalize('NFC');
 }
 function extractTitle(body) {
-  const m = body.match(/^#\s+(.+?)\s*#*\s*$/m);
+  const m = body
+    .replace(/```[\s\S]*?```/g, ' ') // 跳过代码块内的伪标题
+    .match(/^#\s+(.+?)\s*#*\s*$/m);
   return m && m[1].trim() ? m[1].trim() : '';
+}
+
+/**
+ * 剥掉正文开头的首个 H1：它已经提进 frontmatter 的 title，
+ * 留在正文里会让页面上出现两个标题（且正文那个常带 OCR 噪声）。
+ */
+function stripLeadingH1(body) {
+  const lines = body.split('\n');
+  const i = lines.findIndex((l) => l.trim() !== '');
+  if (i >= 0 && /^#\s+/.test(lines[i])) lines.splice(i, 1);
+  return lines.join('\n');
 }
 
 /** 由源相对路径得到 kb id（去 .md、空格规范） */
@@ -332,7 +348,10 @@ async function main() {
       return alias || name;
     });
 
-    // 2c) 注入规范 frontmatter（分面筛选的数据基础）
+    // 2c) 剥掉正文开头重复的 H1（标题已在 frontmatter 里）
+    body = stripLeadingH1(body);
+
+    // 2d) 注入规范 frontmatter（分面筛选的数据基础）
     const meta = deriveMeta(rel, rel.split('/').pop(), original);
     const fm = buildFrontmatter(meta, original);
     typeCount.set(meta.type, (typeCount.get(meta.type) ?? 0) + 1);
