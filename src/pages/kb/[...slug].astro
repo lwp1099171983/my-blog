@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Window from '../../components/Window.astro';
-import { buildNameMap, buildGraph, kbMeta } from '../../lib/kb';
+import { buildNameMap, buildGraph, kbMeta, metaSegments } from '../../lib/kb';
 
 export async function getStaticPaths() {
   const entries = await getCollection('kb');
@@ -32,12 +32,10 @@ const { Content } = await render(entry);
 const meta = kbMeta(entry);
 const title = meta.title;
 const moduleName = meta.subjectLabel;
+// 面包屑末段用清洗后的标题：id 里可能带章节前缀与 OCR 逐字连字符（第05章-公-文-知-识）
 const breadcrumb = entry.id.split('/').map((p) => p.replace(/^\d+-/, ''));
-const crumbTrail = [
-  meta.subjectLabel,
-  meta.moduleLabel,
-  meta.type,
-].filter((s) => s && s !== '');
+breadcrumb[breadcrumb.length - 1] = title;
+const crumbTrail = metaSegments(meta.subjectLabel, meta.moduleLabel, meta.type);
 ---
 
 <BaseLayout title={`${title} | 考公知识库`} description={`${moduleName} · ${title}`}>
@@ -53,7 +51,7 @@ const crumbTrail = [
     maximized
   >
     <article class="kb-md">
-      <nav class="kb-crumb text-fs-mono-s text-win-text-muted">
+      <nav class="kb-crumb text-win-text-muted">
         <a href="/kb">知识库</a>
         {
           breadcrumb.map((b, i) => (

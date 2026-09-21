@@ -5,6 +5,7 @@ import {
   facetCounts,
   kbMeta,
   kbMetas,
+  metaSegments,
   typeRank,
   type KbEntry,
 } from './kb';
@@ -107,6 +108,29 @@ describe('kbMeta', () => {
   it('缺 data 字段不抛异常', () => {
     const bare = { id: 'a/第01章-甲', body: '' } as unknown as KbEntry;
     expect(() => kbMeta(bare)).not.toThrow();
+  });
+});
+
+describe('metaSegments', () => {
+  it('过滤空值与 undefined', () => {
+    expect(metaSegments('公基', '', undefined, null, '讲义')).toEqual(['公基', '讲义']);
+  });
+
+  it('去重：subject/module/type 同时为「索引」时只留一个', () => {
+    expect(metaSegments('索引', '索引', '索引')).toEqual(['索引']);
+  });
+
+  it('保留顺序，全部为空时返回空数组', () => {
+    expect(metaSegments('职测', '言语理解', '讲义', '言语理解')).toEqual([
+      '职测',
+      '言语理解',
+      '讲义',
+    ]);
+    expect(metaSegments('', undefined)).toEqual([]);
+  });
+
+  it('纯空白视为空值', () => {
+    expect(metaSegments('  ', '公文')).toEqual(['公文']);
   });
 });
 

@@ -234,6 +234,16 @@ export function cleanLabel(name: string): string {
   return name.replace(/^\d{1,2}-/, '');
 }
 
+/**
+ * 拼接元数据片段：丢掉空值并去重。
+ * 有些笔记的 subject / module / type 会同时等于「索引」，直接 join 会出现「索引 · 索引 · 索引」。
+ */
+export function metaSegments(...parts: (string | undefined | null)[]): string[] {
+  return [
+    ...new Set(parts.filter((s): s is string => typeof s === 'string' && s.trim() !== '')),
+  ];
+}
+
 /** 取出笔记元数据，缺失字段回退到路径与正文标题 */
 export function kbMeta(entry: KbEntry): KbMeta {
   const d = (entry.data ?? {}) as Record<string, unknown>;

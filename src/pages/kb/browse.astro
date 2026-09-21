@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Window from '../../components/Window.astro';
-import { kbMetas, facetCounts, typeRank, type KbMeta } from '../../lib/kb';
+import { kbMetas, facetCounts, metaSegments, typeRank, type KbMeta } from '../../lib/kb';
 
 const entries = await getCollection('kb');
 const items = kbMetas(entries);
@@ -143,14 +143,7 @@ function haystack(m: KbMeta): string {
                   <a href={m.url} class="kb-browse-link">
                     <span class="kb-browse-title">{m.title}</span>
                     <span class="kb-browse-meta">
-                      {[
-                        m.subjectLabel,
-                        m.moduleLabel,
-                        m.type,
-                        m.source,
-                      ]
-                        .filter(Boolean)
-                        .join(' · ')}
+                      {metaSegments(m.subjectLabel, m.moduleLabel, m.type, m.source).join(' · ')}
                     </span>
                   </a>
                 </li>
