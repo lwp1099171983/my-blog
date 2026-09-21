@@ -273,10 +273,12 @@ body::after {
   }
 
   .desktop-icons {
-    flex-direction: row; top: auto; bottom: calc(var(--taskbar-h) + 8px); left: 8px; right: 8px;
+    /* 横排后与右下角的备案号同处底部一条带，上移到备案号之上（页脚高约 25px + 间距） */
+    flex-direction: row; top: auto; bottom: calc(var(--taskbar-h) + 36px); left: 8px; right: 8px;
     gap: 8px; overflow-x: auto; justify-content: flex-start;
   }
-  .desktop-icon { width: 76px; padding: 6px; gap: 4px; }
+  /* 不压缩图标盒：放不下时由 overflow-x 横向滚动，否则标签会被挤到折行 */
+  .desktop-icon { flex: 0 0 auto; width: 76px; padding: 6px 4px; gap: 4px; } /* 可用 64px，容纳「考编知识库」60px */
   .desktop-icon .icon-sprite { width: 44px; height: 44px; font-size: 28px; }
   .desktop-icon .icon-label { font-size: var(--fs-xs); }
   .hit-counter { display: none; }
@@ -301,7 +303,8 @@ body::after {
 
 @media (max-width: 375px) {
   .desktop-icons { gap: 6px; }
-  .desktop-icon { width: 64px; }
+  /* 图标盒宽沿用上一档的 76px：「考编知识库」5 字 × 12px = 60px，
+     缩到 64px（可用 52px）会断成「考编知识 / 库」。这里只缩精灵图。 */
   .desktop-icon .icon-sprite { width: 38px; height: 38px; font-size: 24px; }
   .window-body { padding: 12px; }
 }
