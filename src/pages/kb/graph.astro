@@ -1,0 +1,149 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Window from '../../components/Window.astro';
+import { buildNameMap, buildGraph, resolveRel, normName } from '../../lib/kb';
+
+const entries = await getCollection('kb');
+const validIds = new Set(entries.map((e) => e.id));
+const nameMap = buildNameMap(entries);
+const { nodes, edges } = buildGraph(entries, nameMap, validIds);
+const graphData = { nodes, edges };
+---
+
+<BaseLayout title="关系图谱 | 考公知识库" description="考公知识库笔记关系图谱">
+  <Window
+    id="kb-graph"
+    title="关系图谱"
+    icon="🕸️"
+    x={60}
+    y={30}
+    width={900}
+    height={620}
+    active
+    maximized
+  >
+    <p class="text-fs-mono-s text-win-text-muted">
+      节点 = 笔记，连线 = 相互引用（含目录层级）。悬停高亮邻居，点击跳转。
+    </p>
+    <canvas id="kb-graph-canvas" class="kb-graph-canvas"></canvas>
+  </Window>
+</BaseLayout>
+
+<script define:vars={{ graphData }}>
+  const canvas = document.getElementById('kb-graph-canvas');
+  const ctx = canvas.getContext('2d');
+  let W = 0, H = 0;
+  const dpr = window.devicePixelRatio || 1;
+
+  function resize() {
+    const r = canvas.getBoundingClientRect();
+    W = r.width; H = r.height;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  const idx = new Map(graphData.nodes.map((n, i) => [n.id, i]));
+  const N = graphData.nodes.length;
+  const ns = graphData.nodes.map((n, i) => ({
+    ...n,
+    x: Math.cos((i / N) * 2 * Math.PI) * 220 + 450,
+    y: Math.sin((i / N) * 2 * Math.PI) * 180 + 280,
+    vx: 0, vy: 0,
+  }));
+  const es = graphData.edges
+    .map((e) => ({ s: idx.get(e.s), t: idx.get(e.t) }))
+    .filter((e) => e.s !== undefined && e.t !== undefined);
+  const adj = new Map();
+  ns.forEach((_, i) => adj.set(i, new Set()));
+  es.forEach((e) => { adj.get(e.s).add(e.t); adj.get(e.t).add(e.s); });
+
+  let temp = 220;
+  const k = Math.sqrt((900 * 600) / Math.max(N, 1));
+
+  function step() {
+    for (const n of ns) { n.vx = 0; n.vy = 0; }
+    for (let i = 0; i < N; i++) {
+      for (let j = i + 1; j < N; j++) {
+        let dx = ns[i].x - ns[j].x, dy = ns[i].y - ns[j].y;
+        let d = Math.hypot(dx, dy) || 0.01;
+        let f = (k * k) / d;
+        ns[i].vx += (dx / d) * f; ns[i].vy += (dy / d) * f;
+        ns[j].vx -= (dx / d) * f; ns[j].vy -= (dy / d) * f;
+      }
+    }
+    for (const e of es) {
+      let dx = ns[e.t].x - ns[e.s].x, dy = ns[e.t].y - ns[e.s].y;
+      let d = Math.hypot(dx, dy) || 0.01;
+      let f = (d * d) / k;
+      ns[e.s].vx += (dx / d) * f; ns[e.s].vy += (dy / d) * f;
+      ns[e.t].vx -= (dx / d) * f; ns[e.t].vy -= (dy / d) * f;
+    }
+    for (const n of ns) {
+      let sp = Math.hypot(n.vx, n.vy) || 0.01;
+      let lim = Math.min(sp, temp);
+      n.x += (n.vx / sp) * lim;
+      n.y += (n.vy / sp) * lim;
+      n.x = Math.max(16, Math.min(W - 16, n.x));
+      n.y = Math.max(16, Math.min(H - 16, n.y));
+    }
+    temp *= 0.985;
+  }
+
+  let hover = null;
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.lineWidth = 0.6;
+    for (const e of es) {
+      const a = ns[e.s], b = ns[e.t];
+      const on = hover != null && (hover === e.s || hover === e.t);
+      ctx.strokeStyle = on ? 'rgba(255,255,255,0.85)' : 'rgba(156,148,201,0.16)';
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+    }
+    for (let i = 0; i < N; i++) {
+      const n = ns[i];
+      const on = hover === i || (hover != null && adj.get(hover).has(i));
+      ctx.globalAlpha = on ? 1 : hover != null ? 0.35 : 0.92;
+      ctx.fillStyle = n.color;
+      ctx.beginPath(); ctx.arc(n.x, n.y, on ? 6 : 3.5, 0, 2 * Math.PI); ctx.fill();
+      ctx.globalAlpha = 1;
+      if (on) {
+        ctx.fillStyle = '#ECEBF4';
+        ctx.font = '11px monospace';
+        ctx.fillText(n.title.slice(0, 18), n.x + 7, n.y + 4);
+      }
+    }
+  }
+
+  function loop() {
+    if (temp > 1.5) step();
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  function pick(mx, my) {
+    let best = null, bd = 12 * 12;
+    for (let i = 0; i < N; i++) {
+      const dx = ns[i].x - mx, dy = ns[i].y - my;
+      const d = dx * dx + dy * dy;
+      if (d < bd) { bd = d; best = i; }
+    }
+    return best;
+  }
+
+  canvas.addEventListener('mousemove', (e) => {
+    const r = canvas.getBoundingClientRect();
+    hover = pick(e.clientX - r.left, e.clientY - r.top);
+    canvas.style.cursor = hover != null ? 'pointer' : 'default';
+  });
+  canvas.addEventListener('mouseleave', () => (hover = null));
+  canvas.addEventListener('click', (e) => {
+    const r = canvas.getBoundingClientRect();
+    const i = pick(e.clientX - r.left, e.clientY - r.top);
+    if (i != null) window.location.href = '/kb/' + ns[i].id;
+  });
+
+  resize();
+  window.addEventListener('resize', resize);
+  loop();
+</script>

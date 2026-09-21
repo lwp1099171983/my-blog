@@ -1,0 +1,122 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Window from '../../components/Window.astro';
+import KbTreePanel from '../../components/KbTreePanel.astro';
+import { buildTree, kbMetas, facetCounts, typeRank } from '../../lib/kb';
+
+const entries = await getCollection('kb');
+const tree = buildTree(entries);
+
+const all = kbMetas(entries);
+const bySubject = facetCounts(all, (m) => m.subject);
+const byType = facetCounts(all, (m) => m.type).sort(
+  (a, b) => typeRank(a.value) - typeRank(b.value),
+);
+const sourceCount = new Set(all.map((m) => m.source).filter(Boolean)).size;
+
+const mocEntry = entries.find((e) => e.id === '00-索引/index');
+const refEntry = entries.find((e) => e.id === '00-索引/考点速览');
+const { Content: MocContent } = mocEntry ? await render(mocEntry) : { Content: null };
+const { Content: RefContent } = refEntry ? await render(refEntry) : { Content: null };
+---
+
+<BaseLayout title="考公知识库 | starlin的自由角落" description="考公/考编制备考知识库：职测、公基、结构化面试、综应">
+  <Window
+    id="kb-home"
+    title="考公知识库"
+    icon="📚"
+    x={120}
+    y={40}
+    width={560}
+    height={440}
+    active
+  >
+    <h1>📚 考公 / 考编制知识库</h1>
+    <p class="text-fs-mono-s text-win-text-muted">
+      共 {entries.length} 篇笔记 · {bySubject.length} 个模块 · {sourceCount} 个来源。支持分面筛选、双向链接、反向链接、关系图谱与全文检索。
+    </p>
+    <div class="flex gap-2 flex-wrap mt-2">
+      <a href="/kb/browse" class="pixel-btn primary">🗂️ 分面浏览</a>
+      <a href="/kb/search" class="pixel-btn primary">🔍 全文检索</a>
+      <a href="/kb/graph" class="pixel-btn primary">🕸️ 关系图谱</a>
+    </div>
+    <hr class="border-t-2 border-dashed border-purple-500 my-[18px]" />
+    <h3>模块速览</h3>
+    <ul class="kb-modules">
+      {
+        bySubject.map((f) => (
+          <li>
+            <a class="kb-module-link" href={`/kb/browse?subject=${encodeURIComponent(f.value)}`}>
+              <span class="kb-module-name">{f.label}</span>
+              <span class="pixel-tag">{f.count}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <h3>类型分布</h3>
+    <ul class="kb-chips">
+      {
+        byType.map((f) => (
+          <li>
+            <a class="kb-chip" href={`/kb/browse?type=${encodeURIComponent(f.value)}`}>
+              {f.label}
+              <span class="kb-chip-n">{f.count}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Window>
+
+  <Window
+    id="kb-map"
+    title="知识地图"
+    icon="🗺️"
+    x={720}
+    y={56}
+    width={560}
+    height={600}
+  >
+    <h2>🗺️ 知识地图</h2>
+    <p class="text-fs-mono-s text-win-text-muted">
+      按模块 / 章节浏览。输入关键词即时过滤，命中项会自动展开。
+    </p>
+    <KbTreePanel nodes={tree} />
+  </Window>
+
+  <Window
+    id="kb-index"
+    title="索引 · 总入口"
+    icon="🧭"
+    x={120}
+    y={500}
+    width={620}
+    height={520}
+    hidden
+  >
+    <h2>🧭 索引 · 总入口</h2>
+    {MocContent && <div class="kb-md"><MocContent /></div>}
+  </Window>
+
+  {
+    RefContent && (
+      <Window
+        id="kb-ref"
+        title="考点速览"
+        icon="⚡"
+        x={780}
+        y={660}
+        width={560}
+        height={500}
+        hidden
+      >
+        <h2>⚡ 考点速览</h2>
+        <div class="kb-md">
+          <RefContent />
+        </div>
+      </Window>
+    )
+  }
+</BaseLayout>

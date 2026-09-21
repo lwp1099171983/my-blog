@@ -1,0 +1,126 @@
+---
+import type { TreeNode } from '../lib/kb';
+
+interface Props {
+  nodes: TreeNode[];
+  depth?: number;
+}
+const { nodes, depth = 0 } = Astro.props;
+
+function folderLabel(name: string): string {
+  return name.replace(/^\d+-/, '');
+}
+
+/** 统计该目录下（含子目录）的笔记数 */
+function countLeaves(node: TreeNode): number {
+  if (node.id) return 1;
+  return node.children.reduce((sum, c) => sum + countLeaves(c), 0);
+}
+---
+
+<ul
+  class="kb-tree"
+  class:list={[`kb-tree-d${depth}`]}
+  data-kb-branch
+  data-kb-depth={depth}
+  hidden={depth >= 2}
+>
+  {
+    nodes.map((n) =>
+      n.id ? (
+        <li data-kb-leaf data-kb-text={(n.title ?? n.name).toLowerCase()}>
+          <a href={`/kb/${n.id}`} class="kb-tree-link">
+            {n.title ?? n.name}
+          </a>
+        </li>
+      ) : (
+        <li data-kb-folder>
+          <button type="button" class="kb-tree-toggle" data-kb-toggle aria-expanded={depth < 2}>
+            <span class="kb-tree-caret" aria-hidden="true" />
+            <span class="kb-tree-folder-label">{folderLabel(n.name)}</span>
+            <span class="kb-tree-count">{countLeaves(n)}</span>
+          </button>
+          {n.children.length > 0 && <Astro.self nodes={n.children} depth={depth + 1} />}
+        </li>
+      ),
+    )
+  }
+</ul>
+
+<script>
+  function initKbTree(root: HTMLElement) {
+    const input = root.querySelector<HTMLInputElement>('[data-kb-filter]');
+    const branches = () => [...root.querySelectorAll<HTMLElement>('[data-kb-branch]')];
+    const leaves = () => [...root.querySelectorAll<HTMLElement>('[data-kb-leaf]')];
+    let mode: 'default' | 'open' | 'closed' = 'default';
+
+    function apply() {
+      const q = (input?.value ?? '').trim().toLowerCase();
+      const filtering = q.length > 0;
+
+      for (const li of leaves()) {
+        li.hidden = filtering && !(li.dataset.kbText ?? '').includes(q);
+      }
+
+      // 自底向上重算分支可见性
+      for (const ul of branches().reverse()) {
+        const isRoot = ul.dataset.kbDepth === '0';
+        const anyLeaf = [...ul.querySelectorAll<HTMLElement>('[data-kb-leaf]')].some(
+          (l) => !l.hidden,
+        );
+        let open: boolean;
+        if (isRoot) open = true;
+        else if (filtering) open = anyLeaf;
+        else if (mode === 'open') open = true;
+        else if (mode === 'closed') open = false;
+        else open = Number(ul.dataset.kbDepth) < 2;
+
+        ul.hidden = !open;
+
+        const folderLi = ul.parentElement;
+        if (folderLi?.hasAttribute('data-kb-folder')) {
+          folderLi.hidden = filtering ? !anyLeaf : false;
+          folderLi
+            .querySelector<HTMLElement>(':scope > [data-kb-toggle]')
+            ?.setAttribute('aria-expanded', String(open));
+        }
+      }
+
+      const empty = root.querySelector<HTMLElement>('[data-kb-empty]');
+      if (empty) empty.hidden = !(filtering && leaves().every((l) => l.hidden));
+    }
+
+    if (input) {
+      input.addEventListener('input', () => {
+        mode = 'default';
+        apply();
+      });
+    }
+
+    for (const btn of root.querySelectorAll<HTMLElement>('[data-kb-act]')) {
+      btn.addEventListener('click', () => {
+        const anyClosed = branches().some(
+          (ul) => ul.hidden && ul.dataset.kbDepth !== '0',
+        );
+        mode = anyClosed ? 'open' : 'closed';
+        if (input) input.value = '';
+        apply();
+      });
+    }
+
+    for (const toggle of root.querySelectorAll<HTMLElement>('[data-kb-toggle]')) {
+      toggle.addEventListener('click', () => {
+        const ul = toggle.parentElement?.querySelector<HTMLElement>('[data-kb-branch]');
+        if (!ul) return;
+        ul.hidden = !ul.hidden;
+        toggle.setAttribute('aria-expanded', String(!ul.hidden));
+      });
+    }
+
+    apply();
+  }
+
+  document
+    .querySelectorAll<HTMLElement>('[data-kb-tree-root]')
+    .forEach((el) => initKbTree(el));
+</script>

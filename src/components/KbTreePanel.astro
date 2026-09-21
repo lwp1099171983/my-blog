@@ -1,0 +1,27 @@
+---
+import KbTree from './KbTree.astro';
+import type { TreeNode } from '../lib/kb';
+
+interface Props {
+  nodes: TreeNode[];
+  filterPlaceholder?: string;
+}
+const { nodes, filterPlaceholder = '过滤标题…' } = Astro.props;
+---
+
+<div class="kb-tree-panel" data-kb-tree-root>
+  <div class="kb-tree-toolbar">
+    <input
+      type="search"
+      class="kb-tree-filter"
+      data-kb-filter
+      placeholder={filterPlaceholder}
+      aria-label="过滤知识树标题"
+    />
+    <button type="button" class="pixel-btn" data-kb-act="toggle-all">展开 / 收起</button>
+  </div>
+  <div class="kb-tree-scroll">
+    <KbTree nodes={nodes} />
+    <p class="kb-tree-empty" data-kb-empty hidden>没有匹配的标题。</p>
+  </div>
+</div>

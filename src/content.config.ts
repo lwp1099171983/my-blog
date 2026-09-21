@@ -33,4 +33,26 @@ const posts = defineCollection({
     }),
 });
 
-export const collections = { posts };
+// 考公/考编制知识库：同步自 ~/Documents/Codex/考公/知识库（见 scripts/sync-kb.mjs）
+const kb = defineCollection({
+  loader: glob({
+    pattern: '**/*.md',
+    base: './src/content/kb',
+    generateId: ({ entry }) => entry.replace(/^\.\//, '').replace(/\.md$/, ''),
+  }),
+  // 笔记的 frontmatter 由 scripts/sync-kb.mjs 在同步阶段自动注入；
+  // 字段全部可选，以便兼容未带元数据的早期笔记。passthrough 保留手工扩展余地。
+  schema: z
+    .object({
+      title: z.string().optional(),
+      subject: z.string().optional(),
+      module: z.string().optional(),
+      type: z.string().optional(),
+      source: z.string().optional(),
+      seq: z.number().optional(),
+      tags: z.array(z.string()).optional(),
+    })
+    .passthrough(),
+});
+
+export const collections = { posts, kb };

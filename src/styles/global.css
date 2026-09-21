@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./chrome.css";
 @import "./components.css";
+@import "./kb.css";
 
 @theme {
   --font-pixel: 'Ark Pixel', 'Press Start 2P', monospace;

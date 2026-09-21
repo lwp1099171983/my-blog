@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Window from '../../components/Window.astro';
+---
+
+<BaseLayout title="全文检索 | 考公知识库" description="考公知识库全文检索">
+  <Window
+    id="kb-search"
+    title="全文检索"
+    icon="🔍"
+    x={160}
+    y={60}
+    width={720}
+    height={560}
+    active
+    maximized
+  >
+    <h2>🔍 知识库全文检索</h2>
+    <input
+      id="kb-q"
+      class="pixel-input"
+      type="search"
+      placeholder="输入关键词，多个词空格分隔（同时命中）…"
+      aria-label="搜索关键词"
+    />
+    <div id="kb-stat" class="text-fs-mono-s text-win-text-muted mt-1.5"></div>
+    <div id="kb-results" class="kb-results"></div>
+  </Window>
+</BaseLayout>
+
+<script>
+  const q = document.getElementById('kb-q');
+  const stat = document.getElementById('kb-stat');
+  const results = document.getElementById('kb-results');
+  let NOTES = null;
+
+  function snippet(text, pos) {
+    const start = Math.max(0, pos - 50);
+    const end = Math.min(text.length, pos + 80);
+    let s = (start > 0 ? '…' : '') + text.slice(start, end).replace(/\s+/g, ' ');
+    if (end < text.length) s += '…';
+    return s;
+  }
+
+  function search(query) {
+    if (!NOTES) return;
+    const terms = query
+      .toLowerCase()
+      .split(/\s+/)
+      .map((t) => t.trim())
+      .filter(Boolean);
+    if (terms.length === 0) {
+      stat.textContent = '';
+      results.innerHTML = '';
+      return;
+    }
+    const hits = [];
+    for (const n of NOTES) {
+      const hay = (n.title + '\n' + n.text).toLowerCase();
+      let ok = true;
+      let score = 0;
+      let firstPos = -1;
+      for (const t of terms) {
+        const p = hay.indexOf(t);
+        if (p === -1) { ok = false; break; }
+        score += n.title.toLowerCase().includes(t) ? 5 : 1;
+        if (firstPos === -1 || p < firstPos) firstPos = p;
+      }
+      if (ok) hits.push({ n, score, pos: firstPos });
+    }
+    hits.sort((a, b) => b.score - a.score);
+    stat.textContent = `命中 ${hits.length} 篇`;
+    results.innerHTML = hits
+      .map(
+        ({ n, pos }) => `
+        <div class="kb-result">
+          <a href="${n.url}" class="kb-result-title">${n.title}</a>
+          <a class="pixel-tag" href="/kb/browse?subject=${encodeURIComponent(n.module)}">${n.moduleLabel}</a>
+          <a class="pixel-tag" href="/kb/browse?type=${encodeURIComponent(n.type)}">${n.type}</a>
+          <div class="kb-result-snip text-fs-mono-s text-win-text-muted">${snippet(
+            n.text,
+            Math.max(0, pos - (n.title.length + 1)),
+          )}</div>
+        </div>`,
+      )
+      .join('');
+  }
+
+  const initialQ = new URLSearchParams(location.search).get('q');
+  if (initialQ) q.value = initialQ;
+  q.addEventListener('input', () => search(q.value.trim()));
+  q.focus();
+
+  fetch('/kb/search.json')
+    .then((r) => r.json())
+    .then((d) => {
+      NOTES = d.notes;
+      if (q.value.trim()) search(q.value.trim());
+    })
+    .catch(() => {
+      stat.textContent = '索引加载失败';
+    });
+</script>

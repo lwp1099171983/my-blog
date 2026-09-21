@@ -1,0 +1,240 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Window from '../../components/Window.astro';
+import { kbMetas, facetCounts, typeRank, type KbMeta } from '../../lib/kb';
+
+const entries = await getCollection('kb');
+const items = kbMetas(entries);
+
+const subjects = facetCounts(items, (m) => m.subject);
+const types = facetCounts(items, (m) => m.type).sort(
+  (a, b) => typeRank(a.value) - typeRank(b.value),
+);
+const sources = facetCounts(items, (m) => m.source);
+
+/** 用于客户端过滤的小写检索串 */
+function haystack(m: KbMeta): string {
+  return [m.title, m.subjectLabel, m.moduleLabel, m.type, m.source]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+}
+---
+
+<BaseLayout
+  title="分面浏览 | 考公知识库"
+  description="考公知识库分面筛选：按模块、类型、来源交叉过滤笔记"
+>
+  <Window
+    id="kb-browse"
+    title="知识库 · 分面浏览"
+    icon="🗂️"
+    x={60}
+    y={30}
+    width={900}
+    height={640}
+    active
+    maximized
+  >
+    <h1>🗂️ 分面浏览</h1>
+    <p class="text-fs-mono-s text-win-text-muted">
+      共 {items.length} 篇 · {subjects.length} 个模块 · {types.length} 种类型 · {sources.length} 个来源。
+      组合条件会写进链接，可直接收藏或分享。
+    </p>
+    <hr class="border-t-2 border-dashed border-purple-500 my-[14px]" />
+
+    <div class="kb-browse" data-kb-browse>
+      <div class="kb-browse-bar">
+        <input
+          type="search"
+          class="kb-browse-q"
+          data-kb-browse-q
+          placeholder="在标题与元数据中过滤…"
+          aria-label="过滤笔记"
+        />
+        <button type="button" class="pixel-btn" data-kb-reset>重置</button>
+        <span class="kb-browse-count">
+          命中 <strong data-kb-count>{items.length}</strong> 篇
+        </span>
+      </div>
+
+      <div class="kb-browse-grid">
+        <aside class="kb-facets">
+          <section>
+            <h3>模块</h3>
+            <ul>
+              {
+                subjects.map((f) => (
+                  <li>
+                    <button
+                      type="button"
+                      class="kb-facet"
+                      data-facet="subject"
+                      data-value={f.value}
+                      aria-pressed="false"
+                    >
+                      <span class="kb-facet-label">{f.label}</span>
+                      <span class="kb-facet-n">{f.count}</span>
+                    </button>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+
+          <section>
+            <h3>类型</h3>
+            <ul>
+              {
+                types.map((f) => (
+                  <li>
+                    <button
+                      type="button"
+                      class="kb-facet"
+                      data-facet="type"
+                      data-value={f.value}
+                      aria-pressed="false"
+                    >
+                      <span class="kb-facet-label">{f.label}</span>
+                      <span class="kb-facet-n">{f.count}</span>
+                    </button>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+
+          <section>
+            <h3>来源</h3>
+            <ul>
+              {
+                sources.map((f) => (
+                  <li>
+                    <button
+                      type="button"
+                      class="kb-facet"
+                      data-facet="source"
+                      data-value={f.value}
+                      aria-pressed="false"
+                      title={f.value}
+                    >
+                      <span class="kb-facet-label">{f.label}</span>
+                      <span class="kb-facet-n">{f.count}</span>
+                    </button>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+        </aside>
+
+        <div class="kb-browse-results">
+          <ul class="kb-browse-list">
+            {
+              items.map((m) => (
+                <li
+                  data-kb-item
+                  data-subject={m.subject}
+                  data-type={m.type}
+                  data-source={m.source}
+                  data-hay={haystack(m)}
+                >
+                  <a href={m.url} class="kb-browse-link">
+                    <span class="kb-browse-title">{m.title}</span>
+                    <span class="kb-browse-meta">
+                      {[
+                        m.subjectLabel,
+                        m.moduleLabel,
+                        m.type,
+                        m.source,
+                      ]
+                        .filter(Boolean)
+                        .join(' · ')}
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="kb-browse-empty" data-kb-browse-empty hidden>没有符合当前条件的笔记。</p>
+        </div>
+      </div>
+    </div>
+  </Window>
+</BaseLayout>
+
+<script>
+  const KEYS = ['subject', 'type', 'source'] as const;
+  type Key = (typeof KEYS)[number];
+
+  function initBrowse(root: HTMLElement) {
+    const qInput = root.querySelector<HTMLInputElement>('[data-kb-browse-q]');
+    const countEl = root.querySelector<HTMLElement>('[data-kb-count]');
+    const emptyEl = root.querySelector<HTMLElement>('[data-kb-browse-empty]');
+    const state: Record<Key, string> = { subject: '', type: '', source: '' };
+
+    const items = () => [...root.querySelectorAll<HTMLElement>('[data-kb-item]')];
+    const facets = () => [...root.querySelectorAll<HTMLElement>('[data-facet]')];
+
+    function apply(push: boolean) {
+      const q = (qInput?.value ?? '').trim().toLowerCase();
+      let n = 0;
+      for (const li of items()) {
+        const ok =
+          (!state.subject || li.dataset.subject === state.subject) &&
+          (!state.type || li.dataset.type === state.type) &&
+          (!state.source || li.dataset.source === state.source) &&
+          (!q || (li.dataset.hay ?? '').includes(q));
+        li.hidden = !ok;
+        if (ok) n += 1;
+      }
+      if (countEl) countEl.textContent = String(n);
+      if (emptyEl) emptyEl.hidden = n > 0;
+      for (const b of facets()) {
+        const on = state[b.dataset.facet as Key] === b.dataset.value;
+        b.setAttribute('aria-pressed', String(on));
+        b.classList.toggle('is-on', on);
+      }
+      if (push) writeUrl();
+    }
+
+    function writeUrl() {
+      const p = new URLSearchParams();
+      for (const k of KEYS) if (state[k]) p.set(k, state[k]);
+      const q = (qInput?.value ?? '').trim();
+      if (q) p.set('q', q);
+      const qs = p.toString();
+      history.replaceState(null, '', qs ? `${location.pathname}?${qs}` : location.pathname);
+    }
+
+    function readUrl() {
+      const p = new URLSearchParams(location.search);
+      for (const k of KEYS) state[k] = p.get(k) ?? '';
+      if (qInput) qInput.value = p.get('q') ?? '';
+    }
+
+    for (const b of facets()) {
+      b.addEventListener('click', () => {
+        const k = b.dataset.facet as Key;
+        state[k] = state[k] === b.dataset.value ? '' : (b.dataset.value ?? '');
+        apply(true);
+      });
+    }
+
+    qInput?.addEventListener('input', () => apply(true));
+
+    root.querySelector('[data-kb-reset]')?.addEventListener('click', () => {
+      for (const k of KEYS) state[k] = '';
+      if (qInput) qInput.value = '';
+      apply(true);
+    });
+
+    readUrl();
+    apply(false);
+  }
+
+  document
+    .querySelectorAll<HTMLElement>('[data-kb-browse]')
+    .forEach((el) => initBrowse(el));
+</script>

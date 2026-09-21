@@ -1,0 +1,130 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Window from '../../components/Window.astro';
+import { buildNameMap, buildGraph, kbMeta } from '../../lib/kb';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('kb');
+  const validIds = new Set(entries.map((e) => e.id));
+  const nameMap = buildNameMap(entries);
+  const { backlinks } = buildGraph(entries, nameMap, validIds);
+
+  return entries.map((e) => {
+    const bl = (backlinks[e.id] ?? []).map((id) => {
+      const src = entries.find((x) => x.id === id)!;
+      return {
+        id,
+        title: kbMeta(src).title,
+        url: `/kb/${id}`,
+      };
+    });
+    return {
+      params: { slug: e.id },
+      props: { entry: e, backlinks: bl },
+    };
+  });
+}
+
+const { entry, backlinks } = Astro.props;
+const { Content } = await render(entry);
+
+const meta = kbMeta(entry);
+const title = meta.title;
+const moduleName = meta.subjectLabel;
+const breadcrumb = entry.id.split('/').map((p) => p.replace(/^\d+-/, ''));
+const crumbTrail = [
+  meta.subjectLabel,
+  meta.moduleLabel,
+  meta.type,
+].filter((s) => s && s !== '');
+---
+
+<BaseLayout title={`${title} | 考公知识库`} description={`${moduleName} · ${title}`}>
+  <Window
+    id="kb-note"
+    title={`笔记 - ${title}`}
+    icon="📄"
+    x={80}
+    y={40}
+    width={780}
+    height={580}
+    active
+    maximized
+  >
+    <article class="kb-md">
+      <nav class="kb-crumb text-fs-mono-s text-win-text-muted">
+        <a href="/kb">知识库</a>
+        {
+          breadcrumb.map((b, i) => (
+            <span> / {i === breadcrumb.length - 1 ? <strong>{b}</strong> : b}</span>
+          ))
+        }
+      </nav>
+      <h1>{title}</h1>
+      <p class="kb-note-meta">
+        {
+          crumbTrail.map((seg, i) => (
+            <>
+              {i > 0 && <span class="kb-note-sep"> · </span>}
+              <span>{seg}</span>
+            </>
+          ))
+        }
+        {
+          meta.source && (
+            <>
+              <span class="kb-note-sep"> · </span>
+              <a
+                class="kb-note-src"
+                href={`/kb/browse?source=${encodeURIComponent(meta.source)}`}
+                title={`按来源「${meta.source}」筛选`}
+              >
+                来源：{meta.source}
+              </a>
+            </>
+          )
+        }
+      </p>
+      <p class="kb-note-actions">
+        <a href={`/kb/browse?subject=${encodeURIComponent(meta.subject)}`} class="pixel-btn">
+          同模块
+        </a>
+        <a href={`/kb/browse?type=${encodeURIComponent(meta.type)}`} class="pixel-btn">
+          同类型
+        </a>
+        <a href="/kb/browse" class="pixel-btn">分面浏览</a>
+      </p>
+      <hr class="border-t-2 border-dashed border-purple-500 my-[18px]" />
+      <Content />
+    </article>
+  </Window>
+
+  <Window
+    id="kb-backlinks"
+    title={`反向链接 (${backlinks.length})`}
+    icon="🔗"
+    x={900}
+    y={80}
+    width={420}
+    height={520}
+  >
+    <h2>🔗 反向链接</h2>
+    <p class="text-fs-mono-s text-win-text-muted">引用了本文的笔记。</p>
+    {
+      backlinks.length > 0 ? (
+        <ul class="kb-backlinks">
+          {backlinks.map((b) => (
+            <li>
+              <a href={b.url}>{b.title}</a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-win-text-muted text-fs-mono-s">暂无其他笔记链接到本文。</p>
+      )
+    }
+    <hr class="border-t-2 border-dashed border-purple-500 my-[14px]" />
+    <a href="/kb/graph" class="pixel-btn primary">🕸️ 在关系图谱中查看</a>
+  </Window>
+</BaseLayout>

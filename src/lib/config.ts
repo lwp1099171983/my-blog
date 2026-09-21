@@ -13,6 +13,7 @@ export const SITE: SiteConfig = {
   copyrightSince: 2026,
   navLinks: [
     { label: '首页', href: '/', external: false },
+    { label: '知识库', href: '/kb', external: false },
     { label: '归档', href: '/archive', external: false },
     { label: '标签', href: '/tags', external: false },
     { label: '搜索', href: '/search', external: false },
