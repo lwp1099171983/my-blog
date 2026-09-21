@@ -12,7 +12,7 @@
 | 搜索 | 构建时 JSON + 客户端 fetch | 索引仅含元数据，不含正文 |
 | 窗口管理 | Vanilla JS 单模块 | 不依赖框架 |
 | 包管理 | pnpm | - |
-| 部署 | Cloudflare Pages | 纯静态 |
+| 部署 | 自建腾讯云服务器（nginx 容器） | 纯静态；流程见 `scripts/deploy.sh`，用 `pnpm deploy` |
 
 ## 2. 目录结构
 
@@ -128,7 +128,29 @@ updated?: string
 - **≤768px**：窗口变流式布局，桌面图标横向滚动，禁用拖拽
 - 具体方案参考 prototype4.html 已验证的 CSS
 
-## 9. 后续扩展预留
+## 9. 部署
+
+纯静态，跑 `pnpm deploy`（即 `scripts/deploy.sh`）：构建 → 备份 → rsync → 接入 nginx 容器 → 验收。
+
+线上是自建腾讯云服务器（`~/.ssh/config` 里的 `tencent-dev`），**不是 Cloudflare Pages**，也没有 CI ——
+推送 GitHub 不会触发部署。
+
+站点搭在一个属于别的项目的 nginx 容器上（那个项目占了 80/443）：
+
+```
+本机 dist/  --rsync-->  服务器 /opt/my-blog/site
+                        服务器 /opt/my-blog/nginx/blog.conf
+                              |
+                              | docker cp（容器里没有挂载这两处）
+                              v
+                        容器 /usr/share/nginx/blog + conf.d/blog.conf
+```
+
+关键点：**容器没有挂载博客目录**，所以 `docker cp` 这一步不能省。漏掉它，`iboluo.top` 会被容器的
+`99-reject.conf`（未匹配域名一律 `return 444`）拒绝，表现为站点完全打不开。容器若被那个项目重新
+部署，容器内的文件会丢，重跑 `pnpm deploy` 即可恢复。
+
+## 10. 后续扩展预留
 
 - Giscus 评论
 - Pagefind 全文搜索
