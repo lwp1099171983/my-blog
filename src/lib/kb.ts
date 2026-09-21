@@ -6,18 +6,23 @@ export type KbEntry = CollectionEntry<'kb'>;
 /** 去掉章节序号前缀：第17章-计算与比较 → 计算与比较 */
 export function stripPrefix(name: string): string {
   return name
-    .replace(/^第[0-9一二三四五六七八九十百千]+[章节篇节课题讲]\s*[-－:：]?\s*/, '')
+    .replace(/^第[0-9零一二三四五六七八九十百千两]+[章节篇节课题讲]\s*[-－:：]?\s*/, '')
     .trim();
 }
 
-/** 归一化候选名（去扩展名、去章节前缀、压缩空白） */
+/** 归一化候选名（去扩展名、去章节前缀、压缩空白、统一 NFC） */
 export function normName(name: string): string {
-  return stripPrefix(name.replace(/\.md$/, '')).replace(/\s+/g, ' ').trim();
+  return stripPrefix(name.replace(/\.md$/, ''))
+    .replace(/\s+/g, ' ')
+    .trim()
+    .normalize('NFC');
 }
 
-/** 从正文取首个一级标题作为展示标题，回退到文件名 */
+/** 从正文取首个一级标题作为展示标题，回退到文件名（跳过代码块内的伪标题） */
 export function extractTitle(body: string, fallback: string): string {
-  const m = body.match(/^#\s+(.+?)\s*#*\s*$/m);
+  const m = body
+    .replace(/```[\s\S]*?```/g, ' ')
+    .match(/^#\s+(.+?)\s*#*\s*$/m);
   if (m && m[1].trim()) return m[1].trim();
   return prettyFilename(fallback);
 }
@@ -224,9 +229,9 @@ export interface KbMeta {
   url: string;
 }
 
-/** 去掉目录序号前缀：01-言语理解 → 言语理解 */
+/** 去掉目录序号前缀：01-言语理解 → 言语理解（仅 1~2 位数字，避免误伤 2026-09 这类取值） */
 export function cleanLabel(name: string): string {
-  return name.replace(/^\d+-/, '');
+  return name.replace(/^\d{1,2}-/, '');
 }
 
 /** 取出笔记元数据，缺失字段回退到路径与正文标题 */

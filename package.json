@@ -7,6 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "sync:kb": "node scripts/sync-kb.mjs"
   },
   "dependencies": {
