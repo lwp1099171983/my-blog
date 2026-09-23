@@ -44,6 +44,16 @@ describe.skipIf(!hasKb)('同步产物契约', () => {
     expect(missing).toEqual([]);
   });
 
+  it('00-索引 下的导航页不得被判成讲义（inferType 的目录契约）', () => {
+    const offenders: string[] = [];
+    for (const [id, raw] of bodies) {
+      if (!id.startsWith('00-索引/')) continue;
+      const type = raw.match(/^type:\s*"?([^"\n]+)"?/m)?.[1]?.trim();
+      if (type === '讲义') offenders.push(`${id} → ${type}`);
+    }
+    expect(offenders).toEqual([]);
+  });
+
   it('正文不残留裸相对 .md 链接（同步阶段必须改写为 /kb/ 绝对路由）', () => {
     const offenders: string[] = [];
     for (const [id, raw] of bodies) {

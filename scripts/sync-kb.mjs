@@ -133,7 +133,7 @@ function inferType(rel, stem) {
   if (/答案库/.test(hay)) return '答案库';
   // 目录级的 index / README 属于导航页
   if (/(^|\/)(index|README)(\.md)?$/i.test(rel)) return '索引';
-  if (/索引|知识图谱|考点速览|资料清单|目标考试档案|总览/i.test(stem)) {
+  if (/索引|知识图谱|考点速览|资料清单|目标考试档案|总览|梳理/i.test(stem)) {
     return '索引';
   }
   if (/(^|\/)速记卡\//.test(rel) || /速记|速查|思维导图|必背|400词|词汇/.test(stem)) {
