@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 1924" width="860" height="1924" role="img" aria-labelledby="csTitle csDesc">
+  <title id="csTitle">逻辑填空全章速查图</title>
+  <desc id="csDesc">言语理解第03章逻辑填空速查图，单栏自上而下九块：①双维度总览 ②四大关系×判定标志 ③词语辨析五角度 ④语境三步法 ⑤虚词辨析 ⑥解题步骤 ⑦易混辨析 ⑧错题提醒 ⑨图例与读法。紫＝语境分析判定标志，蓝＝词语/虚词辨析，绿＝语境三步法（有效路径），琥珀＝易混辨析与错题提醒。</desc>
+  <defs>
+    <style>
+      text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif; }
+      .h  { font-size: 24px; font-weight: 600; fill: #1E1F33; }
+      .sub{ font-size: 14px; fill: #7C7D8E; }
+      .bt { font-size: 17px; font-weight: 600; }
+      .mt { font-size: 13px; fill: #7C7D8E; }
+      .k  { font-size: 14px; font-weight: 600; fill: #6B6C80; }
+      .r  { font-size: 17px; fill: #4B4C60; }
+      .s  { font-size: 15px; fill: #7C7D8E; }
+      .ff { font-size: 15px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="860" height="1924" fill="#FFFFFF"/>
+  <text class="h" x="32" y="44">逻辑填空 · 全章速查图</text>
+  <text class="sub" x="32" y="74">四大关系判定标志 ＋ 词语辨析五角度 ＋ 虚词辨析 ＋ 解题步骤（第03章）</text>
+  <text class="sub" x="810" y="98" text-anchor="end">共 9 块 ｜ 紫＝语境 · 蓝＝词语/虚词 · 绿＝有效 · 琥珀＝提醒</text>
+  <line x1="32" y1="114" x2="810" y2="114" stroke="#E3E3EC" stroke-width="1"/>
+
+  <!-- ===================== ① 双维度总览 ===================== -->
+  <rect x="32" y="114" width="796" height="150" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="116" width="5" height="146" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="144" fill="#5B3FA8">① 双维度总览</text>
+  <text class="mt" x="810" y="144" text-anchor="end">语境分析 ★★★★★ · 词语 ★★★★ · 虚词 ★★</text>
+
+  <rect x="112" y="168" width="200" height="40" rx="3" fill="#EFEAF9" stroke="#DDD2F5" stroke-width="1"/>
+  <text class="ff" x="212" y="184" text-anchor="middle" fill="#5B3FA8">语境定方向 ★★★★★</text>
+  <text class="s"  x="212" y="203" text-anchor="middle" fill="#5B3FA8">先定关系</text>
+  <line x1="312" y1="188" x2="346" y2="188" stroke="#5B3FA8" stroke-width="1"/>
+  <polygon points="346,183 354,188 346,193" fill="#5B3FA8"/>
+  <rect x="348" y="168" width="200" height="40" rx="3" fill="#EFEAF9" stroke="#DDD2F5" stroke-width="1"/>
+  <text class="ff" x="448" y="184" text-anchor="middle" fill="#5B3FA8">词语定选项 ★★★★</text>
+  <text class="s"  x="448" y="203" text-anchor="middle" fill="#5B3FA8">再辨词语</text>
+  <line x1="548" y1="188" x2="582" y2="188" stroke="#5B3FA8" stroke-width="1"/>
+  <polygon points="582,183 590,188 582,193" fill="#5B3FA8"/>
+  <rect x="584" y="168" width="200" height="40" rx="3" fill="#EFEAF9" stroke="#DDD2F5" stroke-width="1"/>
+  <text class="ff" x="684" y="184" text-anchor="middle" fill="#5B3FA8">虚词 ★★</text>
+  <text class="s"  x="684" y="203" text-anchor="middle" fill="#5B3FA8">单独看搭配</text>
+
+  <text class="s" x="112" y="232">读题思路：先定关系（语境），再辨词语（选项），虚词单独看关联搭配。</text>
+
+  <!-- ===================== ② 四大关系 × 判定标志 ===================== -->
+  <rect x="32" y="280" width="796" height="410" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="282" width="5" height="406" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="310" fill="#5B3FA8">② 四大关系 × 判定标志</text>
+  <text class="mt" x="810" y="310" text-anchor="end">核心 · 扫标志词定关系</text>
+
+  <text class="k" x="50" y="340">反对</text>
+  <text class="r" x="112" y="340">转折词：虽然…但是、然而、却、实际上</text>
+  <text class="r" x="112" y="370">对照词：多…、过去…如今、并非…而是</text>
+  <text class="r" x="112" y="400">否定词：无法、不可能、没有</text>
+  <text class="s" x="112" y="430">要点：语义相反/相对，空处填反义</text>
+
+  <text class="k" x="50" y="460">解释</text>
+  <text class="r" x="112" y="460">同义互换：换言之/如/像；指代词；冒号破折号</text>
+  <text class="r" x="112" y="490">总结词；因果/假设/条件词</text>
+  <text class="s" x="112" y="520">无标志时看空前空后（提示藏在上下文）</text>
+
+  <text class="k" x="50" y="550">递进</text>
+  <text class="r" x="112" y="550">甚至、而且、更、不仅…而且</text>
+  <text class="s" x="112" y="580">要点：方向一致、程度有别</text>
+
+  <text class="k" x="50" y="610">并列</text>
+  <text class="r" x="112" y="610">和、又、此外、既…又；或者、要么</text>
+  <text class="r" x="112" y="640">顿号分号、并列短语</text>
+  <text class="s" x="112" y="670">要点：不分主次，几方面平列</text>
+
+  <!-- ===================== ③ 词语辨析五角度 ===================== -->
+  <rect x="32" y="706" width="796" height="160" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="708" width="5" height="156" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="736" fill="#2563A8">③ 词语辨析五角度</text>
+  <text class="mt" x="810" y="736" text-anchor="end">★★★★ · 语素联想 / 语境联想</text>
+
+  <rect x="112" y="760" width="126" height="64" rx="3" fill="#EFF5FC" stroke="#D0E0F4" stroke-width="1"/>
+  <text class="k"  x="175" y="786" text-anchor="middle" fill="#2563A8">词义侧重</text>
+  <text class="s"  x="175" y="808" text-anchor="middle">语素·语境联想</text>
+  <rect x="254" y="760" width="126" height="64" rx="3" fill="#EFF5FC" stroke="#D0E0F4" stroke-width="1"/>
+  <text class="k"  x="317" y="786" text-anchor="middle" fill="#2563A8">词义轻重</text>
+  <text class="s"  x="317" y="808" text-anchor="middle">语素·语境联想</text>
+  <rect x="396" y="760" width="126" height="64" rx="3" fill="#EFF5FC" stroke="#D0E0F4" stroke-width="1"/>
+  <text class="k"  x="459" y="786" text-anchor="middle" fill="#2563A8">搭配对象</text>
+  <text class="s"  x="459" y="808" text-anchor="middle">语素·语境联想</text>
+  <rect x="538" y="760" width="126" height="64" rx="3" fill="#EFF5FC" stroke="#D0E0F4" stroke-width="1"/>
+  <text class="k"  x="601" y="786" text-anchor="middle" fill="#2563A8">感情色彩</text>
+  <text class="s"  x="601" y="808" text-anchor="middle">语素·语境联想</text>
+  <rect x="680" y="760" width="126" height="64" rx="3" fill="#EFF5FC" stroke="#D0E0F4" stroke-width="1"/>
+  <text class="k"  x="743" y="786" text-anchor="middle" fill="#2563A8">句法功能</text>
+  <text class="s"  x="743" y="808" text-anchor="middle">语素·语境联想</text>
+
+  <text class="s" x="112" y="850">五角度逐个对照选项，定侧重/轻重/搭配/色彩/句法。</text>
+
+  <!-- ===================== ④ 语境三步法 ===================== -->
+  <rect x="32" y="882" width="796" height="140" rx="4" fill="#FFFFFF" stroke="#A8DDBE" stroke-width="1"/>
+  <rect x="32" y="884" width="5" height="136" rx="2.5" fill="#1F8A4C"/>
+  <text class="bt" x="50" y="912" fill="#1F8A4C">④ 语境三步法</text>
+  <text class="mt" x="810" y="912" text-anchor="end">有效路径</text>
+
+  <rect x="112" y="940" width="200" height="44" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <circle cx="130" cy="962" r="12" fill="#1F8A4C"/>
+  <text class="ff" x="130" y="967" text-anchor="middle" fill="#FFFFFF">1</text>
+  <text class="ff" x="150" y="967" fill="#1F8A4C">定关系</text>
+  <line x1="312" y1="962" x2="346" y2="962" stroke="#1F8A4C" stroke-width="1"/>
+  <polygon points="346,957 354,962 346,967" fill="#1F8A4C"/>
+  <rect x="348" y="940" width="200" height="44" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <circle cx="366" cy="962" r="12" fill="#1F8A4C"/>
+  <text class="ff" x="366" y="967" text-anchor="middle" fill="#FFFFFF">2</text>
+  <text class="ff" x="386" y="967" fill="#1F8A4C">找提示信息</text>
+  <line x1="548" y1="962" x2="582" y2="962" stroke="#1F8A4C" stroke-width="1"/>
+  <polygon points="582,957 590,962 582,967" fill="#1F8A4C"/>
+  <rect x="584" y="940" width="200" height="44" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <circle cx="602" cy="962" r="12" fill="#1F8A4C"/>
+  <text class="ff" x="602" y="967" text-anchor="middle" fill="#FFFFFF">3</text>
+  <text class="ff" x="622" y="967" fill="#1F8A4C">筛选项</text>
+
+  <text class="s" x="112" y="1006">顺序执行：先定关系类型，再回上下文找提示，最后用五角度筛选项。</text>
+
+  <!-- ===================== ⑤ 虚词辨析 ===================== -->
+  <rect x="32" y="1038" width="796" height="106" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="1040" width="5" height="102" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="1068" fill="#2563A8">⑤ 虚词辨析</text>
+  <text class="mt" x="810" y="1068" text-anchor="end">★★ · 关联词搭配 + 句间关系</text>
+
+  <text class="k" x="50" y="1098">要点</text>
+  <text class="r" x="112" y="1098">关联词搭配 ＋ 句间关系</text>
+  <text class="s" x="112" y="1128">虚词辨析看关联词搭配与句间关系</text>
+
+  <!-- ===================== ⑥ 解题步骤 ===================== -->
+  <rect x="32" y="1160" width="796" height="166" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="1162" width="5" height="162" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="1190" fill="#2563A8">⑥ 解题步骤</text>
+  <text class="mt" x="810" y="1190" text-anchor="end">4 步</text>
+
+  <text class="r" x="112" y="1220">① 读空前后，判上下文关系类型（看判定标志）</text>
+  <text class="r" x="112" y="1250">② 据关系找提示信息，明确空缺所需语义/色彩/搭配</text>
+  <text class="r" x="112" y="1280">③ 用语素联想法拆近义词差异，结合官媒用法</text>
+  <text class="r" x="112" y="1310">④ 排除背离语境、搭配不当、色彩不符项</text>
+
+  <!-- ===================== ⑦ 易混辨析 ===================== -->
+  <rect x="32" y="1342" width="796" height="218" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <rect x="32" y="1344" width="5" height="214" rx="2.5" fill="#9A6B00"/>
+  <text class="bt" x="50" y="1372" fill="#9A6B00">⑦ 易混辨析</text>
+  <text class="mt" x="810" y="1372" text-anchor="end">注意</text>
+
+  <rect x="112" y="1396" width="344" height="58" rx="3" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="r" x="128" y="1420" fill="#9A6B00">反对：语义相反相对</text>
+  <text class="s" x="128" y="1442" fill="#9A6B00">标志：却 / 然而</text>
+  <rect x="464" y="1396" width="346" height="58" rx="3" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="r" x="480" y="1420" fill="#9A6B00">并列：不分主次描述几方面</text>
+  <text class="s" x="480" y="1442" fill="#9A6B00">标志：和 / 顿号</text>
+
+  <text class="s" x="112" y="1484" fill="#9A6B00">判别点：方向是否相反是关键（反对相反，并列平列）</text>
+  <text class="r" x="112" y="1514">解释关系常无标志：多数题无“换言之”等词，提示信息藏在空前空后，需通读</text>
+  <text class="r" x="112" y="1544">比喻义：如“风向标”“晴雨表”喻指示作用（象征义）</text>
+
+  <!-- ===================== ⑧ 错题提醒 ===================== -->
+  <rect x="32" y="1576" width="796" height="166" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <rect x="32" y="1578" width="5" height="162" rx="2.5" fill="#9A6B00"/>
+  <text class="bt" x="50" y="1606" fill="#9A6B00">⑧ 错题提醒</text>
+  <text class="mt" x="810" y="1606" text-anchor="end">3 条</text>
+
+  <circle cx="100" cy="1632" r="4" fill="#9A6B00"/>
+  <text class="r" x="112" y="1636">例题13、17 待核对解析原件（学习进度标记）</text>
+  <text class="r" x="112" y="1666">细菌“唤醒/关闭”耐药基因、网络创作“同质化”类</text>
+  <circle cx="100" cy="1692" r="4" fill="#9A6B00"/>
+  <text class="r" x="112" y="1696">例题5（社保）：相辅相成 vs 相得益彰——社会责任与效率“互相促进”用相得益彰更准</text>
+  <circle cx="100" cy="1722" r="4" fill="#9A6B00"/>
+  <text class="r" x="112" y="1726">高频词积累是提分基础（讲义强调高频词语反复考），日常用真题语料扩词</text>
+
+  <!-- ===================== ⑨ 图例与读法 ===================== -->
+  <rect x="32" y="1758" width="796" height="166" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="1760" width="5" height="162" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="1788" fill="#5A5A6E">⑨ 图例与读法</text>
+
+  <text class="k" x="50" y="1818">图例</text>
+  <text class="r" x="112" y="1818">紫＝语境分析判定标志 ｜ 蓝＝词语·虚词辨析 ｜ 绿＝语境三步法</text>
+  <text class="r" x="112" y="1848">琥珀＝易混辨析·错题提醒 ｜ 灰＝图例与读法</text>
+  <text class="k" x="50" y="1878">读法</text>
+  <text class="r" x="112" y="1878">读空前后 → 扫标志词定关系 → 按关系找提示 → 五角度辨词</text>
+  <text class="s" x="112" y="1908">先定四大关系，再辨词语五角度，虚词单看关联搭配</text>
+</svg>

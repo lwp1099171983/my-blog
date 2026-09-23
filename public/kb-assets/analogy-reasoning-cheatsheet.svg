@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 2094" width="860" height="2094" role="img" aria-labelledby="csTitle csDesc">
+  <title id="csTitle">类比推理全章速查图</title>
+  <desc id="csDesc">判断推理第05章类比推理的全章速查图，单栏自上而下八个考点块：①考查形式 ②逻辑关系7类 ③言语关系 ④常识关系8类 ⑤四组高频易混对照 ⑥解题步骤 ⑦错题提醒 ⑧图例与读法。紫＝逻辑核心，蓝＝言语＋常识，红＝错题提醒，琥珀＝易混对照，绿＝易混项A。</desc>
+  <defs>
+    <style>
+      text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif; }
+      .h  { font-size: 24px; font-weight: 600; fill: #1E1F33; }
+      .sub{ font-size: 14px; fill: #7C7D8E; }
+      .bt { font-size: 17px; font-weight: 600; }
+      .mt { font-size: 13px; fill: #7C7D8E; }
+      .k  { font-size: 14px; font-weight: 600; fill: #6B6C80; }
+      .r  { font-size: 17px; fill: #4B4C60; }
+      .s  { font-size: 15px; fill: #7C7D8E; }
+      .ff { font-size: 15px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="860" height="2094" fill="#FFFFFF"/>
+  <text class="h" x="32" y="44">类比推理 · 全章速查图</text>
+  <text class="sub" x="32" y="74">判断推理第05章：考查形式 ＋ 逻辑7类 ＋ 言语 ＋ 常识8类关系 ＋ 四组高频易混对照</text>
+  <text class="sub" x="810" y="98" text-anchor="end">共 8 块 ｜ 紫=逻辑核心 蓝=言语/常识 红=错题 琥珀=易混</text>
+  <line x1="32" y1="114" x2="810" y2="114" stroke="#E3E3EC" stroke-width="1"/>
+
+  <!-- ===================== ① 考查形式 ===================== -->
+  <rect x="32" y="114" width="796" height="182" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="116" width="5" height="178" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="144" fill="#5B3FA8">① 考查形式</text>
+  <text class="mt" x="810" y="144" text-anchor="end">3 种形式</text>
+
+  <text class="k" x="50" y="176">两项式</text>
+  <text class="r" x="112" y="176">【A:B】直接找关系</text>
+  <text class="k" x="50" y="206">三项式</text>
+  <text class="r" x="112" y="206">【A:B:C】两两看关系</text>
+  <text class="k" x="50" y="236">括号式</text>
+  <text class="r" x="112" y="236">【A 对于() 相当于 () 对于 B】</text>
+  <text class="s" x="112" y="266">括号式要点：把选项代入题干，使前后两组关系最一致</text>
+
+  <!-- ===================== ② 逻辑关系 7 类 ===================== -->
+  <rect x="32" y="312" width="796" height="332" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="314" width="5" height="328" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="342" fill="#5B3FA8">② 逻辑关系 7 类（核心）</text>
+  <text class="mt" x="810" y="342" text-anchor="end">考查比例高 · 7 类</text>
+
+  <text class="k" x="50" y="374">全同</text>
+  <text class="r" x="112" y="374">A 就是 B（老鼠=耗子）</text>
+  <text class="k" x="50" y="404" fill="#5B3FA8">并列·矛盾</text>
+  <text class="r" x="112" y="404">集合中只有两类（男人:女人）</text>
+  <text class="k" x="50" y="434" fill="#9A86D6">并列·反对</text>
+  <text class="r" x="112" y="434">集合中还有其他类（草莓:香蕉）</text>
+  <text class="k" x="50" y="464">种属</text>
+  <text class="r" x="112" y="464">A 是一种 B（电扇是电器）</text>
+  <text class="k" x="50" y="494">交叉</text>
+  <text class="r" x="112" y="494">部分重叠（茶杯:玻璃杯）</text>
+  <text class="k" x="50" y="524">顺承</text>
+  <text class="r" x="112" y="524">先 A 后 B（上膛→射击）</text>
+  <text class="k" x="50" y="554">因果</text>
+  <text class="r" x="112" y="554">因 A 而 B（炎热→中暑）</text>
+  <text class="k" x="50" y="584">条件·充分</text>
+  <text class="r" x="112" y="584">有 A 一定有 B（水涨→船高）</text>
+  <text class="k" x="50" y="614">条件·必要</text>
+  <text class="r" x="112" y="614">没 A 一定没 B（没水→没生命）</text>
+
+  <!-- ===================== ③ 言语关系 ===================== -->
+  <rect x="32" y="660" width="796" height="122" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="662" width="5" height="118" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="690" fill="#2563A8">③ 言语关系</text>
+  <text class="mt" x="810" y="690" text-anchor="end">2 类（词义 / 语法）</text>
+
+  <text class="k" x="50" y="722">词义</text>
+  <text class="r" x="112" y="722">近义、反义、比喻、象征、借代</text>
+  <text class="k" x="50" y="752">语法</text>
+  <text class="r" x="112" y="752">偏正、动宾、主谓</text>
+
+  <!-- ===================== ④ 常识关系 8 类 ===================== -->
+  <rect x="32" y="798" width="796" height="158" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="800" width="5" height="154" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="828" fill="#2563A8">④ 常识关系 8 类</text>
+  <text class="mt" x="810" y="828" text-anchor="end">考查比例高 · 8 类</text>
+
+  <rect x="50" y="844" width="178" height="40" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <text class="r" x="139" y="869" text-anchor="middle" fill="#4B4C60">组成</text>
+  <rect x="240" y="844" width="178" height="40" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <text class="r" x="329" y="869" text-anchor="middle" fill="#4B4C60">功能</text>
+  <rect x="430" y="844" width="178" height="40" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <text class="r" x="519" y="869" text-anchor="middle" fill="#4B4C60">加工</text>
+  <rect x="620" y="844" width="178" height="40" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <text class="r" x="709" y="869" text-anchor="middle" fill="#4B4C60">目的</text>
+  <rect x="50" y="900" width="178" height="40" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <text class="r" x="139" y="925" text-anchor="middle" fill="#4B4C60">职业</text>
+  <rect x="240" y="900" width="178" height="40" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <text class="r" x="329" y="925" text-anchor="middle" fill="#4B4C60">位置</text>
+  <rect x="430" y="900" width="178" height="40" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <text class="r" x="519" y="925" text-anchor="middle" fill="#4B4C60">配套</text>
+  <rect x="620" y="900" width="178" height="40" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <text class="r" x="709" y="925" text-anchor="middle" fill="#4B4C60">引导</text>
+
+  <!-- ===================== ⑤ 四组高频易混 ===================== -->
+  <rect x="32" y="972" width="796" height="518" rx="4" fill="#FFFFFF" stroke="#F0DFAE" stroke-width="1"/>
+  <rect x="32" y="974" width="5" height="514" rx="2.5" fill="#9A6B00"/>
+  <text class="bt" x="50" y="1002" fill="#9A6B00">⑤ 四组高频易混（最常考坑）</text>
+  <text class="mt" x="810" y="1002" text-anchor="end">易混 · 红绿对照</text>
+  <text class="s" x="50" y="1032">图例：绿=易混项 A ｜ 琥珀=易混项 B</text>
+
+  <text class="k" x="50" y="1064">种属 vs 组成</text>
+  <rect x="50" y="1082" width="370" height="46" rx="4" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="ff" x="64" y="1100" fill="#1F8A4C">种属「是一种」</text>
+  <text class="s" x="64" y="1120" fill="#1F8A4C">电扇:电器</text>
+  <rect x="440" y="1082" width="370" height="46" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="ff" x="454" y="1100" fill="#9A6B00">组成「一部分」</text>
+  <text class="s" x="454" y="1120" fill="#9A6B00">轮胎:汽车</text>
+  <text class="s" x="50" y="1148">判别点：种属说「是一种」，组成说「一部分」</text>
+
+  <text class="k" x="50" y="1168">全同 vs 交叉</text>
+  <rect x="50" y="1186" width="370" height="46" rx="4" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="ff" x="64" y="1204" fill="#1F8A4C">全同 同一概念</text>
+  <text class="s" x="64" y="1224" fill="#1F8A4C">老鼠:耗子</text>
+  <rect x="440" y="1186" width="370" height="46" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="ff" x="454" y="1204" fill="#9A6B00">交叉 部分重叠</text>
+  <text class="s" x="454" y="1224" fill="#9A6B00">茶杯:玻璃杯</text>
+  <text class="s" x="50" y="1252">判别点：同一概念（全同） vs 部分重叠（交叉）</text>
+
+  <text class="k" x="50" y="1272">借代 vs 比喻</text>
+  <rect x="50" y="1290" width="370" height="46" rx="4" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="ff" x="64" y="1308" fill="#1F8A4C">借代 特征代本体</text>
+  <text class="s" x="64" y="1328" fill="#1F8A4C">黄发代老人</text>
+  <rect x="440" y="1290" width="370" height="46" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="ff" x="454" y="1308" fill="#9A6B00">比喻 相似比作</text>
+  <text class="s" x="454" y="1328" fill="#9A6B00">月亮像玉盘</text>
+  <text class="s" x="50" y="1356">判别点：特征代本体（借代） vs 相似比作（比喻）</text>
+
+  <text class="k" x="50" y="1376">目的 vs 配套</text>
+  <rect x="50" y="1394" width="370" height="46" rx="4" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="ff" x="64" y="1412" fill="#1F8A4C">目的 行为→目的</text>
+  <text class="s" x="64" y="1432" fill="#1F8A4C">杀鸡:取卵</text>
+  <rect x="440" y="1394" width="370" height="46" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="ff" x="454" y="1412" fill="#9A6B00">配套 须搭配用</text>
+  <text class="s" x="454" y="1432" fill="#9A6B00">牙膏:牙刷</text>
+  <text class="s" x="50" y="1460">判别点：行为→目的（目的） vs 须搭配用（配套）</text>
+
+  <!-- ===================== ⑥ 解题步骤 ===================== -->
+  <rect x="32" y="1506" width="796" height="222" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="1508" width="5" height="218" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="1536" fill="#5A5A6E">⑥ 解题步骤</text>
+  <text class="mt" x="810" y="1536" text-anchor="end">解题 · 步骤</text>
+
+  <circle cx="58" cy="1562" r="11" fill="#5A5A6E"/>
+  <text class="r" x="58" y="1567" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="600">1</text>
+  <text class="r" x="112" y="1568">定形式：两词/三词直接找关系；括号式代入匹配</text>
+  <circle cx="58" cy="1592" r="11" fill="#5A5A6E"/>
+  <text class="r" x="58" y="1597" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="600">2</text>
+  <text class="r" x="112" y="1598">横向优先找关系；横向不明显或选不出唯一时，纵向比选项</text>
+  <circle cx="58" cy="1622" r="11" fill="#5A5A6E"/>
+  <text class="r" x="58" y="1627" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="600">3</text>
+  <text class="r" x="112" y="1628">整体优先；整体无关系时拆词看局部</text>
+  <circle cx="58" cy="1652" r="11" fill="#5A5A6E"/>
+  <text class="r" x="58" y="1657" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="600">4</text>
+  <text class="r" x="112" y="1658">排除表面相似、纵向不对应的选项</text>
+
+  <rect x="50" y="1676" width="760" height="36" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <text x="66" y="1699" fill="#9A6B00" font-size="15" font-weight="600">纪律：横向优于纵向 · 整体优于局部（整体无关系时再拆局部）</text>
+
+  <!-- ===================== ⑦ 错题提醒 ===================== -->
+  <rect x="32" y="1744" width="796" height="182" rx="4" fill="#FFFFFF" stroke="#EFBAB3" stroke-width="1"/>
+  <rect x="32" y="1746" width="5" height="178" rx="2.5" fill="#C0392B"/>
+  <text class="bt" x="50" y="1774" fill="#C0392B">⑦ 错题提醒</text>
+  <text class="mt" x="810" y="1774" text-anchor="end">错题 · 提醒</text>
+
+  <text class="k" x="50" y="1806">例题1</text>
+  <text class="r" x="112" y="1806">错选D：全同辨析（纸鸢=风筝，芝麻=脂麻均全同；白酒含酒精是组成非全同）</text>
+  <text class="k" x="50" y="1836">例题10</text>
+  <text class="r" x="112" y="1836">错选A：借代/引申义（胃口比喻兴趣，桃李比喻学生；心腹是器官非比喻）</text>
+  <text class="k" x="50" y="1866">例题12</text>
+  <text class="r" x="112" y="1866">错选D：主谓+隐含因果结构（鸟鸣:谷应=眉开:眼笑；开云:见日是顺承非主谓对应）</text>
+  <text class="k" x="50" y="1896">例题4</text>
+  <text class="r" x="112" y="1896">横向选不出唯一时务必纵向逐词核对命名方式（例题4 工具vs对象）</text>
+
+  <!-- ===================== ⑧ 图例与读法 ===================== -->
+  <rect x="32" y="1942" width="796" height="152" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="1944" width="5" height="148" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="1972" fill="#5A5A6E">⑧ 图例与读法</text>
+
+  <text class="k" x="50" y="2004">图例</text>
+  <text class="s" x="112" y="2004">紫=逻辑7类 ｜ 蓝=言语+常识 ｜ 红=错题提醒 ｜ 灰=步骤/读法 ｜ 琥珀=易混对照 ｜ 绿=易混项A</text>
+  <text class="s" x="112" y="2034">⑤块内：绿=易混项A ｜ 琥珀=易混项B</text>
+  <text class="k" x="50" y="2064">读法</text>
+  <text class="r" x="112" y="2064">①定形式 → ②③④按逻辑/言语/常识找关系 → ⑤排易混坑 → ⑥按步骤 → ⑦避错题</text>
+</svg>

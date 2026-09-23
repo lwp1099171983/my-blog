@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 3145" width="860" height="3145" role="img" aria-labelledby="csTitle csDesc">
+  <title id="csTitle">逻辑判断全章速查图</title>
+  <desc id="csDesc">判断推理第02章逻辑判断的全章速查图，单栏自上而下排列十一个考点块：①直言命题 ②联言选言 ③假言命题 ④朴素逻辑 ⑤论证基础 ⑥削弱加强 ⑦力度比较 ⑧解释结论评价 ⑨综合判断推理 ⑩背诵优先级 ⑪图例与读法。紫＝必然性推理，蓝＝可能性推理。</desc>
+  <defs>
+    <style>
+      text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif; }
+      .h  { font-size: 24px; font-weight: 600; fill: #1E1F33; }
+      .sub{ font-size: 14px; fill: #7C7D8E; }
+      .bt { font-size: 17px; font-weight: 600; }
+      .mt { font-size: 13px; fill: #7C7D8E; }
+      .k  { font-size: 14px; font-weight: 600; fill: #6B6C80; }
+      .r  { font-size: 17px; fill: #4B4C60; }
+      .s  { font-size: 15px; fill: #7C7D8E; }
+      .ff { font-size: 15px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="860" height="3145" fill="#FFFFFF"/>
+  <text class="h" x="32" y="44">逻辑判断 · 全章速查图</text>
+  <text class="sub" x="32" y="74">必然性推理（第 1–4 节）＋ 可能性推理（第 5–7 节）＋ 综合判断推理（第 8 节）</text>
+  <text class="sub" x="810" y="98" text-anchor="end">共 8 节 · 11 个考点块 ｜ 紫＝要背的公式，蓝＝论证题下手点</text>
+  <line x1="32" y1="114" x2="810" y2="114" stroke="#E3E3EC" stroke-width="1"/>
+
+  <!-- ===================== ① 直言命题 ===================== -->
+  <rect x="32" y="114" width="796" height="653" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="116" width="5" height="649" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="144" fill="#5B3FA8">① 直言命题</text>
+  <text class="mt" x="810" y="144" text-anchor="end">第 1 节 · ★★★</text>
+
+  <text class="k" x="50" y="176">六种形式</text>
+  <text class="r" x="112" y="176">所有A是B ｜ 所有A非B</text>
+  <text class="r" x="112" y="206">有些A是B ｜ 有些A非B</text>
+  <text class="r" x="112" y="236">某个A是B ｜ 某个A非B</text>
+
+  <text class="k" x="50" y="266">矛盾</text>
+  <text class="r" x="112" y="266">所有A是B ⟷ 有些A非B</text>
+  <text class="r" x="112" y="296">所有A非B ⟷ 有些A是B</text>
+  <text class="r" x="112" y="326">某个A是B ⟷ 某个A非B</text>
+  <text class="s" x="112" y="356">3 组，必一真一假（只有矛盾能占名额）</text>
+
+  <text class="k" x="50" y="386">上反对</text>
+  <text class="r" x="112" y="386">所有A是B ／ 所有A非B → 至少一假</text>
+  <text class="s" x="112" y="416">不能推出必有一真（两个都假可以）</text>
+
+  <text class="k" x="50" y="446">下反对</text>
+  <text class="r" x="112" y="446">有些A是B ／ 有些A非B → 至少一真</text>
+  <text class="s" x="112" y="476">不能推出必有一假（两个都真可以）</text>
+
+  <text class="k" x="50" y="506">推出链</text>
+  <text class="r" x="112" y="506">所有A是B → 某个A是B → 有些A是B</text>
+  <text class="s" x="112" y="536">单向，反向推不出（有些 ↛ 所有）</text>
+
+  <text class="k" x="50" y="566">三段论</text>
+  <text class="r" x="112" y="566">① 所有A是B ＋ 所有B是C → 所有A是C</text>
+  <text class="r" x="112" y="596">② 有些A是B ＋ 所有B是C → 有些A是C</text>
+  <text class="r" x="112" y="626">③ 所有A是B ＋ 所有B非C → 所有A非C</text>
+  <text class="r" x="112" y="656">④ 有些A是B ＋ 所有B非C → 有些A非C</text>
+
+  <text class="k" x="50" y="686">有效标准</text>
+  <text class="r" x="112" y="686">三概念 ｜ 各出现两次 ｜ 前提至少一个「所有」</text>
+  <text class="s" x="112" y="716">结论有「有些」则前提也必有「有些」</text>
+  <text class="s" x="112" y="746">结论否定 → 前提否定数为奇数</text>
+
+  <!-- ===================== ② 联言 · 选言 ===================== -->
+  <rect x="32" y="783" width="796" height="293" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="785" width="5" height="289" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="813" fill="#5B3FA8">② 联言 · 选言</text>
+  <text class="mt" x="810" y="813" text-anchor="end">第 2 节 · ★★</text>
+
+  <text class="k" x="50" y="845">联言</text>
+  <text class="r" x="112" y="845">p 且 q　联结词：并且／但是／不但…而且</text>
+  <text class="s" x="112" y="875">矛盾式：非p 或 非q　｜　全真才真</text>
+
+  <text class="k" x="50" y="905">相容选言</text>
+  <text class="r" x="112" y="905">p 或 q　联结词：或者…或者／可能…也可能</text>
+  <text class="s" x="112" y="935">矛盾式：非p 且 非q　｜　一真即真</text>
+
+  <text class="k" x="50" y="965">不相容</text>
+  <text class="r" x="112" y="965">要么p要么q　联结词：要么…要么／不是…就是</text>
+  <text class="s" x="112" y="995">矛盾式：(p且q) 或 (非p且非q)</text>
+  <text class="s" x="112" y="1025">真假：恰有一真才真（多真多假都算假）</text>
+
+  <text class="k" x="50" y="1055">推理</text>
+  <text class="r" x="112" y="1055">「否一推一」：否定一支 → 必肯定另一支</text>
+
+  <!-- ===================== ③ 假言命题 ===================== -->
+  <rect x="32" y="1092" width="796" height="391" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="1094" width="5" height="387" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="1122" fill="#5B3FA8">③ 假言命题</text>
+  <text class="mt" x="810" y="1122" text-anchor="end">第 3 节 · ★★★ 主角</text>
+
+  <text class="k" x="50" y="1154">前推后</text>
+  <text class="r" x="112" y="1154">如果…就 ｜ 只要…就 ｜ 若…则</text>
+  <text class="k" x="50" y="1184">后推前</text>
+  <text class="r" x="112" y="1184">只有…才 ｜ 除非…否则不</text>
+  <text class="s" x="112" y="1214">…是…的充分条件 →「前推后」；…是…的必要条件 →「后推前」</text>
+  <text class="s" x="112" y="1244">（基础／前提／关键 也都表示必要条件）</text>
+
+  <rect x="112" y="1256" width="220" height="36" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <circle cx="130" cy="1274" r="5" fill="#1F8A4C"/>
+  <text class="ff" x="146" y="1279" fill="#1F8A4C">肯前必肯后</text>
+  <rect x="356" y="1256" width="220" height="36" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <circle cx="374" cy="1274" r="5" fill="#1F8A4C"/>
+  <text class="ff" x="390" y="1279" fill="#1F8A4C">否后必否前</text>
+  <rect x="112" y="1304" width="220" height="36" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <circle cx="130" cy="1322" r="5" fill="#C0392B"/>
+  <text class="ff" x="146" y="1327" fill="#C0392B">否前推不出</text>
+  <rect x="356" y="1304" width="220" height="36" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <circle cx="374" cy="1322" r="5" fill="#C0392B"/>
+  <text class="ff" x="390" y="1327" fill="#C0392B">肯后推不出</text>
+
+  <text class="k" x="50" y="1372">矛盾式</text>
+  <text class="r" x="112" y="1372">非(p → q) ＝ p 且 非q（最易错）</text>
+  <text class="k" x="50" y="1402">逆否等价</text>
+  <text class="r" x="112" y="1402">p → q ⟺ 非q → 非p（同真同假）</text>
+  <text class="k" x="50" y="1432">传递</text>
+  <text class="r" x="112" y="1432">p → q、q → r　⟹　p → r</text>
+  <text class="s" x="112" y="1462">翻译时先写成「后推前」的形式，再套铁律</text>
+
+  <!-- ===================== ④ 朴素逻辑 ===================== -->
+  <rect x="32" y="1499" width="796" height="203" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="1501" width="5" height="199" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="1529" fill="#5B3FA8">④ 朴素逻辑</text>
+  <text class="mt" x="810" y="1529" text-anchor="end">第 4 节 · ★★</text>
+
+  <text class="k" x="50" y="1561">突破口</text>
+  <text class="r" x="112" y="1561">确定条件：读完就能得出一条确定信息</text>
+  <text class="r" x="112" y="1591">关联条件：题干里出现次数最多的元素</text>
+  <text class="k" x="50" y="1621">三工具</text>
+  <text class="r" x="112" y="1621">选项给全对应 → 代入排除法</text>
+  <text class="r" x="112" y="1651">有真假话不确定谁真 → 假设法</text>
+  <text class="r" x="112" y="1681">元素对应多 → 列表法 ｜ 位置关系多 → 画图法</text>
+
+  <!-- ===================== ⑤ 论证基础 ===================== -->
+  <rect x="32" y="1718" width="796" height="265" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="1720" width="5" height="261" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="1748" fill="#2563A8">⑤ 论证基础</text>
+  <text class="mt" x="810" y="1748" text-anchor="end">第 5 节 · ★★</text>
+
+  <rect x="233" y="1780" width="130" height="36" rx="3" fill="#EFF5FC" stroke="#D0E0F4" stroke-width="1"/>
+  <text class="ff" x="298" y="1803" text-anchor="middle" fill="#2563A8">论据</text>
+  <line x1="365" y1="1798" x2="383" y2="1798" stroke="#2563A8" stroke-width="1"/>
+  <polygon points="383,1793 391,1798 383,1803" fill="#2563A8"/>
+  <rect x="391" y="1780" width="130" height="36" rx="3" fill="#EFF5FC" stroke="#D0E0F4" stroke-width="1"/>
+  <text class="ff" x="456" y="1803" text-anchor="middle" fill="#2563A8">论证联系</text>
+  <line x1="523" y1="1798" x2="541" y2="1798" stroke="#2563A8" stroke-width="1"/>
+  <polygon points="541,1793 549,1798 541,1803" fill="#2563A8"/>
+  <rect x="549" y="1780" width="130" height="36" rx="3" fill="#EFF5FC" stroke="#D0E0F4" stroke-width="1"/>
+  <text class="ff" x="614" y="1803" text-anchor="middle" fill="#2563A8">结论</text>
+
+  <text class="k" x="50" y="1842">剔除项</text>
+  <text class="r" x="112" y="1842">背景 ｜ 重复 ｜ 举例 ｜ 类比 不算论据</text>
+  <text class="k" x="50" y="1872">标志词</text>
+  <text class="r" x="112" y="1872">因此 ｜ 表明 ｜ 意味着 ｜ 可见 ｜ 推测</text>
+  <text class="s" x="112" y="1902">据此可知 ｜ 由此得出</text>
+  <text class="k" x="50" y="1932">论证 5 型</text>
+  <text class="r" x="112" y="1932">① 论据→结论　② 论据→中间结论→结论</text>
+  <text class="s" x="112" y="1962">③ 多论据→结论　④ 缺结论需补　⑤ 结论→论据</text>
+
+  <!-- ===================== ⑥ 削弱 · 加强 ===================== -->
+  <rect x="32" y="1999" width="796" height="263" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="2001" width="5" height="259" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="2029" fill="#2563A8">⑥ 削弱 · 加强</text>
+  <text class="mt" x="810" y="2029" text-anchor="end">第 6 节 · ★★★</text>
+
+  <text class="k" x="50" y="2061">削三角度</text>
+  <text class="r" x="112" y="2061">削结论 ｜ 断联系 ｜ 削论据（＝⑤三处）</text>
+  <text class="s" x="112" y="2091">论据是调查／实验／机构观点 → 优先削论据</text>
+  <text class="s" x="112" y="2121">论据与结论概念不一致 → 优先断联系</text>
+  <text class="k" x="50" y="2151">加三角度</text>
+  <text class="r" x="112" y="2151">补论据 ｜ 建联系 ｜ 结论可得（一一对应）</text>
+  <text class="k" x="50" y="2181">前提型</text>
+  <text class="r" x="112" y="2181">搭桥：连起论据与结论里不同的两个概念</text>
+  <text class="s" x="112" y="2211">反向验证：否定它代回，不成立即必需前提</text>
+  <text class="s" x="112" y="2241">前提 ＝ 必要条件，比一般加强更严</text>
+
+  <!-- ===================== ⑦ 力度比较 ===================== -->
+  <rect x="32" y="2278" width="796" height="143" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="2280" width="5" height="139" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="2308" fill="#2563A8">⑦ 力度比较</text>
+  <text class="mt" x="810" y="2308" text-anchor="end">第 6 节 · ★★ 五条</text>
+
+  <text class="k" x="50" y="2340">五条</text>
+  <text class="r" x="112" y="2340">本质 ＞ 现象 ｜ 必然 ＞ 可能 ｜ 量大 ＞ 量小</text>
+  <text class="r" x="112" y="2370">直接 ＞ 间接 ｜ 综合 ＞ 单一（同时影响两面）</text>
+  <text class="s" x="112" y="2400">多个选项都能削弱时才用它排序</text>
+
+  <!-- ===================== ⑧ 解释 · 结论 · 评价 ===================== -->
+  <rect x="32" y="2437" width="796" height="173" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="2439" width="5" height="169" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="2467" fill="#2563A8">⑧ 解释 · 结论 · 评价</text>
+  <text class="mt" x="810" y="2467" text-anchor="end">第 7 节 · ★</text>
+
+  <text class="k" x="50" y="2499">解释型</text>
+  <text class="r" x="112" y="2499">「最能解释」→ 找现象，再给它找原因</text>
+  <text class="k" x="50" y="2529">结论型</text>
+  <text class="r" x="112" y="2529">「由此推出」→ 代回原文定位，没说就不选</text>
+  <text class="k" x="50" y="2559">评价型</text>
+  <text class="r" x="112" y="2559">「形式相同」→ 命题题换字母比形式</text>
+  <text class="s" x="112" y="2589">论证题则先找论据与结论，再比结构</text>
+
+  <!-- ===================== ⑨ 综合判断推理 ===================== -->
+  <rect x="32" y="2626" width="796" height="113" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="2628" width="5" height="109" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="2656" fill="#5A5A6E">⑨ 综合判断推理</text>
+  <text class="mt" x="810" y="2656" text-anchor="end">第 8 节 · 跨板块</text>
+
+  <text class="k" x="50" y="2688">形式</text>
+  <text class="r" x="112" y="2688">一段材料拖 2–5 道小题，两板块混考</text>
+  <text class="k" x="50" y="2718">做法</text>
+  <text class="r" x="112" y="2718">先看问法再回材料，各小题彼此独立</text>
+
+  <!-- ===================== ⑩ 背诵优先级 ===================== -->
+  <rect x="32" y="2755" width="796" height="173" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <rect x="32" y="2757" width="5" height="169" rx="2.5" fill="#9A6B00"/>
+  <text class="bt" x="50" y="2785" fill="#9A6B00">⑩ 背诵优先级</text>
+  <text class="mt" x="810" y="2785" text-anchor="end">时间有限时按此序</text>
+
+  <text class="k" x="50" y="2817">一级</text>
+  <text class="r" x="112" y="2817">假言铁律与矛盾式 ｜ 直言矛盾与反对</text>
+  <text class="s" x="112" y="2847">削弱三角度 ＋ 力度 5 条</text>
+  <text class="k" x="50" y="2877">二级</text>
+  <text class="r" x="112" y="2877">三段论有效标准 ｜ 前提型搭桥与验证</text>
+  <text class="s" x="112" y="2907">结论标志词 ｜ 朴素逻辑突破口</text>
+
+  <!-- ===================== ⑪ 图例与读法 ===================== -->
+  <rect x="32" y="2944" width="796" height="173" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="2946" width="5" height="169" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="2974" fill="#5A5A6E">⑪ 图例与读法</text>
+
+  <text class="k" x="50" y="3006">图例</text>
+  <text class="r" x="112" y="3006">紫＝必然性 ｜ 蓝＝可能性 ｜ 灰＝跨板块</text>
+  <text class="s" x="112" y="3036">琥珀＝优先级 ｜ 绿＝有效 ｜ 红＝无效</text>
+  <text class="k" x="50" y="3066">读法</text>
+  <text class="r" x="112" y="3066">先紫区（要默写）→ 蓝区（下手点）</text>
+  <text class="s" x="112" y="3096">最后扫琥珀区确认背诵顺序</text>
+</svg>

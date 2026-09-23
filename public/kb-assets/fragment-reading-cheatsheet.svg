@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 2148" width="860" height="2148" role="img" aria-labelledby="csTitle csDesc">
+  <title id="csTitle">片段阅读全章速查图</title>
+  <desc id="csDesc">言语理解第02章片段阅读的全章速查图，单栏自上而下九个考点块：①五类题型总表 ②层次类型定重点位置 ③隐性主旨三类选对策 ④细节五坑 ⑤主题词 ⑥解题步骤 ⑦易混辨析 ⑧错题提醒 ⑨图例与读法。紫＝题型根基，蓝＝解题方法，红＝细节陷阱，绿＝有效对策，琥珀＝提醒。</desc>
+  <defs>
+    <style>
+      text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif; }
+      .h  { font-size: 24px; font-weight: 600; fill: #1E1F33; }
+      .sub{ font-size: 14px; fill: #7C7D8E; }
+      .bt { font-size: 17px; font-weight: 600; }
+      .mt { font-size: 13px; fill: #7C7D8E; }
+      .k  { font-size: 14px; font-weight: 600; fill: #6B6C80; }
+      .r  { font-size: 17px; fill: #4B4C60; }
+      .s  { font-size: 15px; fill: #7C7D8E; }
+      .ff { font-size: 15px; }
+      .tn { font-size: 15px; font-weight: 600; fill: #26215C; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="860" height="2148" fill="#FFFFFF"/>
+  <text class="h" x="32" y="44">片段阅读 · 全章速查图</text>
+  <text class="sub" x="32" y="74">言语理解第02章：按提问方式识别 5 类题型，对应方法找主旨 / 标题 / 细节 / 下文 / 词义</text>
+  <text class="sub" x="810" y="98" text-anchor="end">共 9 块 ｜ 紫＝题型根基，蓝＝方法，红＝细节陷阱，绿＝有效对策</text>
+  <line x1="32" y1="114" x2="810" y2="114" stroke="#E3E3EC" stroke-width="1"/>
+
+  <!-- ===================== ① 五类题型总表 ===================== -->
+  <rect x="32" y="114" width="796" height="498" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="116" width="5" height="494" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="144" fill="#5B3FA8">① 五类题型总表</text>
+  <text class="mt" x="810" y="144" text-anchor="end">五类题型 · 主旨为根基</text>
+
+  <text class="tn" x="50" y="176">主旨观点题 <tspan fill="#9A6B00">★★★★★</tspan>（根基）</text>
+  <text class="k" x="50" y="206">识别</text>
+  <text class="r" x="112" y="206">问法指向「主旨 / 观点」（意在说明、概括、主要说明）</text>
+  <text class="k" x="50" y="236">方法</text>
+  <text class="r" x="112" y="236">主题词分析 + 层次分析 + 选项分析</text>
+
+  <text class="tn" x="50" y="266">标题添加题 <tspan fill="#9A6B00">★★★</tspan></text>
+  <text class="k" x="50" y="296">识别</text>
+  <text class="r" x="112" y="296">问法指向「最适合做标题 / 填入标题」</text>
+  <text class="k" x="50" y="326">方法</text>
+  <text class="r" x="112" y="326">主旨明确、内容精炼、形式新颖</text>
+
+  <text class="tn" x="50" y="356">细节题 <tspan fill="#9A6B00">★★★★</tspan></text>
+  <text class="k" x="50" y="386">识别</text>
+  <text class="r" x="112" y="386">问法指向「说法正确 / 不符 / 关于某词」（细节判断与查找）</text>
+  <text class="k" x="50" y="416">方法</text>
+  <text class="r" x="112" y="416">细节判断(五坑) + 细节查找</text>
+
+  <text class="tn" x="50" y="446">下文推断题 <tspan fill="#9A6B00">★★★</tspan></text>
+  <text class="k" x="50" y="476">识别</text>
+  <text class="r" x="112" y="476">问法指向「接下来 / 下文最可能讲什么」</text>
+  <text class="k" x="50" y="506">方法</text>
+  <text class="r" x="112" y="506">看尾句（提话题→延续；提问题→分析 / 解决）</text>
+
+  <text class="tn" x="50" y="536">词语理解题 <tspan fill="#9A6B00">★★</tspan></text>
+  <text class="k" x="50" y="566">识别</text>
+  <text class="r" x="112" y="566">问法指向「某词 / 某句指什么、如何理解」</text>
+  <text class="k" x="50" y="596">方法</text>
+  <text class="r" x="112" y="596">指代性（前文就近）、特殊含义（贴近主题 + 修辞）</text>
+
+  <!-- ===================== ② 层次类型 → 重点位置 ===================== -->
+  <rect x="32" y="628" width="796" height="272" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="630" width="5" height="268" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="658" fill="#5B3FA8">② 层次类型 → 重点位置</text>
+  <text class="mt" x="810" y="658" text-anchor="end">核心判定 · 四种层次</text>
+  <text class="s" x="50" y="688">横条＝一段文段；琥珀块＝重点落点；「前 / 后」＝段1 / 段2，形状自证重点在哪段</text>
+
+  <rect x="112" y="700" width="620" height="26" rx="3" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="422" y="700" width="310" height="26" rx="3" fill="#F0DFAE" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="s" x="126" y="718" fill="#6B6C80">前（铺垫）</text>
+  <text class="s" x="436" y="718" fill="#9A6B00">后 ＝ 重点</text>
+  <text class="s" x="112" y="740">转折（但 / 然而 / 其实）：重点在转后 —— 看转折词之后</text>
+
+  <rect x="112" y="748" width="620" height="26" rx="3" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="422" y="748" width="310" height="26" rx="3" fill="#F0DFAE" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="s" x="126" y="766" fill="#6B6C80">前</text>
+  <text class="s" x="436" y="766" fill="#9A6B00">后 ＝ 重点</text>
+  <text class="s" x="112" y="788">承接（于是 / 接着 / 此后）：重点在后 —— 顺承的尾句</text>
+
+  <rect x="112" y="796" width="620" height="26" rx="3" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="112" y="796" width="310" height="26" rx="3" fill="#F0DFAE" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="s" x="126" y="814" fill="#9A6B00">前 ＝ 观点（重点）</text>
+  <text class="s" x="436" y="814" fill="#6B6C80">后（解释）</text>
+  <text class="s" x="112" y="836">解释说明（因为 / 例如 / 就是说）：重点在前观点，后文是支撑</text>
+
+  <rect x="112" y="844" width="620" height="26" rx="3" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <line x1="422" y1="844" x2="422" y2="870" stroke="#E3E3EC" stroke-width="1"/>
+  <text class="s" x="126" y="862" fill="#6B6C80">前</text>
+  <text class="s" x="436" y="862" fill="#6B6C80">后</text>
+  <text class="s" x="112" y="884">并列（同时 / 此外 / 一方面…另一方面）：无主次，需概括或提炼共性</text>
+
+  <!-- ===================== ③ 隐性主旨三类 → 对策 ===================== -->
+  <rect x="32" y="912" width="796" height="198" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="914" width="5" height="194" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="942" fill="#2563A8">③ 隐性主旨三类 → 对策</text>
+  <text class="mt" x="810" y="942" text-anchor="end">隐性主旨 · 三类</text>
+  <text class="s" x="50" y="972">题干长这样 → 该选什么（题干未明给对策时推对策）</text>
+
+  <text class="k" x="50" y="1004">①</text>
+  <text class="r" x="112" y="1004">重要性 + 缺陷</text>
+  <text class="k" x="50" y="1034">②</text>
+  <text class="r" x="112" y="1034">问题 + 危害</text>
+  <text class="k" x="50" y="1064">③</text>
+  <text class="r" x="112" y="1064">问题 + 原因</text>
+  <text class="r" x="112" y="1094">→ 三类都选「针对且可操作」的对策（不要空泛 / 无法落地）</text>
+
+  <!-- ===================== ④ 细节五坑 ===================== -->
+  <rect x="32" y="1126" width="796" height="132" rx="4" fill="#FFFFFF" stroke="#EFBAB3" stroke-width="1"/>
+  <rect x="32" y="1128" width="5" height="128" rx="2.5" fill="#C0392B"/>
+  <text class="bt" x="50" y="1156" fill="#C0392B">④ 细节五坑</text>
+  <text class="mt" x="810" y="1156" text-anchor="end">细节陷阱 · 五坑</text>
+
+  <rect x="112" y="1178" width="130" height="44" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="ff" x="177" y="1205" text-anchor="middle" fill="#C0392B">无中生有</text>
+  <rect x="254" y="1178" width="130" height="44" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="ff" x="319" y="1205" text-anchor="middle" fill="#C0392B">正话反说</text>
+  <rect x="396" y="1178" width="130" height="44" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="ff" x="461" y="1205" text-anchor="middle" fill="#C0392B">绝对表述</text>
+  <rect x="538" y="1178" width="130" height="44" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="ff" x="603" y="1205" text-anchor="middle" fill="#C0392B">偷换概念</text>
+  <rect x="680" y="1178" width="130" height="44" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="ff" x="745" y="1205" text-anchor="middle" fill="#C0392B">混淆范围</text>
+
+  <text class="s" x="112" y="1242">细节判断题专查这五类陷阱；查找题先定查找内容再回文定位</text>
+
+  <!-- ===================== ⑤ 主题词 ===================== -->
+  <rect x="32" y="1274" width="796" height="108" rx="4" fill="#FFFFFF" stroke="#A8DDBE" stroke-width="1"/>
+  <rect x="32" y="1276" width="5" height="104" rx="2.5" fill="#1F8A4C"/>
+  <text class="bt" x="50" y="1304" fill="#1F8A4C">⑤ 主题词</text>
+  <text class="mt" x="810" y="1304" text-anchor="end">排偏题项</text>
+
+  <text class="k" x="50" y="1336">怎么找</text>
+  <text class="r" x="112" y="1336">高频词（反复出现）+ 关键句陈述对象</text>
+  <text class="k" x="50" y="1366">用法</text>
+  <text class="r" x="112" y="1366">先排掉不含主题词 / 偏题项</text>
+
+  <!-- ===================== ⑥ 解题步骤（分题型） ===================== -->
+  <rect x="32" y="1398" width="796" height="168" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="1400" width="5" height="164" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="1428" fill="#2563A8">⑥ 解题步骤（分题型）</text>
+  <text class="mt" x="810" y="1428" text-anchor="end">分题型步骤</text>
+
+  <text class="k" x="50" y="1460">主旨题</text>
+  <text class="r" x="112" y="1460">① 找主题词 ② 分层定重点</text>
+  <text class="r" x="112" y="1490">③ 同义转述 + 排除（侧重不同 / 偷换概念 / 概括不全 / 推断过度）</text>
+  <text class="k" x="50" y="1520">下文题</text>
+  <text class="r" x="112" y="1520">通读判趋势 → 看尾句 → 排无关 / 本文 / 跳跃信息</text>
+  <text class="k" x="50" y="1550">细节题</text>
+  <text class="r" x="112" y="1550">回文定位 → 查五坑；查找题先定查找内容再定位</text>
+
+  <!-- ===================== ⑦ 易混辨析 ===================== -->
+  <rect x="32" y="1582" width="796" height="138" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <rect x="32" y="1584" width="5" height="134" rx="2.5" fill="#9A6B00"/>
+  <text class="bt" x="50" y="1612" fill="#9A6B00">⑦ 易混辨析</text>
+  <text class="mt" x="810" y="1612" text-anchor="end">易混三点</text>
+
+  <text class="k" x="50" y="1644">转折后驳</text>
+  <text class="r" x="112" y="1644">少数题转折后驳斥前文，重点仍在转后但是对前观点的反驳，需概括前后</text>
+  <text class="k" x="50" y="1674">并列关系</text>
+  <text class="r" x="112" y="1674">若干事件 / 方面罗列无主次，必须全面概括或提炼共性，不能只取一端</text>
+  <text class="k" x="50" y="1704">标题题</text>
+  <text class="r" x="112" y="1704">标题题≠主旨题：多「形式新颖」要求，但必须紧扣主旨</text>
+
+  <!-- ===================== ⑧ 错题提醒 ===================== -->
+  <rect x="32" y="1736" width="796" height="258" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <rect x="32" y="1738" width="5" height="254" rx="2.5" fill="#9A6B00"/>
+  <text class="bt" x="50" y="1766" fill="#9A6B00">⑧ 错题提醒</text>
+  <text class="mt" x="810" y="1766" text-anchor="end">易错四例</text>
+
+  <text class="k" x="50" y="1798">例题1</text>
+  <text class="r" x="112" y="1798">青春版牡丹亭</text>
+  <text class="r" x="112" y="1828">转折后「不变」才是传承核心，C 对；勿被「变易」表面带偏</text>
+  <text class="k" x="50" y="1858">例题7</text>
+  <text class="r" x="112" y="1858">科技竞技</text>
+  <text class="r" x="112" y="1888">显性主旨题，D 辩证看待好处弊端最全；A 只取弊端片面</text>
+  <text class="k" x="50" y="1918">例题13</text>
+  <text class="r" x="112" y="1918">年轻人回流</text>
+  <text class="r" x="112" y="1948">问「意在说明」选原因(C)非对策(B)——题干是因果说明非提对策</text>
+  <text class="k" x="50" y="1978">易错</text>
+  <text class="r" x="112" y="1978">把「问题 + 原因」型当隐性主旨去选对策，需看题干是否真无对策倾向</text>
+
+  <!-- ===================== ⑨ 图例与读法 ===================== -->
+  <rect x="32" y="2010" width="796" height="138" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="2012" width="5" height="134" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="2040" fill="#5A5A6E">⑨ 图例与读法</text>
+
+  <text class="k" x="50" y="2072">图例</text>
+  <text class="r" x="112" y="2072">★ ＝ 重要性（★ 越多越常考）</text>
+  <text class="s" x="112" y="2102">紫＝题型根基 ｜ 蓝＝解题方法 ｜ 红＝细节陷阱 ｜ 绿＝有效对策 ｜ 琥珀＝提醒</text>
+  <text class="k" x="50" y="2132">读法</text>
+  <text class="r" x="112" y="2132">看问法 → ① 定题型 → ② 定重点位置 → ④⑤ 排坑；隐性主旨走 ③ 选对策</text>
+</svg>

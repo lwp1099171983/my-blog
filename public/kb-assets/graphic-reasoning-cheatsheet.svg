@@ -1,0 +1,318 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 4373" width="860" height="4373" role="img" aria-labelledby="csTitle csDesc">
+  <title id="csTitle">图形推理全章速查图</title>
+  <desc id="csDesc">判断推理第03章图形推理全章速查图，单栏自上而下十四个块：①概览与特征→方向对照 ②位置规律 ③叠加规律 ④图形特性 ⑤数量规律 ⑥元素分布 ⑦六面体展开与公共边 ⑧四面体 ⑨三视图与截面 ⑩可截不可截清单 ⑪立体与平面拼接 ⑫解题步骤与纪律 ⑬易混辨析 ⑭图例与读法。紫＝图形相似，蓝＝图形相异，灰＝立体与拼接，绿＝可截，红＝不可截。</desc>
+  <defs><style>
+    text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif; }
+    .h  { font-size: 24px; font-weight: 600; fill: #1E1F33; }
+    .sub{ font-size: 14px; fill: #7C7D8E; }
+    .bt { font-size: 17px; font-weight: 600; }
+    .mt { font-size: 13px; fill: #7C7D8E; }
+    .k  { font-size: 14px; font-weight: 600; fill: #6B6C80; }
+    .r  { font-size: 17px; fill: #4B4C60; }
+    .s  { font-size: 15px; fill: #7C7D8E; }
+    .ff { font-size: 15px; }
+  </style></defs>
+  <rect x="0" y="0" width="860" height="4373" fill="#FFFFFF"/>
+  <text class="h" x="32" y="44">图形推理 · 全章速查图</text>
+  <text class="sub" x="32" y="74">判断推理第03章（图形推理）全章速查：把「图形特征 → 规律方向」练成条件反射</text>
+  <text class="sub" x="810" y="98" text-anchor="end">共 14 块 · 紫＝相似，蓝＝相异，灰＝立体/拼接</text>
+  <line x1="32" y1="114" x2="810" y2="114" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="114" width="796" height="320" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="116" width="5" height="316" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="144" fill="#5B3FA8">① 概览 · 特征 → 方向（最该背的一张对照）</text>
+  <text class="mt" x="810" y="144" text-anchor="end">考点框架 · ★★★★★</text>
+  <text class="k" x="50" y="176">四节</text>
+  <text class="r" x="112" y="176">图形相似(位置/叠加) · 图形相异(特性/数量/元素分布) · 立体图形 · 平面拼接</text>
+  <text class="k" x="50" y="204">重要性</text>
+  <text class="r" x="112" y="204">图形相似★★★★★ · 图形相异★★★★★ · 立体图形★★★ · 平面拼接★★★</text>
+  <text class="k" x="50" y="232">考查形式</text>
+  <text class="r" x="112" y="232">顺推型 · 类比型 · 九宫格型 · 分类分组型 · 条件型</text>
+  <text class="k" x="50" y="260">任务</text>
+  <text class="r" x="112" y="260">把「图形特征→规律方向」练成条件反射：靠特征有方向分析，不靠灵感</text>
+  <text class="s" x="112" y="292">特征（左）→ 方向（右侧高亮）：先看图形相似还是相异，再定规律方向</text>
+  <text class="r" x="112" y="319">图形相似 ＋ 组成元素完全相同</text>
+  <text class="r" x="540" y="319" fill="#5B3FA8">→</text>
+<rect x="560" y="301.0" width="232" height="24" rx="3" fill="#DDD2F5" stroke="#5B3FA8" stroke-width="1"/><text class="r" x="676.0" y="319.0" text-anchor="middle" fill="#26215C">位置规律</text>
+  <text class="r" x="112" y="347">图形相似 ＋ 组成元素同中有异</text>
+  <text class="r" x="540" y="347" fill="#5B3FA8">→</text>
+<rect x="560" y="329.0" width="232" height="24" rx="3" fill="#DDD2F5" stroke="#5B3FA8" stroke-width="1"/><text class="r" x="676.0" y="347.0" text-anchor="middle" fill="#26215C">叠加规律</text>
+  <text class="r" x="112" y="375">图形相似度低 ＋ 自身特性明显</text>
+  <text class="r" x="540" y="375" fill="#2563A8">→</text>
+<rect x="560" y="357.0" width="232" height="24" rx="3" fill="#D0E0F4" stroke="#2563A8" stroke-width="1"/><text class="r" x="676.0" y="375.0" text-anchor="middle" fill="#042C53">图形特性</text>
+  <text class="r" x="112" y="403">图形相似度低 ＋ 自身无明显特性</text>
+  <text class="r" x="540" y="403" fill="#2563A8">→</text>
+<rect x="560" y="385.0" width="232" height="24" rx="3" fill="#D0E0F4" stroke="#2563A8" stroke-width="1"/><text class="r" x="676.0" y="403.0" text-anchor="middle" fill="#042C53">数量规律</text>
+  <text class="r" x="112" y="431">图形相似度低 ＋ 每个图形由多元素组成</text>
+  <text class="r" x="540" y="431" fill="#2563A8">→</text>
+<rect x="560" y="413.0" width="232" height="24" rx="3" fill="#D0E0F4" stroke="#2563A8" stroke-width="1"/><text class="r" x="676.0" y="431.0" text-anchor="middle" fill="#042C53">元素分布</text>
+  <rect x="32" y="450" width="796" height="340" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="452" width="5" height="336" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="480" fill="#5B3FA8">② 位置规律</text>
+  <text class="mt" x="810" y="480" text-anchor="end">图形相似 · ★★★★★</text>
+  <text class="k" x="50" y="512">平移</text>
+  <text class="r" x="112" y="512">方向：上下左右、顺/逆时针；距离：等距、距离依次递增</text>
+  <text class="k" x="50" y="542">旋转</text>
+  <text class="r" x="112" y="542">方向：顺/逆时针；角度 30° / 45° / 60° / 90°</text>
+  <text class="k" x="50" y="572">翻转</text>
+  <text class="r" x="112" y="572">左右翻转＝沿竖直轴对折；上下翻转＝沿水平轴对折</text>
+  <text class="k" x="80" y="590" fill="#5B3FA8">左右翻转（竖直轴）</text>
+  <line x1="210" y1="618" x2="210" y2="702" stroke="#5A5A6E" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text class="s" x="210" y="613" text-anchor="middle" fill="#5A5A6E">竖直轴</text>
+  <rect x="100" y="653" width="38" height="14" fill="#5B3FA8"/>
+  <polygon points="138,635 170,660 138,685" fill="#5B3FA8"/>
+  <rect x="252" y="653" width="38" height="14" fill="#5B3FA8"/>
+  <polygon points="252,635 220,660 252,685" fill="#5B3FA8"/>
+  <text class="k" x="470" y="600" fill="#5B3FA8">上下翻转（水平轴）</text>
+  <line x1="480" y1="685" x2="660" y2="685" stroke="#5A5A6E" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text class="s" x="480" y="679" fill="#5A5A6E">水平轴</text>
+  <polygon points="540,677 600,677 570,627" fill="#5B3FA8" stroke="#5A5A6E" stroke-width="1"/>
+  <polygon points="540,693 600,693 570,743" fill="#5B3FA8" stroke="#5A5A6E" stroke-width="1"/>
+  <text class="s" x="112" y="748">怎么读：竖虚线＝竖直轴，左右互换（右箭头→左箭头）。</text>
+  <text class="s" x="112" y="772">横虚线＝水平轴，上下互换（上三角→下三角）。</text>
+  <rect x="32" y="806" width="796" height="350" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="808" width="5" height="346" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="836" fill="#5B3FA8">③ 叠加规律</text>
+  <text class="mt" x="810" y="836" text-anchor="end">图形相似 · ★★★★★</text>
+  <text class="k" x="50" y="868">直接叠加</text>
+  <text class="r" x="112" y="868">保留所有元素</text>
+  <text class="k" x="50" y="898">去同求异</text>
+  <text class="r" x="112" y="898">同位置去掉相同、留下不同</text>
+  <text class="k" x="50" y="928">去异求同</text>
+  <text class="r" x="112" y="928">同位置留下相同、去掉不同</text>
+  <text class="k" x="50" y="958">特殊运算</text>
+  <text class="r" x="112" y="958">常考黑白运算：按固定规则给颜色（同色/异色各得何色）</text>
+  <text class="s" x="112" y="983">去同求异（A ⊕ B）</text>
+<rect x="112" y="991" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="132" y="991" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="152" y="991" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="112" y="1011" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="132" y="1011" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="152" y="1011" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="112" y="1031" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="132" y="1031" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="152" y="1031" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/>
+  <text class="ff" x="178" y="1024" text-anchor="middle">A</text>
+  <text class="ff" x="210" y="1024" text-anchor="middle">⊕</text>
+<rect x="224" y="991" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="244" y="991" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="264" y="991" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="224" y="1011" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="244" y="1011" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="264" y="1011" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="224" y="1031" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="244" y="1031" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="264" y="1031" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/>
+  <text class="ff" x="290" y="1024" text-anchor="middle">B</text>
+  <text class="ff" x="322" y="1024" text-anchor="middle">＝</text>
+<rect x="336" y="991" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="356" y="991" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="376" y="991" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="336" y="1011" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="356" y="1011" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="376" y="1011" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="336" y="1031" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="356" y="1031" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="376" y="1031" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/>
+  <text class="s" x="470" y="1011">怎么读：左 A、中 B、右结果。</text>
+  <text class="s" x="470" y="1035">去同求异＝同位置同色消掉、异色留下。</text>
+  <text class="s" x="112" y="1063">黑白运算（黑＋白＝黑，黑＋黑＝白，白＋白＝白）</text>
+<rect x="112" y="1071" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="132" y="1071" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="152" y="1071" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="112" y="1091" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="132" y="1091" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="152" y="1091" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="112" y="1111" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="132" y="1111" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="152" y="1111" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/>
+  <text class="ff" x="178" y="1104" text-anchor="middle">A</text>
+  <text class="ff" x="210" y="1104" text-anchor="middle">⊕</text>
+<rect x="224" y="1071" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="244" y="1071" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="264" y="1071" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="224" y="1091" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="244" y="1091" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="264" y="1091" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="224" y="1111" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/><rect x="244" y="1111" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="264" y="1111" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/>
+  <text class="ff" x="290" y="1104" text-anchor="middle">B</text>
+  <text class="ff" x="322" y="1104" text-anchor="middle">＝</text>
+<rect x="336" y="1071" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="356" y="1071" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="376" y="1071" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="336" y="1091" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="356" y="1091" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="376" y="1091" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="336" y="1111" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="356" y="1111" width="20" height="20" fill="#4B4C60" stroke="#4B4C60" stroke-width="0.5"/><rect x="376" y="1111" width="20" height="20" fill="#FFFFFF" stroke="#C9C9D4" stroke-width="0.5"/>
+  <text class="s" x="470" y="1091">黑白运算＝按题给规则给每格定色。</text>
+  <text class="s" x="470" y="1115">（实心＝黑，空心＝白）</text>
+  <rect x="32" y="1172" width="796" height="262" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="1174" width="5" height="258" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="1214" fill="#2563A8">④ 图形特性三项</text>
+  <text class="mt" x="810" y="1214" text-anchor="end">图形相异 · ★★★★★</text>
+  <text class="k" x="50" y="1246">对称</text>
+  <text class="r" x="112" y="1246">轴对称(轴数量/方向)；中心对称；轴＋中心对称；对称轴与点线面关系；轴与轴关系</text>
+  <text class="k" x="50" y="1276">直曲</text>
+  <text class="r" x="112" y="1276">全直线图形 / 全曲线图形 / 有直有曲图形</text>
+  <text class="k" x="50" y="1306">开闭</text>
+  <text class="r" x="112" y="1306">开放图形＝内部无封闭区间；封闭图形＝内部有封闭区间</text>
+  <text class="k" x="60" y="1324" fill="#2563A8">轴对称</text>
+  <polygon points="130,1339 94,1399 166,1399" fill="#EFF5FC" stroke="#2563A8" stroke-width="1"/>
+  <line x1="130" y1="1337" x2="130" y2="1401" stroke="#2563A8" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text class="s" x="60" y="1424">虚线＝对称轴</text>
+  <text class="k" x="290" y="1324" fill="#2563A8">中心对称</text>
+  <polygon points="280,1364 330,1349 360,1384 310,1409" fill="#EFF5FC" stroke="#2563A8" stroke-width="1"/>
+  <circle cx="320" cy="1379" r="4" fill="#2563A8"/>
+  <text class="s" x="290" y="1424">点＝旋转180°重合中心</text>
+  <text class="k" x="520" y="1324" fill="#2563A8">开放 vs 封闭</text>
+  <path d="M 530 1342 A 30 30 0 1 1 530 1396" fill="none" stroke="#2563A8" stroke-width="2"/>
+  <circle cx="600" cy="1369" r="30" fill="#EFF5FC" stroke="#2563A8" stroke-width="1.5"/>
+  <text class="s" x="500" y="1424">C＝开放（内空）　○＝封闭（有区）</text>
+  <rect x="32" y="1450" width="796" height="215" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="1452" width="5" height="211" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="1480" fill="#2563A8">⑤ 数量规律五项</text>
+  <text class="mt" x="810" y="1480" text-anchor="end">图形相异 · ★★★★★</text>
+  <text class="k" x="50" y="1512">点</text>
+  <text class="r" x="112" y="1512">所有交点数；特殊交点：十字、直曲、切点、内部、外部</text>
+  <text class="k" x="50" y="1542">线</text>
+  <text class="r" x="112" y="1542">直线数、曲线数、图形笔画数、汉字笔画数</text>
+  <text class="k" x="50" y="1572">面</text>
+  <text class="r" x="112" y="1572">封闭区间＝封闭的白色区域；部分＝连在一起的算一部分</text>
+  <text class="k" x="50" y="1602">元素</text>
+  <text class="r" x="112" y="1602">小元素的种类数、个数</text>
+  <text class="k" x="50" y="1632">角</text>
+  <text class="r" x="112" y="1632">锐角 0°–90°、直角 90°、钝角 90°–180°</text>
+  <rect x="32" y="1681" width="796" height="150" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="1683" width="5" height="146" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="1711" fill="#2563A8">⑥ 元素分布</text>
+  <text class="mt" x="810" y="1711" text-anchor="end">图形相异 · ★★★★★</text>
+  <text class="k" x="50" y="1743">元素遍历</text>
+  <text class="r" x="112" y="1743">同一遍历（同元素每图都出现）；元素传递（前图把部分元素传给后图）</text>
+  <text class="k" x="50" y="1773">相对位置</text>
+  <text class="r" x="112" y="1773">相离/相交/相接(点相接·线相接)</text>
+  <text class="s" x="112" y="1799">排列(相对·相邻)；结构(左右·上下·内外)；平行/垂直；小元素在特殊位置</text>
+  <rect x="32" y="1847" width="796" height="445" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="1849" width="5" height="441" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="1877" fill="#5A5A6E">⑦ 六面体</text>
+  <text class="mt" x="810" y="1877" text-anchor="end">立体图形 · ★★★</text>
+  <rect x="140" y="2080" width="70" height="70" fill="#FFFFFF" stroke="#9A9AB0" stroke-width="1"/>
+  <text class="s" x="175.0" y="2121.0" text-anchor="middle" fill="#4B4C60">1</text>
+  <rect x="70" y="2150" width="70" height="70" fill="#FFFFFF" stroke="#9A9AB0" stroke-width="1"/>
+  <text class="s" x="105.0" y="2191.0" text-anchor="middle" fill="#4B4C60">2</text>
+  <rect x="140" y="2150" width="70" height="70" fill="#FFFFFF" stroke="#9A9AB0" stroke-width="1"/>
+  <text class="s" x="175.0" y="2191.0" text-anchor="middle" fill="#4B4C60">3</text>
+  <rect x="210" y="2150" width="70" height="70" fill="#FFFFFF" stroke="#9A9AB0" stroke-width="1"/>
+  <text class="s" x="245.0" y="2191.0" text-anchor="middle" fill="#4B4C60">4</text>
+  <rect x="280" y="2150" width="70" height="70" fill="#FFFFFF" stroke="#9A9AB0" stroke-width="1"/>
+  <text class="s" x="315.0" y="2191.0" text-anchor="middle" fill="#4B4C60">5</text>
+  <rect x="140" y="2220" width="70" height="70" fill="#FFFFFF" stroke="#9A9AB0" stroke-width="1"/>
+  <text class="s" x="175.0" y="2261.0" text-anchor="middle" fill="#4B4C60">6</text>
+  <rect x="73" y="2153" width="64" height="64" fill="none" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="213" y="2153" width="64" height="64" fill="none" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="143" y="2083" width="64" height="64" fill="none" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="143" y="2223" width="64" height="64" fill="none" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="143" y="2153" width="64" height="64" fill="none" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="283" y="2153" width="64" height="64" fill="none" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <line x1="210" y1="2150" x2="210" y2="2220" stroke="#2563A8" stroke-width="3"/>
+  <text class="s" x="360" y="2120" fill="#C0392B">红虚线框＝相对面</text>
+  <text class="s" x="360" y="2148" fill="#2563A8">蓝粗线＝公共边</text>
+  <text class="k" x="50" y="1942">外侧原则</text>
+  <text class="r" x="112" y="1942">图案在外侧：折成「包饺子」把图案折进内侧即错</text>
+  <text class="k" x="50" y="1972">三条技巧</text>
+  <text class="r" x="112" y="1972">①相对面不相邻 ②相邻面相对位置不变 ③用公共边判定</text>
+  <text class="k" x="50" y="2002">相对面</text>
+  <text class="r" x="112" y="2002">同行(列)隔一个→相对（图中三对：1-6、2-4、3-5）；「Z」字两端→相对</text>
+  <text class="k" x="50" y="2032">公共边</text>
+  <text class="r" x="112" y="2032">①相挨的边（图中蓝线＝3 号面与 4 号面的公共边）②呈直角的两条边 ③一行连四两头边</text>
+  <text class="s" x="112" y="2062">怎么读：先数相对面（红框三对），再用公共边（蓝线）验相邻面位置。</text>
+  <rect x="32" y="2308" width="796" height="245" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="2310" width="5" height="241" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="2338" fill="#5A5A6E">⑧ 四面体</text>
+  <text class="mt" x="810" y="2338" text-anchor="end">立体图形 · ★★★</text>
+  <polygon points="160,2388 100,2478 220,2478" fill="#FFFFFF" stroke="#5A5A6E" stroke-width="1"/>
+  <polygon points="160,2388 100,2478 75,2433" fill="#F6F6F9" stroke="#5A5A6E" stroke-width="1"/>
+  <polygon points="160,2388 220,2478 245,2433" fill="#F6F6F9" stroke="#5A5A6E" stroke-width="1"/>
+  <polygon points="100,2478 220,2478 160,2528" fill="#F6F6F9" stroke="#5A5A6E" stroke-width="1"/>
+  <line x1="160" y1="2388" x2="100" y2="2478" stroke="#2563A8" stroke-width="2" stroke-dasharray="5 3"/>
+  <line x1="160" y1="2388" x2="220" y2="2478" stroke="#2563A8" stroke-width="2" stroke-dasharray="5 3"/>
+  <line x1="100" y1="2478" x2="220" y2="2478" stroke="#2563A8" stroke-width="2" stroke-dasharray="5 3"/>
+  <text class="s" x="300" y="2403">公共边 3 类：① 挨在一起（本图三条蓝边）</text>
+  <text class="s" x="300" y="2428">② 同一直线上的两条边</text>
+  <text class="s" x="300" y="2453">③ 展开图为平行四边形时两侧短边互为公共边</text>
+  <text class="s" x="300" y="2483">箭头法：在面上画箭头，靠箭头指向判定相对位置</text>
+  <text class="s" x="300" y="2513">怎么读：蓝虚线＝折叠后贴合成一条的真实棱（公共边）。</text>
+  <rect x="32" y="2569" width="796" height="330" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="2571" width="5" height="326" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="2599" fill="#5A5A6E">⑨ 三视图与截面</text>
+  <text class="mt" x="810" y="2599" text-anchor="end">立体图形 · ★★★</text>
+  <rect x="140" y="2649" width="30" height="70" fill="#F6F6F9" stroke="#5A5A6E" stroke-width="1"/>
+  <text class="k" x="85" y="2641" fill="#5A5A6E">组合体</text>
+  <rect x="240" y="2672" width="60" height="46" fill="#FFFFFF" stroke="#5A5A6E" stroke-width="1"/>
+  <text class="s" x="270" y="2660" text-anchor="middle" fill="#5A5A6E">主视图(前→后)</text>
+  <rect x="248" y="2680" width="40" height="28" fill="none" stroke="#5A5A6E" stroke-width="1"/>
+  <rect x="310" y="2672" width="60" height="46" fill="#FFFFFF" stroke="#5A5A6E" stroke-width="1"/>
+  <text class="s" x="340" y="2640" text-anchor="middle" fill="#5A5A6E">俯视图(上→下)</text>
+  <rect x="318" y="2684" width="40" height="14" fill="none" stroke="#5A5A6E" stroke-width="1"/>
+  <rect x="338" y="2684" width="20" height="14" fill="none" stroke="#5A5A6E" stroke-width="1"/>
+  <rect x="380" y="2672" width="60" height="46" fill="#FFFFFF" stroke="#5A5A6E" stroke-width="1"/>
+  <text class="s" x="410" y="2660" text-anchor="middle" fill="#5A5A6E">左视图(左→右)</text>
+  <rect x="388" y="2680" width="14" height="28" fill="none" stroke="#5A5A6E" stroke-width="1"/>
+  <rect x="402" y="2680" width="14" height="28" fill="none" stroke="#5A5A6E" stroke-width="1"/>
+  <text class="s" x="112" y="2774">被外框挡住的内部线条：画虚线或不画。</text>
+  <text class="k" x="470" y="2641" fill="#5A5A6E">截面（立方斜切）</text>
+  <rect x="470" y="2649" width="70" height="70" fill="#F6F6F9" stroke="#5A5A6E" stroke-width="1"/>
+  <polygon points="470,2719 540,2719 540,2649" fill="#E6F6ED" stroke="#1F8A4C" stroke-width="1.5"/>
+  <line x1="470" y1="2719" x2="540" y2="2649" stroke="#1F8A4C" stroke-width="1.5"/>
+  <text class="s" x="470" y="2737">斜切面＝三角形</text>
+  <text class="s" x="470" y="2779">截面图三原则：</text>
+  <text class="s" x="470" y="2803">① 截面边数 ≤ 立体图形面数</text>
+  <text class="s" x="470" y="2827">② 曲线必截于曲面</text>
+  <text class="s" x="470" y="2851">③ 平行面必截平行线</text>
+  <text class="s" x="112" y="2874">怎么读：三视图看外框方向；截面先想三原则再对照⑩清单。</text>
+  <rect x="32" y="2915" width="796" height="290" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="2917" width="5" height="286" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="2945" fill="#5A5A6E">⑩ 可截 / 不可截清单</text>
+  <text class="mt" x="810" y="2945" text-anchor="end">立体图形 · ★★★</text>
+  <rect x="112" y="2963" width="14" height="14" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="s" x="132" y="2974">绿＝可截</text>
+  <rect x="250" y="2963" width="14" height="14" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="s" x="270" y="2974">红＝不可截</text>
+  <rect x="112" y="2995" width="14" height="14" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>  <text class="r" x="132" y="3007">正六面体·三角形：可截锐角(含等边/等腰)</text>  <rect x="600" y="2995" width="14" height="14" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>  <text class="r" x="620" y="3007" fill="#C0392B">截不出直角与钝角</text>
+  <rect x="112" y="3025" width="14" height="14" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>  <text class="r" x="132" y="3037">四边形：可截 正方形/长方形/平行四边形/菱形/梯形</text>  <rect x="600" y="3025" width="14" height="14" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>  <text class="r" x="620" y="3037" fill="#C0392B">截不出直角梯形</text>
+  <rect x="112" y="3055" width="14" height="14" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>  <text class="r" x="132" y="3067">五边形：可截(必有2对平行线)</text>  <rect x="600" y="3055" width="14" height="14" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>  <text class="r" x="620" y="3067" fill="#C0392B">不可能是正五边形</text>
+  <rect x="112" y="3085" width="14" height="14" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>  <text class="r" x="132" y="3097">六边形：可截(必有3对平行线)</text>
+  <rect x="112" y="3115" width="14" height="14" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>  <text class="r" x="132" y="3127">正四棱锥：可截 锐角/直角/钝角三角、正四边形、任意四/五边形</text>
+  <rect x="112" y="3145" width="14" height="14" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>  <text class="r" x="132" y="3157">圆柱·有直线：长方形/鼓形/半圆形</text>
+  <rect x="112" y="3175" width="14" height="14" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>  <text class="r" x="132" y="3187">圆柱·无直线：圆形/椭圆形</text>
+  <rect x="32" y="3221" width="796" height="215" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="3223" width="5" height="211" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="3251" fill="#5A5A6E">⑪ 立体拼接与平面拼接</text>
+  <text class="mt" x="810" y="3251" text-anchor="end">立体/平面 · ★★★</text>
+  <text class="k" x="50" y="3283">立体拼接</text>
+  <text class="r" x="112" y="3283">凹凸一致(形状：有凸必配凹) ＋ 个数相等(数量) ＋ 分层讨论</text>
+  <text class="k" x="50" y="3313">平面拼接</text>
+  <text class="r" x="112" y="3313">常规型→特殊线条法/平行线条拼接法；小方格型→最大面定位法</text>
+  <text class="k" x="660" y="3361" fill="#5A5A6E">凹凸一致</text>
+  <rect x="520" y="3341" width="50" height="40" fill="#F6F6F9" stroke="#5A5A6E" stroke-width="1"/>
+  <rect x="538" y="3329" width="14" height="12" fill="#F6F6F9" stroke="#5A5A6E" stroke-width="1"/>
+  <rect x="590" y="3341" width="50" height="40" fill="#F6F6F9" stroke="#5A5A6E" stroke-width="1"/>
+  <rect x="608" y="3355" width="14" height="12" fill="#FFFFFF" stroke="#5A5A6E" stroke-width="1"/>
+  <text class="s" x="500" y="3401">凸块配凹块才拼得上</text>
+  <rect x="32" y="3452" width="796" height="330" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="3454" width="5" height="326" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="3482" fill="#5A5A6E">⑫ 解题步骤 · 关键纪律</text>
+  <text class="mt" x="810" y="3482" text-anchor="end">做题思路 · 全章</text>
+  <text class="s" x="112" y="3514">① 定大方向：图形相似/相异/立体与拼接</text>
+  <text class="s" x="112" y="3542">② 相似-完全相同→平移旋转翻转；同中有异→叠加/黑白运算</text>
+  <text class="s" x="112" y="3570">③ 相异-先看对称直曲开闭；不明显→数数量(点线面元素角)</text>
+  <text class="s" x="112" y="3598">④ 多元素→看遍历与相对位置</text>
+  <text class="s" x="112" y="3626">⑤ 六面体-定三面对应→查相对面相邻→验公共边与位置</text>
+  <text class="s" x="112" y="3654">⑥ 四面体-定两面对应→比对公共边→箭头法辅助</text>
+  <text class="s" x="112" y="3682">⑦ 截面-拆简单立方体→对照可截清单排除</text>
+  <text class="s" x="112" y="3710">⑧ 拼接：立体用凹凸＋个数＋分层；平面先看可否旋转翻转，常规用特殊/平行线，方格用最大面</text>
+  <rect x="112" y="3742" width="660" height="34" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="r" x="128" y="3765" fill="#1F8A4C">关键纪律：规律必须在所有图形中一致成立才算规律，不能凭某一图形特征作答</text>
+  <rect x="32" y="3798" width="796" height="344" rx="4" fill="#FFFFFF" stroke="#F0DFAE" stroke-width="1"/>
+  <rect x="32" y="3800" width="5" height="340" rx="2.5" fill="#9A6B00"/>
+  <text class="bt" x="50" y="3828" fill="#9A6B00">⑬ 易混辨析</text>
+  <text class="mt" x="810" y="3828" text-anchor="end">提醒 · 8 组对照</text>
+  <text class="k" x="50" y="3860">平移 vs 旋转</text>
+  <text class="s" x="200" y="3860">朝向不变＝平移；按固定角度变朝向＝旋转</text>
+  <text class="s" x="200" y="3880" fill="#9A6B00">→ 判别：看元素朝向有无变化</text>
+  <text class="k" x="50" y="3896">左右 vs 上下翻转</text>
+  <text class="s" x="200" y="3896">竖直轴对折(左右互换)＝左右；水平轴对折(上下互换)＝上下</text>
+  <text class="s" x="200" y="3916" fill="#9A6B00">→ 判别：对折轴方向</text>
+  <text class="k" x="50" y="3932">相对面 vs 相邻面</text>
+  <text class="s" x="200" y="3932">相对面永不相邻；「隔一个」「Z字两端」一眼认</text>
+  <text class="s" x="200" y="3952" fill="#9A6B00">→ 判别：是否可能相邻</text>
+  <text class="k" x="50" y="3968">特殊线条 vs 平行线</text>
+  <text class="s" x="200" y="3968">无线可平行→必成轮廓；两平行等长→优先拼</text>
+  <text class="s" x="200" y="3988" fill="#9A6B00">→ 判别：线条是否唯一可拼</text>
+  <text class="k" x="50" y="4004">凹凸一致 vs 个数相等</text>
+  <text class="s" x="200" y="4004">形状判据 vs 数量判据，两者同时用</text>
+  <text class="s" x="200" y="4024" fill="#9A6B00">→ 判别：既看形也看数</text>
+  <text class="k" x="50" y="4040">最大面定位法</text>
+  <text class="s" x="200" y="4040">只用于小方格型平面拼接；常规多边形不用</text>
+  <text class="s" x="200" y="4060" fill="#9A6B00">→ 判别：题型是否小方格</text>
+  <text class="k" x="50" y="4076">看清问法</text>
+  <text class="s" x="200" y="4076">能截/能折 vs 不可能；求不可能用三原则快排</text>
+  <text class="s" x="200" y="4096" fill="#9A6B00">→ 判别：问能还是不能</text>
+  <text class="k" x="50" y="4112">特性 vs 数量</text>
+  <text class="s" x="200" y="4112">特性明显先看特性，别一上来就数数</text>
+  <text class="s" x="200" y="4132" fill="#9A6B00">→ 判别：先特性后数量</text>
+  <rect x="32" y="4158" width="796" height="215" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="4160" width="5" height="211" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="4188" fill="#5A5A6E">⑭ 图例与读法</text>
+  <rect x="112" y="4206" width="14" height="14" fill="#DDD2F5" stroke="#5B3FA8" stroke-width="1"/>
+  <text class="s" x="132" y="4217">紫＝图形相似</text>
+  <rect x="270" y="4206" width="14" height="14" fill="#D0E0F4" stroke="#2563A8" stroke-width="1"/>
+  <text class="s" x="290" y="4217">蓝＝图形相异</text>
+  <rect x="430" y="4206" width="14" height="14" fill="#F6F6F9" stroke="#5A5A6E" stroke-width="1"/>
+  <text class="s" x="450" y="4217">灰＝立体/拼接</text>
+  <rect x="112" y="4236" width="14" height="14" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="s" x="132" y="4247">绿＝可截/有效</text>
+  <rect x="270" y="4236" width="14" height="14" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="s" x="290" y="4247">红＝不可截/陷阱</text>
+  <rect x="430" y="4236" width="14" height="14" fill="#F0DFAE" stroke="#9A6B00" stroke-width="1"/>
+  <text class="s" x="450" y="4247">琥珀＝易混提醒</text>
+  <text class="s" x="600" y="4247">★＝重要性星级</text>
+  <text class="k" x="50" y="4288">读法</text>
+  <text class="r" x="112" y="4288">先看①定方向 → 再进对应块（紫/蓝/灰）</text>
+  <text class="s" x="112" y="4318">绿＝可截、红＝不可截；特性 vs 数量先特性；问「能」还是「不能」看清再答。</text>
+  <text class="s" x="112" y="4348">纪律：规律必须在所有图形中一致成立。</text>
+</svg>

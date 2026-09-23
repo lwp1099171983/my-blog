@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 2174" width="860" height="2174" role="img" aria-labelledby="csTitle csDesc">
+  <title id="csTitle">定义判断全章速查图</title>
+  <desc id="csDesc">判断推理第04章定义判断全章速查图，单栏自上而下七块：① 八要点与提示词逐条对照 ② 判定纪律（对/错对照）③ 多定义取舍规则 ④ 解题步骤 ⑤ 易混辨析 ⑥ 错题提醒 ⑦ 图例与读法。紫＝八要点，蓝＝步骤与技巧，绿＝正确/常规，红＝错误/陷阱，琥珀＝例外/易混。</desc>
+  <defs>
+    <style>
+      text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif; }
+      .h  { font-size: 24px; font-weight: 600; fill: #1E1F33; }
+      .sub{ font-size: 14px; fill: #7C7D8E; }
+      .bt { font-size: 17px; font-weight: 600; }
+      .mt { font-size: 13px; fill: #7C7D8E; }
+      .k  { font-size: 14px; font-weight: 600; fill: #6B6C80; }
+      .r  { font-size: 17px; fill: #4B4C60; }
+      .s  { font-size: 15px; fill: #7C7D8E; }
+      .ff { font-size: 15px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="860" height="2174" fill="#FFFFFF"/>
+  <text class="h" x="32" y="44">定义判断 · 全章速查图</text>
+  <text class="sub" x="32" y="74">判断推理第04章 · 八要点与提示词逐条对照 · 排除法解题</text>
+  <text class="sub" x="810" y="98" text-anchor="end">8 要点 · 7 个考点块 ｜ 紫＝要背要点，红绿＝对/错</text>
+  <line x1="32" y1="114" x2="810" y2="114" stroke="#E3E3EC" stroke-width="1"/>
+
+  <!-- ===================== ① 八要点 × 提示词 ===================== -->
+  <rect x="32" y="114" width="796" height="353" rx="4" fill="#FFFFFF" stroke="#DDD2F5" stroke-width="1"/>
+  <rect x="32" y="116" width="5" height="349" rx="2.5" fill="#5B3FA8"/>
+  <text class="bt" x="50" y="144" fill="#5B3FA8">① 八要点 × 提示词</text>
+  <text class="mt" x="810" y="144" text-anchor="end">核心判定 · ★★★★★</text>
+
+  <text class="k" x="50" y="176">主体</text>
+  <text class="r" x="112" y="176">一个动作或事件的发起者、执行者，一般位于定义靠前的位置</text>
+  <text class="k" x="50" y="206">客体</text>
+  <text class="r" x="112" y="206">动作或行为指向的对象，提示词「针对…」「对…」</text>
+  <text class="k" x="50" y="236">目的</text>
+  <text class="r" x="112" y="236">行为者主观上具有的动机、意图，提示词「为了…」「以期…」「从而…」</text>
+  <text class="k" x="50" y="266">方式</text>
+  <text class="r" x="112" y="266">行为者为达到目的而采取的措施，提示词「通过…方式」「运用…手段」「采取…措施」</text>
+  <text class="k" x="50" y="296">原因</text>
+  <text class="r" x="112" y="296">定义中某个行为或事件的起因，提示词「由于…」「出于…」「因为…」</text>
+  <text class="k" x="50" y="326">结果</text>
+  <text class="r" x="112" y="326">行为或事件所导致的客观事实，提示词「造成」「导致」「带来」「引发」「使得」</text>
+  <text class="r" x="112" y="356">「遭受」「因而」</text>
+  <text class="k" x="50" y="386">条件</text>
+  <text class="r" x="112" y="386">对定义产生影响的因素（时间、空间、数量等），提示词「在…的前提下」</text>
+  <text class="r" x="112" y="416">「以…为基础」「只有…」「如果…」「在…情况下」</text>
+  <text class="k" x="50" y="446">属性</text>
+  <text class="r" x="112" y="446">定义的本质，一般放在定义靠后的位置，提示词为「…的…」</text>
+
+  <!-- ===================== ② 判定纪律 ===================== -->
+  <rect x="32" y="483" width="796" height="289" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="485" width="5" height="285" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="513" fill="#5A5A6E">② 判定纪律</text>
+  <text class="mt" x="810" y="513" text-anchor="end">三条 · 看错问法最致命</text>
+
+  <circle cx="60" cy="543" r="5" fill="#1F8A4C"/>
+  <text class="s" x="74" y="543" fill="#1F8A4C">正确做法（绿）</text>
+  <circle cx="200" cy="543" r="5" fill="#C0392B"/>
+  <text class="s" x="214" y="543" fill="#C0392B">常见错误（红）</text>
+  <text class="s" x="360" y="543" fill="#7C7D8E">红/绿只用于「对/错」判断</text>
+
+  <rect x="50" y="563" width="355" height="52" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="s" x="66" y="583" fill="#1F8A4C">正确：先看问法，判断找「属于/符合」</text>
+  <text class="s" x="66" y="607" fill="#1F8A4C">还是「不属于/不符合」（务必先标问法）</text>
+  <rect x="415" y="563" width="395" height="52" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="s" x="431" y="583" fill="#C0392B">错误：问法看错（反向题失分远多于正向题）</text>
+  <text class="s" x="431" y="607" fill="#C0392B">把「不属于」当「属于」 → 最致命</text>
+
+  <rect x="50" y="631" width="355" height="52" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="s" x="66" y="651" fill="#1F8A4C">正确：选项与八要点一一对照</text>
+  <text class="s" x="66" y="675" fill="#1F8A4C">任一必要条件不满足即排除</text>
+  <rect x="415" y="631" width="395" height="52" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="s" x="431" y="651" fill="#C0392B">错误：没逐条核对八要点</text>
+  <text class="s" x="431" y="675" fill="#C0392B">有不满足却未排除</text>
+
+  <rect x="50" y="699" width="355" height="52" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="s" x="66" y="719" fill="#1F8A4C">正确：只用题干给出的标准判断</text>
+  <text class="s" x="66" y="743" fill="#1F8A4C">不掺生活常识</text>
+  <rect x="415" y="699" width="395" height="52" rx="3" fill="#FDECEA" stroke="#EFBAB3" stroke-width="1"/>
+  <text class="s" x="431" y="719" fill="#C0392B">错误：拿生活常识替代题干定义</text>
+  <text class="s" x="431" y="743" fill="#C0392B">（最容易错）</text>
+
+  <!-- ===================== ③ 多定义取舍规则 ===================== -->
+  <rect x="32" y="788" width="796" height="232" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="790" width="5" height="228" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="818" fill="#2563A8">③ 多定义取舍规则</text>
+  <text class="mt" x="810" y="818" text-anchor="end">默认：问哪个看哪个</text>
+
+  <rect x="50" y="838" width="760" height="58" rx="3" fill="#E6F6ED" stroke="#A8DDBE" stroke-width="1"/>
+  <text class="s" x="66" y="858" fill="#1F8A4C">常规（默认）：问哪个、看哪个</text>
+  <text class="s" x="66" y="882" fill="#1F8A4C">问法只问其中一个定义时，只需重点看那个定义</text>
+  <rect x="50" y="916" width="760" height="88" rx="3" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <text class="s" x="66" y="936" fill="#9A6B00">例外：仅两种情况需看并列定义</text>
+  <text class="s" x="66" y="960" fill="#9A6B00">① 所问定义比较难</text>
+  <text class="s" x="66" y="984" fill="#9A6B00">② 出现特殊问法（如「根据上述定义，下列说法正确的是」「下列分别属于上述两个定义的是」）</text>
+
+  <!-- ===================== ④ 解题步骤 ===================== -->
+  <rect x="32" y="1036" width="796" height="287" rx="4" fill="#FFFFFF" stroke="#D0E0F4" stroke-width="1"/>
+  <rect x="32" y="1038" width="5" height="283" rx="2.5" fill="#2563A8"/>
+  <text class="bt" x="50" y="1066" fill="#2563A8">④ 解题步骤</text>
+  <text class="mt" x="810" y="1066" text-anchor="end">5 步排除法</text>
+
+  <text class="k" x="50" y="1098">1</text>
+  <text class="r" x="112" y="1098">先看问法：判断是找「属于/符合」还是「不属于/不符合」</text>
+  <text class="s" x="112" y="1126">（反向题的失分远多于正向题，务必先标问法）</text>
+  <text class="k" x="50" y="1156">2</text>
+  <text class="r" x="112" y="1156">扫读定义：按八要点的提示词把有效信息划出来，跳过背景交代、</text>
+  <text class="r" x="112" y="1184">概念铺垫等无效句，避免逐字精读</text>
+  <text class="k" x="50" y="1214">3</text>
+  <text class="r" x="112" y="1214">逐项比对：把选项与要点一一对照，任一必要条件不满足即排除</text>
+  <text class="k" x="50" y="1244">4</text>
+  <text class="r" x="112" y="1244">多定义：先执行「问哪个、看哪个」；若所问定义偏难或问法特殊，</text>
+  <text class="r" x="112" y="1272">再回读并列定义做边界比较</text>
+  <text class="k" x="50" y="1302">5</text>
+  <text class="r" x="112" y="1302">保持警惕：只用题干给出的标准判断，不掺生活常识；八要点里主体、客体最常被偷换</text>
+
+  <!-- ===================== ⑤ 易混辨析 ===================== -->
+  <rect x="32" y="1339" width="796" height="293" rx="4" fill="#FFFDF7" stroke="#F0DFAE" stroke-width="1"/>
+  <rect x="32" y="1341" width="5" height="289" rx="2.5" fill="#9A6B00"/>
+  <text class="bt" x="50" y="1369" fill="#9A6B00">⑤ 易混辨析</text>
+  <text class="mt" x="810" y="1369" text-anchor="end">8 组易错对照</text>
+
+  <circle cx="100" cy="1401" r="4" fill="#9A6B00"/>
+  <text class="s" x="112" y="1401">主体 vs 客体：主体是施动者、客体是受动对象，选项常靠「对象错位」设错</text>
+  <circle cx="100" cy="1431" r="4" fill="#9A6B00"/>
+  <text class="s" x="112" y="1431">目的 vs 结果：目的是主观意图（为了…），结果是客观事实（导致…），别把动机当结果</text>
+  <circle cx="100" cy="1461" r="4" fill="#9A6B00"/>
+  <text class="s" x="112" y="1461">条件 vs 方式：条件是前提性因素（在…前提下、只有…），方式是实现手段（通过…方式）</text>
+  <circle cx="100" cy="1491" r="4" fill="#9A6B00"/>
+  <text class="s" x="112" y="1491">原因 vs 条件：原因在时间上先于行为发生（因为…），条件是行为得以成立的前提（只有…才）</text>
+  <circle cx="100" cy="1521" r="4" fill="#9A6B00"/>
+  <text class="s" x="112" y="1521">属性最容易漏：多写在定义末尾且带「…的…」，常是排除选项的最后一道关</text>
+  <circle cx="100" cy="1551" r="4" fill="#9A6B00"/>
+  <text class="s" x="112" y="1551">单定义 vs 多定义：题干给了多个定义≠要读完全部定义，「问哪个、看哪个」能省一半时间</text>
+  <circle cx="100" cy="1581" r="4" fill="#9A6B00"/>
+  <text class="s" x="112" y="1581">特殊问法必须同时看并列定义（「分别属于」「关于以上说法正确的是」），只看一个会选不出答案</text>
+  <circle cx="100" cy="1611" r="4" fill="#9A6B00"/>
+  <text class="s" x="112" y="1611">定义中列举「核心要件/三重特征」时，这些要件是并列必要条件，缺一个即可排除</text>
+
+  <!-- ===================== ⑥ 错题提醒 ===================== -->
+  <rect x="32" y="1648" width="796" height="293" rx="4" fill="#FFFFFF" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="1650" width="5" height="289" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="1678" fill="#5A5A6E">⑥ 错题提醒</text>
+  <text class="mt" x="810" y="1678" text-anchor="end">本章尚未做题</text>
+
+  <text class="k" x="50" y="1710">待回填</text>
+  <text class="r" x="112" y="1710">本章尚未做题，暂无错题记录；建议错因写到具体要点（如「错在主体」「漏了条件」）</text>
+  <text class="r" x="112" y="1740">而不是只记题号</text>
+  <text class="k" x="50" y="1770">重点复核</text>
+  <text class="r" x="112" y="1770">第一节 单定义：例题1（反向问法「没有体现」）</text>
+  <text class="r" x="112" y="1800">例题2（注意「组织行为」这一方式限定）</text>
+  <text class="r" x="112" y="1830">例题4（地理细分 vs 人口细分）</text>
+  <text class="r" x="112" y="1860">第二节 多定义：例题1（直述式/渲染式导语的定位）</text>
+  <text class="r" x="112" y="1890">例题2（五种经济文书与选项一一对应）</text>
+  <text class="r" x="112" y="1920">巩固训练 5、6、8（并列定义多且要件多）</text>
+
+  <!-- ===================== ⑦ 图例与读法 ===================== -->
+  <rect x="32" y="1957" width="796" height="203" rx="4" fill="#F6F6F9" stroke="#E3E3EC" stroke-width="1"/>
+  <rect x="32" y="1959" width="5" height="199" rx="2.5" fill="#5A5A6E"/>
+  <text class="bt" x="50" y="1987" fill="#5A5A6E">⑦ 图例与读法</text>
+
+  <text class="k" x="50" y="2019">读法</text>
+  <text class="s" x="112" y="2019">先看问法 → 逐条对八要点 → 任一不满足即排除</text>
+  <text class="s" x="112" y="2049">八要点：主体/客体/目的/方式/原因/结果/条件/属性</text>
+  <text class="k" x="50" y="2079">多定义</text>
+  <text class="s" x="112" y="2079">默认问哪个看哪个；仅两种例外才看并列定义</text>
+  <text class="k" x="50" y="2109">图例</text>
+  <text class="s" x="112" y="2109">紫＝八要点（要背）　蓝＝步骤/技巧</text>
+  <text class="s" x="112" y="2139">绿＝正确/常规　红＝错误/陷阱　琥珀＝例外/易混</text>
+</svg>
