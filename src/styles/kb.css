@@ -1,9 +1,13 @@
 /* ===== 考编知识库（Win98 风格）专属样式 =====
-   字号只用站点既有四档 token：--fs-xs(12) / --fs-small(13) / --fs-body(16) / --fs-mono-s(20)。
-   不要再写 0.66rem 这类自由值——低于 12px 会在点阵字体上糊成一团。 */
+   字体分工（2026-09-22）：
+   - 笔记正文 / 标题 / 知识树行 —— 系统无衬线（--font-body），要"读"的文字。
+   - 窗口外壳、按钮、标签、元信息、面包屑、代码块 —— Ark Pixel 点阵（--font-pixel / --font-mono）。
+     点阵字号必须落在 12px 的整数倍上，所以界面小字一律走 --fs-xs / --fs-small（都是 12px）。
+   字号只用四档 token：--fs-xs(12) / --fs-small(12) / --fs-body(16) / --fs-mono-s(20)。 */
 
 /* 笔记正文排版 */
 .kb-md {
+  font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: 1.7;
 }
@@ -15,6 +19,7 @@
 .kb-md li { margin: 4px 0; }
 .kb-md code {
   font-family: var(--font-mono);
+  font-size: var(--fs-small); /* 点阵必须落 12px 网格，别再继承正文的 16px */
   background: var(--color-purple-100);
   color: var(--color-ink);
   padding: 1px 5px;
@@ -48,10 +53,11 @@
   text-align: left;
 }
 .kb-md th { background: var(--color-purple-200); }
-.kb-md img { max-width: 100%; height: auto; }
+/* 笔记正文配图：块级居中（速查图比正文容器窄，左对齐会剩一大片右侧空白） */
+.kb-md img { max-width: 100%; height: auto; display: block; margin: 16px auto; }
 
-/* 面包屑：弱于标题、与元数据同级 */
-.kb-crumb { margin-bottom: 10px; font-size: var(--fs-small); }
+/* 面包屑：界面导航，走点阵；弱于标题、与元数据同级 */
+.kb-crumb { margin-bottom: 10px; font-family: var(--font-pixel); font-size: var(--fs-small); }
 .kb-crumb a { color: var(--link); }
 
 /* 笔记元数据行（模块 · 类型 · 来源） */
@@ -67,10 +73,12 @@
 .kb-note-actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 4px; }
 
 /* 知识地图树
-   行文字只有一个字号（--kb-tree-fs = --fs-body），文件夹名与笔记名同档，
-   与站内其他"内容行"（分面浏览标题、反向链接列表）对齐；
+   行文字只有一个字号（--kb-tree-fs = --fs-body 16px），文件夹名与笔记名同档，
+   与站内其他"内容行"（分面浏览标题、检索结果）对齐；
    层级靠缩进和颜色区分，不靠字号大小（曾经文件夹 13px / 叶子隐式继承 body 16px，
-   同一层里两种大小）。文件夹的 caret 占一格装订线，叶子留等宽空位，同层左边缘对齐。 */
+   同一层里两种大小）。文件夹的 caret 占一格装订线，叶子留等宽空位，同层左边缘对齐。
+   字体用系统无衬线：树行是成行要扫读的笔记标题，16px 点阵会被放糊 1.33 倍，
+   压到 12px 点阵又太小——交给矢量字体两个问题一起解决。 */
 .kb-tree-panel { display: flex; flex-direction: column; min-height: 0; }
 .kb-tree-toolbar { display: flex; gap: 8px; align-items: center; margin: 6px 0 10px; }
 .kb-tree-filter {
@@ -80,7 +88,7 @@
   background: var(--input-bg);
   border: var(--border-ui) solid;
   border-color: var(--os-border-inset);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--fs-body);
   color: var(--input-text);
 }
@@ -104,14 +112,14 @@
 .kb-tree-toggle {
   display: inline-flex; align-items: center; gap: 6px;
   background: none; border: none; padding: 2px 0; cursor: pointer;
-  font-family: var(--font-pixel); font-size: var(--kb-tree-fs); line-height: 1.7;
+  font-family: var(--font-body); font-size: var(--kb-tree-fs); line-height: 1.7;
   color: var(--color-purple-700);
 }
 .kb-tree-toggle:hover { text-decoration: underline; }
 .kb-tree-caret { flex: 0 0 12px; text-align: center; font-size: var(--fs-xs); line-height: 1; }
 .kb-tree-caret::before { content: '▸'; }
 .kb-tree-toggle[aria-expanded='true'] .kb-tree-caret::before { content: '▾'; }
-.kb-tree-folder-label { font-family: var(--font-pixel); font-size: var(--kb-tree-fs); }
+.kb-tree-folder-label { font-family: var(--font-body); font-size: var(--kb-tree-fs); }
 .kb-tree-count {
   flex: 0 0 auto; line-height: 1.7;
   font-family: var(--font-mono); font-size: var(--fs-small);
@@ -121,7 +129,7 @@
 .kb-tree-link {
   display: inline-block;
   padding: 2px 0 2px var(--kb-tree-gutter);
-  font-family: var(--font-pixel); font-size: var(--kb-tree-fs); line-height: 1.7;
+  font-family: var(--font-body); font-size: var(--kb-tree-fs); line-height: 1.7;
   color: var(--link); text-decoration: none;
 }
 .kb-tree-link:hover { text-decoration: underline; opacity: 0.8; }
@@ -146,12 +154,6 @@
 }
 .kb-chip:hover { background: var(--color-purple-100); }
 .kb-chip-n { opacity: 0.6; font-size: var(--fs-xs); }
-
-/* 反向链接 */
-.kb-backlinks { list-style: none; padding: 0; margin: 6px 0; }
-.kb-backlinks li { padding: 5px 0; border-bottom: 2px dotted var(--color-purple-500); }
-.kb-backlinks a { color: var(--link); text-decoration: none; }
-.kb-backlinks a:hover { text-decoration: underline; }
 
 /* 检索结果 */
 .kb-results { margin-top: 10px; max-height: 420px; overflow-y: auto; }
@@ -227,4 +229,64 @@
 
 @media (max-width: 720px) {
   .kb-browse-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ===== 笔记页大纲（右侧目录，2026-09-23）=====
+   这里只管排版；"哪些标题该出现在目录里"在 src/lib/outline.ts
+   （滤掉 OCR 的「PDF 第 N 页」、可读标题少于 3 条就整块不渲染）。 */
+.note-split {
+  /* 容器查询的容器：窗口能被拖拽缩放，媒体查询看的是视口，判不了窗口宽度 */
+  container-type: inline-size;
+  display: flex; gap: 20px; align-items: flex-start;
+  /* 窗口最大化后在宽屏上会拉到 1900+，正文一行能到 100 个汉字。
+     这里把「正文 + 目录」当一整组居中：两侧等宽留白，目录始终贴着正文右边缘。
+     注意别改成在 article 上用 margin:auto 居中——flex 里 auto 外边距会吞掉富余空间，
+     目录会被推到窗口最右端（实测 1920 下正文与目录之间空 446px）。 */
+  justify-content: center;
+}
+.note-split > article {
+  flex: 1; min-width: 0;
+  max-width: var(--read-max);
+  /* 覆盖 .post-content 的 margin:0 auto（理由同上） */
+  margin-inline: 0;
+}
+
+/* 点击目录跳转后，标题别贴着内容区上沿 */
+.note-split :is(h2, h3) { scroll-margin-top: 10px; }
+
+.note-outline {
+  /* 默认不显示：不支持容器查询的浏览器宁可没有大纲，也别挤掉正文宽度 */
+  display: none;
+  position: sticky; top: 0; align-self: flex-start;
+  flex: 0 0 220px; width: 220px;
+  overflow-y: auto;
+  /* max-height 由 scripts/outline.js 按滚动容器高度设置 */
+}
+
+@container (min-width: 880px) {
+  .note-outline { display: block; }
+}
+
+.note-outline-title {
+  margin: 0 0 6px;
+  font-family: var(--font-pixel); font-size: var(--fs-small);
+  color: var(--win-text-muted);
+}
+
+.note-outline-list { list-style: none; margin: 0; padding: 0; }
+
+.note-outline-item a {
+  display: block;
+  padding: 3px 6px;
+  border-left: 3px solid transparent;
+  font-family: var(--font-body); font-size: var(--fs-small); line-height: 1.5;
+  color: var(--win-text-muted); text-decoration: none;
+}
+.note-outline-lv1 a { padding-left: 18px; }
+.note-outline-item a:hover { color: var(--link); background: var(--color-card-hover-bg); }
+.note-outline-item.current a {
+  border-left-color: var(--color-purple-600);
+  background: var(--color-card-bg);
+  color: var(--win-text);
+  font-weight: 500;
 }

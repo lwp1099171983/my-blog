@@ -54,6 +54,92 @@ describe('排版字号下限', () => {
   });
 });
 
+/**
+ * 点阵字体网格对齐守卫。
+ *
+ * 回归现场：站点用 Ark Pixel 12px 点阵字，但字号散落在
+ * 13 / 16 / 17 / 20 / 25.6 / 32px —— 全是 12 的非整数倍，
+ * 笔画落在像素格中间被抗锯齿糊成灰（Chromium 实测：12px → 0% 灰像素，
+ * 16px → 46%，13px → 46%）。肉眼看就是"整站发虚、读文档累"。
+ *
+ * 规约：**点阵字体（--font-pixel / --font-mono）的字号必须是 12 的整数倍**，
+ * 界面统一走 12px（--fs-xs == --fs-small == 12px）。
+ * 要读的文字改用矢量字体（--font-body），不受此限。
+ */
+function buildTokenMap(css: string): Map<string, number> {
+  const map = new Map<string, number>();
+  for (const m of css.matchAll(/--text-fs-([a-z-]+):\s*([^;]+);/g)) {
+    const px = toPx(m[2].trim());
+    if (px !== null) map.set(`--text-fs-${m[1]}`, px);
+  }
+  // :root 里的一层别名 --fs-x: var(--text-fs-x)
+  for (const m of css.matchAll(/--fs-([a-z-]+):\s*var\((--text-fs-[a-z-]+)\);/g)) {
+    const px = map.get(m[2]);
+    if (px !== undefined) map.set(`--fs-${m[1]}`, px);
+  }
+  return map;
+}
+
+function resolveSize(raw: string, tokens: Map<string, number>): number | null {
+  const direct = toPx(raw);
+  if (direct !== null) return direct;
+  const m = raw.match(/^var\((--[a-z0-9-]+)\)$/);
+  return m ? tokens.get(m[1]) ?? null : null;
+}
+
+const PIXEL_FAMILY = /font-family:\s*var\(--font-(pixel|mono)\)/;
+
+describe('点阵字体网格对齐', () => {
+  const global = readFileSync(join(STYLE_DIR, 'global.css'), 'utf8');
+  const tokens = buildTokenMap(global);
+
+  it('自检：界面小字档解析到 12px', () => {
+    expect(tokens.get('--fs-xs'), '--fs-xs 未解析到').toBe(12);
+    expect(tokens.get('--fs-small'), '--fs-small 未解析到').toBe(12);
+  });
+
+  it('界面小字档（--fs-xs / --fs-small）落在 12px 整数网格上', () => {
+    for (const t of ['--fs-xs', '--fs-small']) {
+      const px = tokens.get(t);
+      expect(px, `${t} 未解析到`).not.toBeUndefined();
+      expect(px! % 12, `${t} = ${px}px 不是 12 的整数倍，点阵会糊`).toBe(0);
+    }
+  });
+
+  it('点了点阵字体并显式声明字号的规则，字号都是 12 的整数倍', () => {
+    const offenders: string[] = [];
+    const unresolved: string[] = [];
+    for (const file of files) {
+      for (const rule of collectRules(readFileSync(join(STYLE_DIR, file), 'utf8'))) {
+        if (!PIXEL_FAMILY.test(rule.decls)) continue;
+        const raw = rule.decls.match(/(?:^|;)\s*font-size:\s*([^;]+)/)?.[1]?.trim();
+        // 容器类（.titlebar / .desktop-icon）自己不含文字，字号由子元素声明
+        if (!raw) continue;
+        const px = resolveSize(raw, tokens);
+        if (px === null) {
+          unresolved.push(`${file} ${rule.selector} → ${raw}`);
+        } else if (px % 12 !== 0) {
+          offenders.push(`${file} ${rule.selector} → ${raw} = ${px}px（非 12 的整数倍）`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+    expect(unresolved, '点阵规则的字号用了无法解析的变量，没法保证落在网格上').toEqual([]);
+  });
+
+  it('正文阅读面不使用点阵字体', () => {
+    const kb = readFileSync(join(STYLE_DIR, 'kb.css'), 'utf8');
+    const comp = readFileSync(join(STYLE_DIR, 'components.css'), 'utf8');
+    expect(declaration(kb, '.kb-md', 'font-family'), '.kb-md 必须是系统字体').toBe('var(--font-body)');
+    expect(declaration(comp, '.post-content', 'font-family'), '.post-content 必须是系统字体').toBe(
+      'var(--font-body)'
+    );
+    expect(declaration(global, 'h1, h2, h3, h4', 'font-family'), '标题必须是系统字体').toBe(
+      'var(--font-body)'
+    );
+  });
+});
+
 /** 展平 @media、剥掉注释后收集所有规则，selector 已 trim（够本文件用，不做完整 CSS 解析） */
 function collectRules(css: string): { selector: string; decls: string }[] {
   const flat = css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/@media[^{]*\{/g, '');

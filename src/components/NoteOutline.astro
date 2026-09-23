@@ -1,0 +1,34 @@
+---
+import { buildOutline, type RawHeading } from '../lib/outline';
+
+interface Props {
+  /** render() 返回的 headings，原样传进来即可 */
+  headings: RawHeading[];
+}
+
+const { headings } = Astro.props;
+const items = buildOutline(headings);
+---
+
+{
+  /* 不足门槛（多数是 OCR 逐页讲义）时整块不渲染，
+     判定在 lib/outline.ts，这里不重复写规则 */
+  items.length > 0 && (
+    <nav class="note-outline" aria-label="本页目录" data-outline>
+      <p class="note-outline-title">本页目录</p>
+      <ul class="note-outline-list">
+        {items.map((item) => (
+          <li class:list={['note-outline-item', `note-outline-lv${item.level}`]}>
+            <a href={`#${item.slug}`} data-outline-link={item.slug} title={item.text}>
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<script>
+  import '../scripts/outline.js';
+</script>

@@ -122,12 +122,13 @@
 }
 
 @utility pixel-input {
+  /* 表单是要读要写的文字，走系统字体（真实 Win98 的输入框也是系统字体） */
   width: 100%;
   padding: 12px 14px;
   background: var(--input-bg);
   border: var(--border-ui) solid;
   border-color: var(--os-border-inset);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--fs-body);
   color: var(--input-text);
 }
@@ -179,14 +180,18 @@
   background: var(--card-hover-bg);
 }
 
+/* 文章正文：要"读"的文字，走系统无衬线（点阵在 17px 下会被放大 1.42 倍糊掉） */
 .post-content {
-  max-width: 72ch;
+  /* 阅读面宽度与知识库笔记统一走 --read-max；宽屏居中交给 .note-split 整组处理 */
+  max-width: var(--read-max);
   margin: 0 auto;
   color: #33333A;
+  font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.85;
 }
 
+/* 正文内的标题沿用全局的 --font-body（系统无衬线），这里只覆盖颜色 */
 .post-content h1,
 .post-content h2,
 .post-content h3,
@@ -243,12 +248,14 @@
   color: #4A4A54;
 }
 
+/* 代码是点阵字体（风味 + 结构性强），字号必须落到 12px 网格上才不糊 */
 .post-content code {
   padding: 2px 5px;
   background: var(--c-purple-100);
   border: 1px solid var(--c-purple-300);
   color: #3B344E;
   font-family: var(--font-mono);
+  font-size: var(--fs-small);
 }
 
 .post-content pre {
@@ -258,6 +265,7 @@
   border: var(--border-ui) solid;
   border-color: var(--os-border-inset);
   color: var(--c-off-white);
+  font-size: var(--fs-small);
 }
 
 .post-content pre code {
@@ -274,8 +282,8 @@
 }
 
 @media (max-width: 768px) {
+  /* 窄屏容器本来就窄于 --read-max，上限自动失效，不需要再置 none */
   .post-content {
-    max-width: none;
     font-size: 1.125rem;
     line-height: 1.8;
   }

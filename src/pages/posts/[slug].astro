@@ -2,6 +2,7 @@
 import { getCollection, render as renderEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Window from '../../components/Window.astro';
+import NoteOutline from '../../components/NoteOutline.astro';
 import { SITE } from '../../lib/config';
 import sanitizeSchema from '../../lib/markdown';
 import rehypeSanitize from 'rehype-sanitize';
@@ -20,7 +21,7 @@ const { title, description, date, tags, category, updated, cover } = post.data;
 ---
 
 <BaseLayout title={`${title} | ${SITE.name}`} description={description}>
-  <Window id="article" title={`阅读 - ${title}`} icon="📄" x={80} y={40} width={740} height={560} active maximized>
+  <Window id="article" title={`阅读 - ${title}`} icon="📄" x={80} y={40} width={740} height={560} active maximized bodyClass="note-split">
     <article class="post-content">
       {cover && <img src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} loading="lazy" class="max-w-full h-auto mb-3" />}
 
@@ -42,5 +43,6 @@ const { title, description, date, tags, category, updated, cover } = post.data;
 
       <Content />
     </article>
+    <NoteOutline headings={headings} />
   </Window>
 </BaseLayout>

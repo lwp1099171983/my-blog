@@ -75,7 +75,7 @@ import type { SearchIndex, SearchIndexEntry } from "@/types";
           (e: SearchIndexEntry) => `
           <a class="post-item" href="${e.url}">
             <span class="font-pixel text-fs-small text-win-text-muted">${e.date}</span>
-            <span class="font-mono text-fs-body text-[var(--card-text)]">${e.title}</span>
+            <span class="font-body text-fs-body text-[var(--card-text)]">${e.title}</span>
           </a>`
         )
         .join('');

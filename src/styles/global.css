@@ -4,8 +4,16 @@
 @import "./kb.css";
 
 @theme {
+  /* 字体分工（2026-09-22 起）：
+     - --font-pixel / --font-mono：Ark Pixel 12px 点阵字，只用于**界面 chrome**
+       （窗口标题栏、按钮、标签、桌面图标、任务栏、面包屑、代码块）。
+       ⚠️ 点阵字只有落在 12px 的整数倍上才锐利，见下面字号阶梯的说明。
+     - --font-body：系统无衬线，用于**一切要读的文字**（正文、标题、列表、表单）。
+       矢量字体没有网格限制，字号随便取。 */
   --font-pixel: 'Ark Pixel', 'Press Start 2P', monospace;
   --font-mono: 'Ark Pixel', 'VT323', 'Courier New', monospace;
+  --font-body: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
 
   --color-off-white: #ECEBF4;
   --color-ink: #1D1B2D;
@@ -37,11 +45,15 @@
   --color-input-text: light-dark(var(--color-ink), var(--color-off-white));
   --color-focus-ring: light-dark(var(--color-purple-900), #FFFFFF);
 
-  /* 字号阶梯：12 / 13 / 16 / 20 四档 + 标题档。
-     12px 是可读下限——正文字体 Ark Pixel 是 12px 点阵，低于 12px 会糊。 */
-  --text-fs-xs: 0.75rem;
+  /* 字号阶梯。
+     ⚠️ 点阵字体（--font-pixel / --font-mono）的字号**必须是 12 的整数倍**，
+        否则笔画落在像素格中间、被抗锯齿糊成灰（实测 12px→0% 灰、16px→46% 灰）。
+        所以点阵只有两个可用档：12px 与 24px；界面统一走 12px。
+        --fs-small 也是 12px 而非 13px：13px = 1.083 倍，照样糊（旧值坑了整站）。
+     非点阵（--font-body）不受此限，--fs-body(16) / --fs-mono-s(20) 随便用。 */
+  --text-fs-xs: 0.75rem; /* 12px */
+  --text-fs-small: 0.75rem; /* 12px —— 与 xs 同值，见上：点阵网格下限 */
   --text-fs-body: 1rem;
-  --text-fs-small: 0.8125rem;
   --text-fs-h1: 2rem;
   --text-fs-h2: 1.6rem;
   --text-fs-h3: 1.28rem;
@@ -49,6 +61,10 @@
 
   --spacing-window-pad: 20px;
   --spacing-taskbar-h: 54px;
+  /* 正文阅读面宽度上限。取 860 是为了跟速查图（public/kb-assets/*.svg 自然宽 860）同宽：
+     容器窄于 860 时 img 的 max-width:100% 会等比缩字，图内 17px 变成更小、还看不出来。
+     再宽就会一行 60+ 汉字，读起来要摆头。 */
+  --spacing-read-max: 860px;
   --border-width-window: 4px;
   --border-width-ui: 2px;
 }
@@ -118,6 +134,7 @@
     --border-ui: var(--border-width-ui);
     --window-pad: var(--spacing-window-pad);
     --taskbar-h: var(--spacing-taskbar-h);
+    --read-max: var(--spacing-read-max);
   }
 
   html {
@@ -125,7 +142,7 @@
   }
 
   body {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: var(--fs-body);
     line-height: 1.6;
     color: var(--win-text);
@@ -136,8 +153,9 @@
     image-rendering: crisp-edges;
   }
 
+  /* 标题是"要读的文字"，走系统字体；窗口标题栏那些点阵标题由各自组件显式声明 */
   h1, h2, h3, h4 {
-    font-family: var(--font-pixel);
+    font-family: var(--font-body);
     color: var(--win-text);
     line-height: 1.4;
   }
