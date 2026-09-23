@@ -20,6 +20,8 @@
 #   BLOG_SSH_HOST   默认 tencent-dev（见 ~/.ssh/config）
 #   BLOG_CONTAINER  默认 sku-table-web-1
 #   SKIP_BUILD=1    跳过本地构建
+#   SKIP_KB_CHECK=1 跳过「源库是否已同步」的校验
+#   KB_SOURCE_DIR   知识库源目录，默认 ~/Documents/Codex/考公/知识库
 
 set -euo pipefail
 
@@ -40,7 +42,44 @@ md5_of() { printf '%s' "$1" | awk '{print $1}'; }
 
 cd "$REPO_ROOT"
 
-step "1/6 构建"
+step "1/7 检查知识库同步状态"
+# 本步只做拦截，不改动任何内容。
+# 背景：scripts/deploy.sh 只跑 astro build，不含 sync:kb。若改了源库却直接部署，
+# 会把 src/content/kb/ 里的旧内容推上线，且全程不报错 —— 这是本链路最隐蔽的失败点。
+KB_SRC="${KB_SOURCE_DIR:-$HOME/Documents/Codex/考公/知识库}"
+SYNC_META="$REPO_ROOT/src/content/kb/.sync-meta.json"
+if [ "${SKIP_KB_CHECK:-0}" = "1" ]; then
+  echo "  已跳过（SKIP_KB_CHECK=1）"
+elif [ ! -d "$KB_SRC" ]; then
+  echo "  找不到源库 $KB_SRC，跳过（本机只部署已入库的 src/content/kb）"
+elif [ ! -f "$SYNC_META" ]; then
+  cat >&2 <<EOF
+
+找不到同步记录：$SYNC_META
+无法判断 src/content/kb 是否为最新，直接部署可能把旧内容推上线。
+请先运行： pnpm sync:kb && pnpm test
+确实要跳过本检查： SKIP_KB_CHECK=1 pnpm run deploy
+EOF
+  exit 1
+else
+  # 排除项与 scripts/sync-kb.mjs 的 EXCLUDE 保持一致：这几个是个人跟踪文件，不入库
+  STALE="$(find "$KB_SRC" -type f -name '*.md' -newer "$SYNC_META" \
+    ! -name '错题本.md' ! -name '学习进度.md' ! -name '每日作息与状态管理.md' \
+    -print -quit 2>/dev/null || true)"
+  if [ -n "$STALE" ]; then
+    cat >&2 <<EOF
+
+源库里有比同步产物更新的笔记，直接部署会把旧内容推上线（且不会报错）。
+  例：$STALE
+请先运行： pnpm sync:kb && pnpm test
+确实要跳过本检查： SKIP_KB_CHECK=1 pnpm run deploy
+EOF
+    exit 1
+  fi
+  echo "  源库未比同步产物更新，通过"
+fi
+
+step "2/7 构建"
 if [ "${SKIP_BUILD:-0}" = "1" ]; then
   echo "  已跳过（SKIP_BUILD=1）"
 else
@@ -49,7 +88,7 @@ fi
 [ -f dist/index.html ] || { echo "dist/index.html 不存在，构建失败" >&2; exit 1; }
 echo "  产物：$(find dist -name '*.html' | wc -l | tr -d ' ') 个页面，$(du -sh dist | cut -f1)"
 
-step "2/6 检查远端"
+step "3/7 检查远端"
 remote "test -f $REMOTE_CONF" || { echo "远端缺少 $REMOTE_CONF" >&2; exit 1; }
 remote "docker inspect $CONTAINER >/dev/null" || { echo "容器 $CONTAINER 不存在" >&2; exit 1; }
 MOUNTS="$(remote "docker inspect -f '{{range .Mounts}}{{.Destination}} {{end}}' $CONTAINER")"
@@ -72,16 +111,16 @@ EOF
 done
 echo "  $SSH_HOST 可达，容器 $CONTAINER 已挂载站点与配置"
 
-step "3/6 备份线上旧版本"
+step "4/7 备份线上旧版本"
 BACKUP="$REMOTE_ROOT/site.bak-$(date +%Y%m%d-%H%M%S)"
 remote "cp -a $REMOTE_SITE $BACKUP" && echo "  $BACKUP"
 
-step "4/6 上传站点文件"
+step "5/7 上传站点文件"
 # 保留 dist 里没有的历史残留会影响观感，直接 --delete 对齐
 rsync -az --delete -e "ssh -o ConnectTimeout=20" dist/ "$SSH_HOST:$REMOTE_SITE/"
 echo "  已同步到 $REMOTE_SITE"
 
-step "5/6 上传站点配置并热加载 nginx"
+step "6/7 上传站点配置并热加载 nginx"
 OLD_HASH="$(md5_of "$(remote "md5sum $REMOTE_CONF")")"
 scp -q "$LOCAL_CONF" "$SSH_HOST:/tmp/blog.conf.new"
 remote "cat /tmp/blog.conf.new > $REMOTE_CONF && rm -f /tmp/blog.conf.new"   # 就地写，别换 inode
@@ -103,7 +142,7 @@ else
   echo "  配置已更新并 reload"
 fi
 
-step "6/6 验收"
+step "7/7 验收"
 fail=0
 for path in / /kb/ /kb/browse/ /kb/graph/ /kb/search/ /posts/ /tags/ /rss.xml /sitemap-index.xml; do
   code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$SITE_URL$path" || echo 000)"
