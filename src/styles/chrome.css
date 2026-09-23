@@ -196,25 +196,23 @@ body::after {
 }
 
 /* === 任务栏 === */
-.site-footer {
-  position: fixed;
-  right: 8px;
-  bottom: calc(var(--taskbar-h) + 6px);
-  z-index: 9997;
-  padding: 4px 8px;
-  background: rgba(212, 208, 200, 0.9);
-  border: var(--border-ui) solid var(--os-border-raised);
-  box-shadow: inset -1px -1px var(--os-shadow), inset 1px 1px var(--os-highlight);
-  font-family: var(--font-mono);
-  font-size: var(--fs-mono-s);
+/* 备案号：任务栏内的托盘格，与相邻时钟同高。
+   margin-left:auto 让「备案号 + 时钟」整组贴右；桌面端 tabs 是 flex:1，
+   已吃掉剩余空间，这里的 auto 退化为 0，不影响原布局。 */
+.taskbar-beian {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 6px 12px; height: 42px;
+  display: flex; align-items: center;
+  background: var(--c-win98-silver);
+  border: var(--border-ui) solid;
+  border-color: var(--os-border-inset);
+  font-family: var(--font-pixel); font-size: var(--fs-small);
+  color: #000080; text-decoration: underline;
+  white-space: nowrap;
 }
 
-.site-footer a {
-  color: #000080;
-  text-decoration: underline;
-}
-
-.site-footer a:focus-visible {
+.taskbar-beian:focus-visible {
   outline: 1px dotted #000;
   outline-offset: 2px;
 }
@@ -242,7 +240,7 @@ body::after {
 .taskbar .taskbar-tab {
   padding: 6px 18px; height: 42px; min-width: 150px;
   background: linear-gradient(90deg, #D4D0C8, var(--c-win98-silver));
-  font-family: var(--font-mono); font-size: var(--fs-mono-s);
+  font-family: var(--font-mono); font-size: var(--fs-xs);
   white-space: nowrap; text-align: left;
   justify-content: flex-start;
 }
@@ -265,16 +263,11 @@ body::after {
 
 /* === 响应式 — 移动端适配 === */
 @media (max-width: 768px) {
-  .site-footer {
-    right: 4px;
-    bottom: calc(var(--taskbar-h) + 4px);
-    padding: 3px 6px;
-    font-size: var(--fs-xs);
-  }
+  .taskbar-beian { font-size: var(--fs-xs); padding: 6px 10px; }
 
   .desktop-icons {
-    /* 横排后与右下角的备案号同处底部一条带，上移到备案号之上（页脚高约 25px + 间距） */
-    flex-direction: row; top: auto; bottom: calc(var(--taskbar-h) + 36px); left: 8px; right: 8px;
+    /* 横排后贴着任务栏上沿（备案号已移入任务栏，底部不再留出页脚高度的空档） */
+    flex-direction: row; top: auto; bottom: calc(var(--taskbar-h) + 8px); left: 8px; right: 8px;
     gap: 8px; overflow-x: auto; justify-content: flex-start;
   }
   /* 不压缩图标盒：放不下时由 overflow-x 横向滚动，否则标签会被挤到折行 */
